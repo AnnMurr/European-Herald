@@ -1,5 +1,5 @@
-import { IconBtn } from "../../../iconBtn/iconBtn";
-import { Button } from "../../../button/styledButton";
+import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
+import { Button } from "../../../../reusable/button/styledButton";
 import { BtnCloseWrapper, BtnWrapper, Container } from "./styledAuthOptions";
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationOptionsProps } from "../../types";

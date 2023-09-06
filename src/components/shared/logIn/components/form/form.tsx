@@ -1,8 +1,11 @@
-import { Box, TextField, Button as MuiButton } from "@mui/material"
-import { Label } from "../../styledLogIn"
-import { ForgotRouting } from "../forgotRouting/forgotRouting"
+import { Box, TextField, Button as MuiButton } from "@mui/material";
+import { ForgotRouting } from "../forgotRouting/forgotRouting";
+import { Label } from "./styledForm";
+
 
 export const Form = () => {
+   
+
     return (
         <Box sx={{
             display: 'flex',
@@ -12,6 +15,7 @@ export const Form = () => {
             <TextField
                 id="outlined-size-small"
                 size="small"
+                type="text"
                 sx={{
                     margin: '5px 0'
                 }}
@@ -20,6 +24,7 @@ export const Form = () => {
             <TextField
                 id="outlined-size-small"
                 size="small"
+                type="password"
                 sx={{
                     margin: '5px 0'
                 }}

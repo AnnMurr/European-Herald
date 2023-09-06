@@ -1,7 +1,7 @@
 import { Container, List } from "./styledHeader"
 
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
-import { IconBtn } from "../iconBtn/iconBtn"
+import { IconBtn } from "../../reusable/iconBtn/iconBtn"
 import { AuthenticationOptions } from './components/authenticationOptions/authenticationOptions';
 import { useState } from "react";
 

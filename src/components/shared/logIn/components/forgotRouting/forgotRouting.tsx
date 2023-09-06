@@ -1,4 +1,4 @@
-import { Container } from "./styledForgotRouting"
+import { Container } from "./styledForgotRouting";
 
 export const ForgotRouting = () => {
     return (
