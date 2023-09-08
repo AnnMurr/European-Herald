@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export const RegistrationRouting = () => {
+export const LoginRouting = () => {
     return (
         <div>
             <span>
-                Not registered yet? <Link to={'/registration'}>Sign Up</Link>
+                Already have an account? <Link to={'/login'}>Sign in</Link>
             </span>
         </div>
     )

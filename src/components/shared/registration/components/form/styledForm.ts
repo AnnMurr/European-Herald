@@ -21,4 +21,3 @@ export const StarMessage = styled.span`
     top: 40%;
     right: 10px;
 `
-

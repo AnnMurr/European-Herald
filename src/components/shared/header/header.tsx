@@ -1,43 +1,24 @@
-import { Container, List } from "./styledHeader"
-
-import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
-import { IconBtn } from "../../reusable/iconBtn/iconBtn"
-import { AuthenticationOptions } from './components/authenticationOptions/authenticationOptions';
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
+import { AuthenticationOptions, Logo, NavMenu, UserIconBtn } from ".";
+import { Container, HeaderMenuNav } from "./styledHeader"
+import './style.css'
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
-
-    const openAuthOptions = () => setIsAuthOptionsActive(true)
+    const { hideNavigation }: LinkContextType = useContext(LinkContext)
+    const userIconBtnRef = useRef<HTMLDivElement>(null)
 
     return (
         <Container>
-            <nav>
-                <List>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Home
-                    </li>
-                </List>
-            </nav>
-            <>
-               <IconBtn onClickFunc={openAuthOptions} icon={faCircleUser} size='lg'/>            
-            </>
-            {isAuthOptionsActive ? <AuthenticationOptions closeModal={setIsAuthOptionsActive} /> : null}
-        </Container>
+            <Logo />
+            {!hideNavigation ?
+                <HeaderMenuNav>
+                    <NavMenu />
+                    <UserIconBtn userIconBtnRef={userIconBtnRef} setIsAuthOptionsActive={setIsAuthOptionsActive} />
+                    {isAuthOptionsActive ? <AuthenticationOptions userIconBtnRef={userIconBtnRef} closeModal={setIsAuthOptionsActive} /> : null}
+                </HeaderMenuNav>
+                : null}
+        </Container >
     )
 }

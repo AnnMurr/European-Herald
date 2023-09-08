@@ -2,8 +2,20 @@ import styled from "styled-components";
 
 export const Label = styled.label`
     text-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 `
 
-// export const BtnShowPAssword = styled.button`
-//     width: fit-content;
-// `
+export const BtnShowPassword = styled.div`
+    position: relative;
+    bottom: 35px;
+    width: fit-content;
+    margin-left: auto;
+    right: 20px;
+    height: 0;
+`
+
+export const Input = styled.input<any>`
+    background-color: black;
+`

@@ -1,14 +1,10 @@
+import { useState } from "react";
 import { TextField, Button as MuiButton, FormHelperText, FormControl } from "@mui/material";
 import { BtnShowPassword, Label, StarMessage } from "./styledForm";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 import { TogglePasswordType, inputPasswordType } from "../../types";
-
-import { useForm } from 'react-hook-form'
-
-
-
+import { useForm } from 'react-hook-form';
 
 export const Form = () => {
     const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>('password')
@@ -28,7 +24,7 @@ export const Form = () => {
         reset,
         getValues
     } = useForm({
-        mode: 'onBlur'
+        mode: 'onChange',
     })
 
     const onSubmit = (data: any) => {
@@ -89,7 +85,6 @@ export const Form = () => {
                     }}
                     error={!!errors.lastName}
                 />
-               
                 <FormHelperText error={!!errors.lastName}>{errors.lastName?.message as string}</FormHelperText>
                 <StarMessage>*</StarMessage>
             </Label>
@@ -97,7 +92,7 @@ export const Form = () => {
                 <TextField {...register('email', {
                     required: true,
                     pattern: {
-                        value:  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                        value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
                         message: 'Incorrectly entered e-mail'
                     },
                     maxLength: {
@@ -156,46 +151,46 @@ export const Form = () => {
                     }}
                     error={!!errors.password}
                 />
-                
                 <StarMessage>*</StarMessage>
             </Label>
             <BtnShowPassword>
                 <IconBtn
-                    icon={typeOfPassword === 'password' ? faEye : faEyeSlash} size={'sm'}
+                    icon={typeOfPassword === 'password' ? faEye : faEyeSlash}
+                    size={'sm'}
                     onClickFunc={() => togglePasswordType(typeOfPassword, setTypeOfPassword)} />
             </ BtnShowPassword>
             <FormHelperText sx={{
-                    color: '#d32f2f',
-                    margin: '0',
-                    fontSize: '11px'
-                 }} error={!!errors.password}>{errors.password?.message as string}</FormHelperText>
-
+                color: '#d32f2f',
+                margin: '0',
+                fontSize: '11px'
+            }} error={!!errors.password}>{errors.password?.message as string}</FormHelperText>
             <Label>Repeat Password
-            <TextField
-             {...register('repeatPassword', {
-                required: true,
-               validate: (value) =>  value === getValues('password') || 'Passwords must match'
-            })}
-                id="outlined-size-small"
-                size="small"
-                type={typeOfRepeatPassword}
-                sx={{
-                    margin: '5px 0'
-                }}
-                error={!!errors.repeatPassword}
-            />
-            <StarMessage>*</StarMessage>
+                <TextField
+                    {...register('repeatPassword', {
+                        required: true,
+                        validate: (value) => value === getValues('password') || 'Passwords must match'
+                    })}
+                    id="outlined-size-small"
+                    size="small"
+                    type={typeOfRepeatPassword}
+                    sx={{
+                        margin: '5px 0'
+                    }}
+                    error={!!errors.repeatPassword}
+                />
+                <StarMessage>*</StarMessage>
             </Label>
             <BtnShowPassword>
                 <IconBtn
-                    icon={typeOfRepeatPassword === 'password' ? faEye : faEyeSlash} size={'sm'}
+                    icon={typeOfRepeatPassword === 'password' ? faEye : faEyeSlash}
+                    size={'sm'}
                     onClickFunc={() => togglePasswordType(typeOfRepeatPassword, setTypeOfRepeatPassword)} />
             </ BtnShowPassword>
             <FormHelperText sx={{
-                    color: '#d32f2f',
-                    margin: '0',
-                    fontSize: '11px'
-                 }} error={!!errors.repeatPassword}>{errors.repeatPassword?.message as string}</FormHelperText>
+                color: '#d32f2f',
+                margin: '0',
+                fontSize: '11px'
+            }} error={!!errors.repeatPassword}>{errors.repeatPassword?.message as string}</FormHelperText>
             <MuiButton
                 variant="contained"
                 type="submit"
