@@ -8,6 +8,7 @@ import { Home } from './components/ui/home/home';
 import './styles/reset.css';
 import { ErrorPage } from './components/ui/errorPage/errorPage';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
+import { PasswordRecovery } from './components/ui/passwordRecovery/passwordRecovery';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/registration' element={<Registration />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/passwordrecovery' element={<PasswordRecovery />} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
         </Body>

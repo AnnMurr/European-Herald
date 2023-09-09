@@ -5,6 +5,7 @@ export const Label = styled.label`
     position: relative;
     display: flex;
     flex-direction: column;
+    font-size: 14px;
 `
 export const BtnShowPassword = styled.div`
     position: relative;

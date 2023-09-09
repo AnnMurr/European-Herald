@@ -10,4 +10,6 @@ export const Button = styled.button`
     border: 1px solid;
     border-radius: 5px;
     margin: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
 `

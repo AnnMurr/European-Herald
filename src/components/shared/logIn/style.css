@@ -1,0 +1,8 @@
+.registration__routing-link {
+    color: black;
+    border-bottom: 1px solid #000;
+}
+
+.registration__routing-link:hover {
+    border-bottom: 2px solid #000;
+}

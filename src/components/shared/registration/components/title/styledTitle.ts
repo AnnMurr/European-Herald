@@ -5,5 +5,5 @@ export const Wrapper = styled.div`
 `
 
 export const TitleText = styled.h2`
-    font-size: 30px;
+    font-size: 20px;
 `

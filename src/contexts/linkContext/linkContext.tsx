@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 
-export const LinkContext = React.createContext({})
+export const LinkContext = React.createContext({});
 
 interface LinkContextProviderProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export interface LinkContextType {
-    hideNavigation?: boolean,
-    checkLink?: (value: string | null) => void
+  hideNavigation?: boolean;
+  checkLink?: (value: string | null) => void;
 }
 
-export const LinkContextProvider: React.FC<LinkContextProviderProps> = ({ children }) => {
-    const [hideNavigation, setHideNavigation] = useState<boolean>(false)
+export const LinkContextProvider: React.FC<LinkContextProviderProps> = ({
+  children,
+}) => {
+  const [hideNavigation, setHideNavigation] = useState<boolean>(false);
 
-    const checkLink = (url: string | null) => {
-        url === '/registration' || url === '/login' ? setHideNavigation(true) : setHideNavigation(false)
-    }
+  const checkLink = (url: string | null) => {
+    url === "/registration" || url === "/login" || url === "/passwordrecovery"
+      ? setHideNavigation(true)
+      : setHideNavigation(false);
+  };
 
-    return (
-        <LinkContext.Provider value={{
-            hideNavigation: hideNavigation,
-            checkLink: checkLink
-        }}>
-            {children}
-        </LinkContext.Provider>
-    )
-}
+  return (
+    <LinkContext.Provider
+      value={{
+        hideNavigation: hideNavigation,
+        checkLink: checkLink,
+      }}
+    >
+      {children}
+    </LinkContext.Provider>
+  );
+};

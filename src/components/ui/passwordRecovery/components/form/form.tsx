@@ -1,26 +1,14 @@
 import {
-  TextField,
-  Button as MuiButton,
   FormControl,
   FormHelperText,
+  TextField,
+  Button as MuiButton,
 } from "@mui/material";
-import { ForgotRouting } from "../forgotRouting/forgotRouting";
-import { BtnShowPassword, Label } from "./styledForm";
 import { useForm } from "react-hook-form";
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
-import { useState } from "react";
-import { inputPasswordType } from "../../types";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { Label } from "./styledForm";
+import { LoginRouting } from "../loginRouting/loginRouting";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] =
-    useState<inputPasswordType>("password");
-
-  const togglePasswordType = () =>
-    typeOfPassword === "password"
-      ? setTypeOfPassword("text")
-      : setTypeOfPassword("password");
-
   const {
     register,
     formState: { errors },
@@ -79,25 +67,7 @@ export const Form = () => {
           {errors.email?.message as string}
         </FormHelperText>
       </Label>
-      <Label>
-        Password
-        <TextField
-          id="outlined-size-small"
-          size="small"
-          type={typeOfPassword}
-          sx={{
-            margin: "5px 0",
-          }}
-        />
-        <BtnShowPassword>
-          <IconBtn
-            size={"sm"}
-            icon={typeOfPassword === "password" ? faEye : faEyeSlash}
-            onClickFunc={togglePasswordType}
-          />
-        </BtnShowPassword>
-      </Label>
-      <ForgotRouting />
+      <LoginRouting />
       <MuiButton
         type="submit"
         variant="contained"
@@ -105,7 +75,7 @@ export const Form = () => {
           margin: "30px 0 20px 0",
         }}
       >
-        Sign In
+        Send
       </MuiButton>
     </FormControl>
   );
