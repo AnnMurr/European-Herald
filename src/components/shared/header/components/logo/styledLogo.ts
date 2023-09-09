@@ -5,7 +5,7 @@ export const LogoContainer = styled.ul`
 `
 
 export const LogoText = styled.h2`
-    font-family: 'Instrument Serif';
+    font-family: 'Staatliches';
     font-size: 30px;
     color: black;
 `
