@@ -1,7 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Header } from './components/shared/header/header';
-import { Login } from './components/shared/logIn/login';
-import { Registration } from './components/shared/registration/registration';
 import { Body } from './components/ui/body/body';
 import { Home } from './components/ui/home/home';
 import { ErrorPage } from './components/ui/errorPage/errorPage';
@@ -12,6 +10,8 @@ import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
 import { Contact } from './components/ui/contact/contact';
 import { PrivacyPolicy } from './components/ui/privacyPolicy/privacyPolicy';
+import { Registration } from './components/ui/registration/registration';
+import { Login } from './components/ui/logIn/login';
 
 function App() {
   return (
