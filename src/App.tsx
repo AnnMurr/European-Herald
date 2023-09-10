@@ -12,6 +12,7 @@ import { Contact } from './components/ui/contact/contact';
 import { PrivacyPolicy } from './components/ui/privacyPolicy/privacyPolicy';
 import { Registration } from './components/ui/registration/registration';
 import { Login } from './components/ui/logIn/login';
+import { About } from './components/ui/about/about';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/passwordrecovery' element={<PasswordRecovery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/about' element={<About />} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
           <Footer />

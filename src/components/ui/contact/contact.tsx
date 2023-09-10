@@ -18,8 +18,8 @@ export const Contact = () => {
         </TitleInner>
         <Text>
           Email: info@european.herald.com <br />
-          Phone: +1 (XXX) XXX-XXXX Address: News <br />
-          Street, 123, City, Country, Postal Code
+          Phone: +1 (XXX) XXX-XXXX<br /> 
+          Address: News Street, 123, City, Country, Postal Code
         </Text>
         <TitleInner>
           <Title>Contact Us via Email:</Title>

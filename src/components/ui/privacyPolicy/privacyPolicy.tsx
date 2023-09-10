@@ -62,9 +62,7 @@ export const PrivacyPolicy = () => {
         </TitleInner>
         <Text>
           If you have any questions or inquiries regarding our privacy policy,
-          please <Link className="privacy__routing-link" to={"/contact"}>contact us</Link>
-        </Text>
-        <Text>
+          please <Link className="privacy__routing-link" to={"/contact"}>contact us</Link><br /><br />
           Thank you for visiting our website and trusting us with your privacy.
           Your privacy is our priority.
         </Text>

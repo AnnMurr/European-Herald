@@ -23,3 +23,18 @@ export const Text = styled.p`
     font-size: 16px;
     font-family: 'Jost'
 `
+
+export const Items = styled.ul`
+    list-style: disc;
+    padding-left: 20px;
+`
+
+export const Item = styled.li`
+    font-size: 16px;
+    font-family: 'Jost';
+    padding: 5px 0;
+`
+
+export const Span = styled.span`
+    font-weight: 600;
+`
