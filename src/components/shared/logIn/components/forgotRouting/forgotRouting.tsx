@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Container, Span } from "./styledForgotRouting";
-import '../../style.css';
 
 export const ForgotRouting = () => {
   return (

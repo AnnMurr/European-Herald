@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { AuthenticationOptions, Logo, NavMenu, UserIconBtn } from ".";
 import { Container, HeaderMenuNav } from "./styledHeader"
-import './style.css'
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
