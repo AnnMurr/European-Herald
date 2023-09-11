@@ -36,7 +36,6 @@ export const About = () => {
                 <TitleInner>
                     <Title>What Sets Us Apart</Title>
                 </TitleInner>
-                <Text>
                     <Items>
                         <Item>
                             <Span>Unbiased Reporting</Span>: We are committed to providing balanced and
@@ -59,7 +58,6 @@ export const About = () => {
                             our content.
                         </Item>
                     </Items>
-                </Text>
                 <TitleInner>
                     <Title>Our Commitment to Integrity</Title>
                 </TitleInner>

@@ -15,6 +15,11 @@ body {
   border-bottom: 2px solid #000;
 }
 
+.nav__link {
+  color: #000;
+}
+
 .nav__link_active {
+  color: #000;
   border-bottom: 2px solid brown;
 }

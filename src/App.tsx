@@ -6,15 +6,26 @@ import { ErrorPage } from './components/ui/errorPage/errorPage';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
 import { PasswordRecovery } from './components/ui/passwordRecovery/passwordRecovery';
 import { Footer } from './components/shared/footer/footer';
-import './assets/styles/fonts.css';
-import './assets/styles/reset.css';
 import { Contact } from './components/ui/contact/contact';
 import { PrivacyPolicy } from './components/ui/privacyPolicy/privacyPolicy';
 import { Registration } from './components/ui/registration/registration';
 import { Login } from './components/ui/logIn/login';
 import { About } from './components/ui/about/about';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCards } from './redux/reducers/cardsReducer';
+import { AppDispatch } from './redux/store/store';
+
+import './assets/styles/fonts.css';
+import './assets/styles/reset.css';
 
 function App() {
+  const dispatch: AppDispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch((fetchCards()))
+  }, [])
+
   return (
     <LinkContextProvider>
       <Router>

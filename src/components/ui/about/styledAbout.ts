@@ -26,7 +26,7 @@ export const Text = styled.p`
 
 export const Items = styled.ul`
     list-style: disc;
-    padding-left: 20px;
+    padding-left: 20px !important;
 `
 
 export const Item = styled.li`

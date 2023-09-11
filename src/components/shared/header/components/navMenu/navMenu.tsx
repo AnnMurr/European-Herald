@@ -5,11 +5,13 @@ export const NavMenu = () => {
     return (
         <nav>
             <List>
-                <NavLink
-                    className={({ isActive }) => (isActive ? 'nav__link_active' : '')}
-                    to={'/'}>
-                    <Item>Home</Item>
-                </NavLink>
+                <Item>
+                    <NavLink
+                        className={({ isActive }) => (isActive ? 'nav__link_active' : 'nav__link')}
+                        to={'/'}>
+                        Home
+                    </NavLink>
+                </Item>
             </List>
         </nav>
     )
