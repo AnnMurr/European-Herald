@@ -12,15 +12,15 @@ import { Registration } from './components/ui/registration/registration';
 import { Login } from './components/ui/logIn/login';
 import { About } from './components/ui/about/about';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { fetchCards } from './redux/reducers/cardsReducer';
-import { AppDispatch } from './redux/store/store';
+import { useAppDispatch } from './redux/store/store';
 
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
+import { FilteredCategory } from './components/ui/filteredCategory/filteredCategory';
 
 function App() {
-  const dispatch: AppDispatch = useDispatch()
+  const dispatch =useAppDispatch()
 
   useEffect(() => {
     dispatch((fetchCards()))
@@ -39,6 +39,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/about' element={<About />} />
+            <Route path='/category/:categoryname' element={<FilteredCategory  />} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
           <Footer />

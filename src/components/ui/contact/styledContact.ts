@@ -7,7 +7,7 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-    padding: 90px 60px;
+    padding: 90px 0 60px 0;
 `
 
 export const TitleInner = styled.div`

@@ -6,7 +6,7 @@ export interface CardType {
     dateTime: string,
     dateTimePub: string,
     eventUri: string | null,
-    image: string | null,
+    image: string,
     isDuplicate: boolean,
     lang: string,
     relevance: number,
@@ -26,6 +26,7 @@ export interface CardType {
 
 export interface InitialStateType {
     cards: Array<CardType>,
+    filteredCards: Array<CardType>,
     loading: boolean,
     error: string | null
 }
