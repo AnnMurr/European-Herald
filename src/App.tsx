@@ -11,21 +11,11 @@ import { PrivacyPolicy } from './components/ui/privacyPolicy/privacyPolicy';
 import { Registration } from './components/ui/registration/registration';
 import { Login } from './components/ui/logIn/login';
 import { About } from './components/ui/about/about';
-import { useEffect } from 'react';
-import { fetchCards } from './redux/reducers/cardsReducer';
-import { useAppDispatch } from './redux/store/store';
-
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
 import { FilteredCategory } from './components/ui/filteredCategory/filteredCategory';
 
 function App() {
-  const dispatch =useAppDispatch()
-
-  useEffect(() => {
-    dispatch((fetchCards()))
-  }, [])
-
   return (
     <LinkContextProvider>
       <Router>

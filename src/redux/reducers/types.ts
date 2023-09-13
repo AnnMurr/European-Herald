@@ -27,6 +27,10 @@ export interface CardType {
 export interface InitialStateType {
     cards: Array<CardType>,
     filteredCards: Array<CardType>,
+    categorySports: Array<CardType>,
+    categoryHealth: Array<CardType>,
+    categoryArts: Array<CardType>,
+    categoryBusiness: Array<CardType>,
     loading: boolean,
     error: string | null
 }

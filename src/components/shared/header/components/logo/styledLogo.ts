@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
-export const LogoContainer = styled.ul`
+export const LogoContainer = styled.div`
     text-align: center;
+    padding-bottom: 5px;
 `
 
 export const LogoText = styled.h2`

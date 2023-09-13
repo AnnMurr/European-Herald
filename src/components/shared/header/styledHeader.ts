@@ -16,5 +16,7 @@ export const UserIcon = styled.ul`
 
 export const HeaderMenuNav = styled.div`
     display: flex;
-    justify-content: space-between;
+    border-top: 1px solid gray;
+    padding-top: 1em;
+    justify-content: end;
 `

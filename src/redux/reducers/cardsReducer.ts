@@ -5,6 +5,10 @@ import { CardType, InitialStateType } from "./types"
 const initialState: InitialStateType = {
     cards: [],
     filteredCards: [],
+    categorySports: [],
+    categoryHealth: [],
+    categoryArts: [],
+    categoryBusiness: [],
     loading: false,
     error: null
 }
@@ -61,6 +65,34 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
     }
 )
 
+export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
+    "posts/fetchCategoryNewsBlocks",
+    async (category, { dispatch, rejectWithValue }) => {
+        try {
+            const response = await axiosConfig.post('', {
+                query: {
+                    $query: {
+                        lang: 'eng',
+                        categoryUri: `dmoz/${category}`,
+                    },
+                    $filter: {
+                        forceMaxDataTimeWindow: '31',
+                    },
+                },
+                resultType: 'articles',
+                articlesSortBy: 'date',
+                apiKey: '921f1a93-d48e-475c-baf8-674230daa07e',
+                articlesCount: 30,
+            })
+            const data: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            const payload = { cards: data, category: category }
+            dispatch(getFilteredCategoryForBlocks(payload))
+        } catch (error) {
+            error instanceof Error && rejectWithValue(error.message)
+        }
+    }
+)
+
 export const cardsSlice = createSlice({
     name: 'cards',
     initialState,
@@ -76,6 +108,26 @@ export const cardsSlice = createSlice({
                 return array.findIndex((item) => item.title === card.title) === index;
             })
             state.filteredCards = filteredCards
+        },
+        getFilteredCategoryForBlocks: (state, action: PayloadAction<{ cards: Array<CardType>, category: string }>) => {
+            const filteredCards = action.payload.cards.filter((card, index, array) => {
+                return array.findIndex((item) => item.title === card.title) === index;
+            })
+
+            switch (action.payload.category) {
+                case 'Sports':
+                    state.categorySports = filteredCards.splice(0,4)
+                    break
+                case 'Health':
+                    state.categoryHealth = filteredCards.splice(0,4)
+                    break
+                case 'Arts':
+                    state.categoryArts = filteredCards.splice(0,4)
+                    break
+                case 'Business':
+                    state.categoryBusiness = filteredCards.splice(0,4)
+                    break
+            }
         }
     },
     extraReducers: (builder) =>
@@ -103,8 +155,20 @@ export const cardsSlice = createSlice({
                 state.loading = false
                 state.error = action.payload as string | null;
             })
+
+            .addCase(fetchCategoryNewsBlocks.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchCategoryNewsBlocks.fulfilled, (state) => {
+                state.loading = false
+            })
+            .addCase(fetchCategoryNewsBlocks.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload as string | null;
+            })
 })
 
 export const cardsDataReducer = cardsSlice.reducer
 
-export const { getCards, getFilteredCards } = cardsSlice.actions
+export const { getCards, getFilteredCards, getFilteredCategoryForBlocks } = cardsSlice.actions
