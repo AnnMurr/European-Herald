@@ -8,7 +8,7 @@ export const NavMenu = () => {
     return (
         <Nav>
             <List>
-               {links.map((item) => <Link key={uuidv4()} linkName={item} />)}.
+               {links.map((item) => <Link key={uuidv4()} linkName={item} />)}
                
                 {/* <Item>
                     <NavLink

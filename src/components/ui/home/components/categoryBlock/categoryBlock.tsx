@@ -4,14 +4,15 @@ import { Block } from "./components/block/block";
 export const CategoryBlock = () => {
     const isLoading = useAppSelector((state) => state.loading)
     const filteredCardsFromRedux = useAppSelector((state) => state)
+    console.log(isLoading)
 
     return (
         <>
             {!isLoading ? <div>
-                <Block filteredCards={filteredCardsFromRedux.categorySports} />
-                <Block filteredCards={filteredCardsFromRedux.categoryHealth} />
-                <Block filteredCards={filteredCardsFromRedux.categoryArts} />
-                <Block filteredCards={filteredCardsFromRedux.categoryBusiness} />
+                <Block name={'Sports'} filteredCards={filteredCardsFromRedux.categorySports} />
+                <Block name={'Health'} filteredCards={filteredCardsFromRedux.categoryHealth} />
+                <Block name={'Arts'} filteredCards={filteredCardsFromRedux.categoryArts} />
+                <Block name={'Business'} filteredCards={filteredCardsFromRedux.categoryBusiness} />
             </div> : null}
         </>
     )

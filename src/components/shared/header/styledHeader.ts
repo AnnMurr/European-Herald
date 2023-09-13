@@ -15,8 +15,11 @@ export const UserIcon = styled.ul`
 `
 
 export const HeaderMenuNav = styled.div`
-    display: flex;
     border-top: 1px solid gray;
     padding-top: 1em;
+`
+
+export const HeaderMenuNavInner = styled.div`
+    display: flex;
     justify-content: end;
 `

@@ -5,15 +5,16 @@ import { NewsCard } from "../../../../../../shared/newsCard/newsСard";
 import { v4 as uuidv4 } from 'uuid';
 
 interface BlockProps {
-    filteredCards: Array<CardType>
+    filteredCards: Array<CardType>,
+    name: string
 }
 
-export const Block = ({filteredCards}: BlockProps) => {
+export const Block = ({name , filteredCards}: BlockProps) => {
 
     return (
         <>
-            <Link to={'/category/sports'}>
-                <TitleNewsBlockText>Sports</TitleNewsBlockText>
+            <Link style={{color: '#000' , display: 'block', width: 'fit-content'}} to={`/category/${name}`}>
+                <TitleNewsBlockText>{name}</TitleNewsBlockText>
             </Link>
             <BlockWrapper>
                 {filteredCards.map((item, index) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
