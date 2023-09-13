@@ -8,14 +8,15 @@ interface BlockProps {
     filteredCards: Array<CardType>
 }
 
-export const Block = ({ filteredCards }: BlockProps) => {
+export const Block = ({filteredCards}: BlockProps) => {
+
     return (
         <>
             <Link to={'/category/sports'}>
                 <TitleNewsBlockText>Sports</TitleNewsBlockText>
             </Link>
             <BlockWrapper>
-                {filteredCards.map((item) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
+                {filteredCards.map((item, index) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
             </BlockWrapper>
         </>
     )

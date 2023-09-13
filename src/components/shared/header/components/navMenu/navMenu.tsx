@@ -1,18 +1,16 @@
-import { NavLink } from "react-router-dom";
-import { Item, List, Nav } from "./styledNavMenu";
+import { List, Nav } from "./styledNavMenu";
+import { Link } from "./components/link/link";
+import { v4 as uuidv4 } from 'uuid';
 
 export const NavMenu = () => {
+    const links = ['Home', 'Sports', 'Health', 'Arts', 'Games', 'Business', 'Science', 'Shopping', 'Society', 'Computers']
+
     return (
         <Nav>
             <List>
-                <Item>
-                    <NavLink
-                        className={({ isActive }) => (isActive ? 'nav__link_active' : 'nav__link')}
-                        to={'/'}>
-                        Home
-                    </NavLink>
-                </Item>
-                <Item>
+               {links.map((item) => <Link key={uuidv4()} linkName={item} />)}.
+               
+                {/* <Item>
                     <NavLink
                         className={({ isActive }) => (isActive ? 'nav__link_active' : 'nav__link')}
                         to={'/category/sports'}>
@@ -74,7 +72,7 @@ export const NavMenu = () => {
                         to={'/category/computers'}>
                         Computers
                     </NavLink>
-                </Item>
+                </Item> */}
             </List>
         </Nav>
     )

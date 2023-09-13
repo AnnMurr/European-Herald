@@ -6,12 +6,6 @@ export const List = styled.ul`
     justify-content: space-between;
 `
 
-export const Item = styled.li`
-    font-weight: 700;
-    padding: 0 5px;
-    font-size: 14px;
-`
-
 export const Nav = styled.nav`
     padding-right: 30px;
     max-width: 60%;
