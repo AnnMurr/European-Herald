@@ -4,8 +4,7 @@ import { Block } from "./components/block/block";
 export const CategoryBlock = () => {
     const isLoading = useAppSelector((state) => state.loading)
     const filteredCardsFromRedux = useAppSelector((state) => state)
-    console.log(isLoading)
-
+    
     return (
         <>
             {!isLoading ? <div>

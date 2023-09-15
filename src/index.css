@@ -2,6 +2,10 @@ body {
   font-family: 'Lato', 'Open Sans', sans-serif;
 }
 
+img {
+  width: 100%;
+}
+
 .registration__routing-link,
 .login__routing-link,
 .privacy__routing-link {

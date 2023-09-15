@@ -7,7 +7,7 @@ import { CardDate } from "./components/date/date";
 export const NewsCard: React.FC<NewsCardProps> = ({ cardClass, type, dataCard }) => {
     return (
         <Container cardtype={type}>
-            <Link style={{ width: '100%', position: 'relative' }} to={'/login'}>
+            <Link style={{ width: '100%', position: 'relative' }} to={`/article/${dataCard.uri}`}>
                 <Wrapper cardtype={type}>
                     <BackgroundImage datacard={dataCard} />
                 </Wrapper>

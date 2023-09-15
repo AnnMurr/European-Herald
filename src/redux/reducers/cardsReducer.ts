@@ -28,8 +28,10 @@ export const fetchCards = createAsyncThunk(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '921f1a93-d48e-475c-baf8-674230daa07e',
+                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
             })
+
+            
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
             dispatch(getCards(articles))
         } catch (error) {
@@ -54,11 +56,11 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '921f1a93-d48e-475c-baf8-674230daa07e',
-                articlesCount: 30,
+                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+                articlesCount: 50,
             })
-            const data: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
-            dispatch(getFilteredCards(data))
+            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            dispatch(getFilteredCards(articles))
         } catch (error) {
             error instanceof Error && rejectWithValue(error.message)
         }
@@ -81,17 +83,50 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '921f1a93-d48e-475c-baf8-674230daa07e',
-                articlesCount: 30,
+                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+                articlesCount: 50,
             })
-            const data: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
-            const payload = { cards: data, category: category }
+            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            const payload = { cards: articles, category: category }
             dispatch(getFilteredCategoryForBlocks(payload))
         } catch (error) {
             error instanceof Error && rejectWithValue(error.message)
         }
     }
 )
+
+// export const fetchKeywordNews = createAsyncThunk<void, string>(
+//     "posts/fetchKeywordNews",
+//     async (category, { dispatch, rejectWithValue }) => {
+//         try {
+//             const response = await axiosConfig.post('', {
+//                 query: {
+//                     $query: {
+//                         lang: 'eng',
+//                         $and: [{
+//                             keyword: "putin"
+//                           }]
+//                     },
+//                     $filter: {
+//                         forceMaxDataTimeWindow: '31',
+//                     }
+//                 },
+//                 resultType: 'articles',
+//                 articlesSortBy: 'date',
+//                 apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+//                 includeArticleImage: true,
+//                 articlesCount: 30,
+//             })
+            
+//             const data: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.lang === 'eng')
+//             console.log(data)
+//             const payload = { cards: response.data.articles.results, category: category }
+//             // dispatch(getFilteredCategoryForBlocks(payload))
+//         } catch (error) {
+//             error instanceof Error && rejectWithValue(error.message)
+//         }
+//     }
+// )
 
 export const cardsSlice = createSlice({
     name: 'cards',
@@ -119,13 +154,13 @@ export const cardsSlice = createSlice({
                     state.categorySports = filteredCards.splice(0,4)
                     break
                 case 'Health':
-                    state.categoryHealth = filteredCards.splice(0,4)
+                    state.categoryHealth = filteredCards.splice(4,4)
                     break
                 case 'Arts':
-                    state.categoryArts = filteredCards.splice(0,4)
+                    state.categoryArts = filteredCards.splice(8,4)
                     break
                 case 'Business':
-                    state.categoryBusiness = filteredCards.splice(0,4)
+                    state.categoryBusiness = filteredCards.splice(12,4)
                     break
             }
         }

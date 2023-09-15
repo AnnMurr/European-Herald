@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { CardStylesProps } from "../../types";
 
 export const TitleInner = styled.div<CardStylesProps>`
-    padding: ${({cardclass}) => cardclass === 'card' ? '0' : '5px 15px'};
+    padding: ${({cardclass}) => cardclass === 'card' ? '10px 0' : '5px 15px'};
 `
 
 export const TitleText = styled.h3<CardStylesProps>`
