@@ -1,6 +1,6 @@
 import { CardType } from "../../../../../../../redux/reducers/types";
-import { NewsCard } from "../../../../../../shared/newsCard/newsСard";
 import { v4 as uuidv4 } from 'uuid';
+import { NewsCard } from "../../../../../../reusable/newsCard/newsСard";
 
 interface VariousNewsCardsProps {
     cards: Array<CardType>

@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { Container, Wrapper } from "./styledfFlteredCategory";
 import { fetchCategoryNews } from "../../../redux/reducers/cardsReducer";
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store";
-import { NewsCard } from "../../shared/newsCard/newsСard";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { Spinner } from "../../reusable/spinner/spinner";
+import { NewsCard } from "../../reusable/newsCard/newsСard";
 
 export const FilteredCategory = () => {
     const { categoryname } = useParams()

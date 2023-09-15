@@ -95,39 +95,6 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
     }
 )
 
-// export const fetchKeywordNews = createAsyncThunk<void, string>(
-//     "posts/fetchKeywordNews",
-//     async (category, { dispatch, rejectWithValue }) => {
-//         try {
-//             const response = await axiosConfig.post('', {
-//                 query: {
-//                     $query: {
-//                         lang: 'eng',
-//                         $and: [{
-//                             keyword: "putin"
-//                           }]
-//                     },
-//                     $filter: {
-//                         forceMaxDataTimeWindow: '31',
-//                     }
-//                 },
-//                 resultType: 'articles',
-//                 articlesSortBy: 'date',
-//                 apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
-//                 includeArticleImage: true,
-//                 articlesCount: 30,
-//             })
-            
-//             const data: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.lang === 'eng')
-//             console.log(data)
-//             const payload = { cards: response.data.articles.results, category: category }
-//             // dispatch(getFilteredCategoryForBlocks(payload))
-//         } catch (error) {
-//             error instanceof Error && rejectWithValue(error.message)
-//         }
-//     }
-// )
-
 export const cardsSlice = createSlice({
     name: 'cards',
     initialState,

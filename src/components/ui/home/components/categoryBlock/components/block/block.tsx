@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { BlockWrapper, TitleNewsBlockText } from "./styledBlock";
 import { CardType } from "../../../../../../../redux/reducers/types";
-import { NewsCard } from "../../../../../../shared/newsCard/newsСard";
 import { v4 as uuidv4 } from 'uuid';
+import { NewsCard } from "../../../../../../reusable/newsCard/newsСard";
 
 interface BlockProps {
     filteredCards: Array<CardType>,
