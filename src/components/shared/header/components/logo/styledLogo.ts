@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const LogoContainer = styled.div`
-    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
     padding-bottom: 5px;
 `
 

@@ -21,5 +21,6 @@ export const HeaderMenuNav = styled.div`
 
 export const HeaderMenuNavInner = styled.div`
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
 `

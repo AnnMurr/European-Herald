@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     padding: 30px 15px;
     max-width: 1100px;
     margin: 0 auto;
+    font-family: 'Lato';
 `
 
 export const Copyright = styled.div`

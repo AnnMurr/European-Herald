@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato', 'Open Sans', sans-serif;
+  font-family: 'Jost', 'Open Sans', sans-serif;
 }
 
 img {
@@ -22,10 +22,34 @@ img {
 .nav__link {
   margin: 0 5px;
   color: #000;
+  transition: all 0.5s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav__link:hover {
+  border-bottom: 2px solid brown;
 }
 
 .nav__link_active {
   margin: 0 5px;
   color: #000;
   border-bottom: 2px solid brown;
+}
+
+.btn::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  transition: width 0.5s;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:hover .underline {
+  left: 0;
 }
