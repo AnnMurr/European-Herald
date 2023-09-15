@@ -19,7 +19,7 @@ export const Search = () => {
                 </div>
                 {searchVisible ?
                     <>
-                        <Input type="text" />
+                        <Input type="search" />
                         <IconBtnInner>
                             <IconBtn icon={faMagnifyingGlass} size={'sm'} onClickFunc={toggleSearchVisible} />
                         </IconBtnInner>

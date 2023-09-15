@@ -133,10 +133,10 @@ export const cardsSlice = createSlice({
     initialState,
     reducers: {
         getCards: (state, action: PayloadAction<Array<CardType>>) => {
-            const cards = action.payload.filter((card, index, array) => {
+            const filteredCards = action.payload.filter((card, index, array) => {
                 return array.findIndex((item) => item.title === card.title) === index;
             })
-            state.cards = cards
+            state.cards = filteredCards
         },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {

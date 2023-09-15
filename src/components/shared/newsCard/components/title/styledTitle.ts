@@ -9,4 +9,12 @@ export const TitleText = styled.h3<CardStylesProps>`
     color: ${({cardclass}) => cardclass === 'card' ? '#000' : '#fff'};
     font-size: ${({cardtype}) => cardtype === 'BigCard' ? '25px' : '17px'};
     font-weight: 700;
+
+    @media (max-width: 576px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 320px) {
+        font-size: 16px;
+    }
 `

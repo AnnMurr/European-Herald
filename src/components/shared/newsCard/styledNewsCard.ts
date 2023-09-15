@@ -10,6 +10,14 @@ export const Container = styled.div<CardStylesProps>`
     &:hover {
         opacity: 0.8;
     }
+
+    @media (max-width: 924px) {
+        max-width:${({cardtype}) => cardtype === 'BigCard' ? '100%' : '49.5%'};
+    }
+
+    @media (max-width: 576px) {
+        max-width: 100%;
+    }
 `
 
 export const Wrapper = styled.div<CardStylesProps>`
@@ -25,7 +33,11 @@ export const Wrapper = styled.div<CardStylesProps>`
         left: 0;
         background-color: rgb(0 0 0 / 43%);
         z-index: 1;
-    }    
+    } 
+    
+    @media (max-width: 576px) {
+        height: 13rem;
+    }
 `
 
 export const BackgroundImage = styled.div<CardStylesProps>`
@@ -44,4 +56,8 @@ export const Information = styled.div<CardStylesProps>`
     position: ${({cardclass}) => cardclass !== 'card' ? 'absolute' : 'static'};
     bottom: 20px;
     z-index: 3;
+
+    @media (max-width: 1024px) {
+        bottom: 10px;
+    }
 `
