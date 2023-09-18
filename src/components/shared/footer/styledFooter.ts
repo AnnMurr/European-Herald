@@ -6,13 +6,12 @@ export const Wrapper = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     font-family: 'Lato';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const Copyright = styled.div`
     text-align: center;
     padding-top: 40px;
-`
-
-export const Span = styled.span`
-    font-size: 12px;
 `

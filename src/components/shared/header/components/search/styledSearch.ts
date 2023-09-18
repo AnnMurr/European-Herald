@@ -13,11 +13,12 @@ export const IconBtnInner = styled.div`
 `
 
 export const Input = styled.input`
-    border: 2px solid #000;
+    border: none;
     border-radius: 5px;
     margin-left: 5px;
-    padding-right: 25px;
     height: 100%;
+    background-color: #bdbaba69;
+    padding: 5px 25px 5px 10px;
 `
 
 export const Span = styled.span`
