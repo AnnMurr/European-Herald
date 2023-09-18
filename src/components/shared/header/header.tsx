@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { AuthenticationOptions, Logo, NavMenu, UserIconBtn } from ".";
-import { Container, HeaderMenuNav, HeaderMenuNavInner } from "./styledHeader";
+import { Container, HeaderMenuNav, HeaderMenuNavInner, RightContent } from "./styledHeader";
 import { Search } from "./components/search/search";
 
 export const Header = () => {
@@ -15,12 +15,14 @@ export const Header = () => {
             {!hideNavigation ?
                 <HeaderMenuNav>
                     <HeaderMenuNavInner>
-                        <Search />
-                    <NavMenu />
-                    <UserIconBtn userIconBtnRef={userIconBtnRef} setIsAuthOptionsActive={setIsAuthOptionsActive} />
-                    {isAuthOptionsActive ? <AuthenticationOptions userIconBtnRef={userIconBtnRef} closeModal={setIsAuthOptionsActive} /> : null}
+                        <NavMenu />
+                        <RightContent>
+                            <Search />
+                            <UserIconBtn userIconBtnRef={userIconBtnRef} setIsAuthOptionsActive={setIsAuthOptionsActive} />
+                            {isAuthOptionsActive ? <AuthenticationOptions userIconBtnRef={userIconBtnRef} closeModal={setIsAuthOptionsActive} /> : null}
+                        </RightContent>
                     </HeaderMenuNavInner>
-                </HeaderMenuNav>  
+                </HeaderMenuNav>
                 : null}
         </Container >
     )

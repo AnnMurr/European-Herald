@@ -14,10 +14,10 @@ import { About } from './components/ui/about/about';
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
 import { FilteredCategory } from './components/ui/filteredCategory/filteredCategory';
-import { DetailedNewsCardPage } from './components/reusable/detailedNewsCardPage/detailedNewsCardPage';
 import { fetchCards } from './redux/reducers/cardsReducer';
 import { useEffect } from 'react';
 import { useAppDispatch } from './redux/store/store';
+import { Article } from './components/reusable/article/article';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -40,7 +40,7 @@ function App() {
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/about' element={<About />} />
             <Route path='/category/:categoryname' element={<FilteredCategory  />} />
-            <Route path='/article/:articlename' element={<DetailedNewsCardPage  />} />
+            <Route path='/article/:articlename' element={<Article />} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
           <Footer />

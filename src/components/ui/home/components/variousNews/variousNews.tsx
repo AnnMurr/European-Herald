@@ -1,27 +1,23 @@
 import { CardType } from "../../../../../redux/reducers/types";
-import { useAppSelector } from "../../../../../redux/store/store";
-import { Spinner } from "../../../../reusable/spinner/spinner";
-import { Title } from "./components/title/title";
-import { Cards } from "./components/variousNewsCards/variousNewsCards";
-import { Container, Block } from "./styledVariousNews";
+import { NewsCard } from "../../../../reusable/newsCard/newsСard";
+import { Block, TitleText } from "./styledVariousNews";
+import { v4 as uuidv4 } from "uuid";
 
 interface VariousNewsProps {
     cards: Array<CardType>
 }
 
 export const VariousNews: React.FC<VariousNewsProps> = ({ cards }) => {
-    const isLoading = useAppSelector((state) => state.loading)
+
 
     return (
-        <Container>
-            {isLoading ?
-                <Spinner /> :
-                <div>
-                    <Title />
-                    <Block>
-                        <Cards cards={cards} />
-                    </Block>
-                </div>}
-        </Container>
+        <>
+            <div>
+                <TitleText>Various News</TitleText>
+            </div>
+            <Block>
+                {cards.map((item) => <NewsCard  cardClass={'card'} type={'smallCard'} key={uuidv4()} dataCard={item} />)}
+            </Block>
+        </>
     )
 }

@@ -7,7 +7,7 @@ export const Container  = styled.div`
 `
 
 export const Wrapper  = styled.div`
-    spadding: 160px 0 60px 0;
+    padding: 160px 0 60px 0;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

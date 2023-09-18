@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
-import { Span } from "./styledRegistrationRouting";
+import { Span, StyledLink } from "./styledRegistrationRouting";
 
 export const RegistrationRouting = () => {
   return (
     <div>
       <Span>
         Not registered yet?{" "}
-        <Link className="login__routing-link" to={"/registration"}>
+        <StyledLink to={"/registration"}>
           Sign Up
-        </Link>
+        </StyledLink>
       </Span>
     </div>
   );

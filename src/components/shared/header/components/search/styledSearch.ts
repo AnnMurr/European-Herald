@@ -36,3 +36,7 @@ export const Underline = styled.span`
     transition: all .3s ease-Out;
     bottom: 0;
 `
+
+export const Container = styled.div`
+    margin-right: 20px;
+`

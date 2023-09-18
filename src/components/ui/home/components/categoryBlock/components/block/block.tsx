@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { BlockWrapper, TitleNewsBlockText } from "./styledBlock";
+import { BlockWrapper, TitleNewsBlockText, StyledLink } from "./styledBlock";
 import { CardType } from "../../../../../../../redux/reducers/types";
 import { v4 as uuidv4 } from 'uuid';
 import { NewsCard } from "../../../../../../reusable/newsCard/newsСard";
@@ -13,9 +12,9 @@ export const Block = ({name , filteredCards}: BlockProps) => {
 
     return (
         <>
-            <Link style={{color: '#000' , display: 'block', width: 'fit-content'}} to={`/category/${name}`}>
+            <StyledLink to={`/category/${name}`}>
                 <TitleNewsBlockText>{name}</TitleNewsBlockText>
-            </Link>
+            </StyledLink>
             <BlockWrapper>
                 {filteredCards.map((item, index) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
             </BlockWrapper>

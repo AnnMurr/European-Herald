@@ -1,6 +1,6 @@
 import { DataCardProps } from "../../types";
 
-export const Article = ({dataCard}: DataCardProps) => {
+export const Text = ({dataCard}: DataCardProps) => {
     return (
         <div>
             <p>

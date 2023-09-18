@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
-import { Container, Span } from "./styledForgotRouting";
+import { Container, Span, StyledLink } from "./styledForgotRouting";
 
 export const ForgotRouting = () => {
   return (
     <Container>
       <Span>
         Forgot your{" "}
-        <Link className="login__routing-link" to={"/passwordrecovery"}>
+        <StyledLink to={"/passwordrecovery"}>
           password
-        </Link>
+        </StyledLink>
         ?
       </Span>
     </Container>

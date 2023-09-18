@@ -1,12 +1,12 @@
-import { Container, Wrapper } from "./styledDetailedNewsCardPage";
+import { Container, Wrapper } from "./styledArticle";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../../redux/store/store";
 import { useEffect, useState } from "react";
 import { Spinner } from "../spinner/spinner";
 import { FoundCardType } from "./types";
-import { Title, Image, Article, Date } from ".";
+import { Title, Image, Text, Date } from ".";
 
-export const DetailedNewsCardPage = () => {
+export const Article = () => {
     const { articlename } = useParams()
     const dataCardsFromRedux = useAppSelector((state) => state)
     const [card, setCard] = useState<any>(null)
@@ -41,7 +41,7 @@ export const DetailedNewsCardPage = () => {
                 <Title dataCard={card} />
                 <Image dataCard={card} />
                 <Date dataCard={card} />
-                <Article dataCard={card} />
+                <Text dataCard={card} />
             </Wrapper> : <Spinner />}
         </Container>
     )

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { CardStylesProps } from "./types";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div<CardStylesProps>`
     max-width:${({cardtype}) => cardtype === 'BigCard' ? '49.5%' : '24%'};
@@ -60,4 +61,9 @@ export const Information = styled.div<CardStylesProps>`
     @media (max-width: 1024px) {
         bottom: 10px;
     }
+`
+
+export const StyledLink = styled(Link)`
+    width: 100%; 
+    position: relative;
 `
