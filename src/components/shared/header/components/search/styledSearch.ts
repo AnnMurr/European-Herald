@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Label = styled.label`
@@ -7,7 +8,7 @@ export const Label = styled.label`
     width: 200px;
 `
 
-export const IconBtnInner = styled.div`
+export const IconBtnInner = styled(Link)`
     position: relative;
     right: 23px;
 `

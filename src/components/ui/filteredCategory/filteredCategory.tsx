@@ -19,7 +19,7 @@ export const FilteredCategory = () => {
     }, [categoryname])
 
     return (
-        < Container >
+        <Container>
             <Wrapper>
                 {isLoading ?
                     <Spinner /> :
