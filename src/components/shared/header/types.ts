@@ -12,3 +12,6 @@ export interface UserIconBtnProps {
 export interface AccessControlBtnsProps {
     closeModal: (value: boolean) => void,
 }
+export interface LinkProps {
+    linkName: string
+}

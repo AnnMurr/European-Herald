@@ -1,7 +1,7 @@
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn"
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { Container, IconBtnInner, Input, Label } from "./styledSearch"
-import { useState } from "react"
+import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { Container, IconBtnInner, Input, Label } from "./styledSearch";
+import { useState } from "react";
 
 export const Search = () => {
     const [searchValue, setSearchValue] = useState<string>('')

@@ -8,11 +8,11 @@ export const List = styled.ul`
 
 export const StyledLink = styled(Link)`
     font-size: 14px;
-    padding: 0 5px;
+    margin: 0 5px;
     color: black;
     transition: all 0.5s ease;
 
     &:hover {
-        opacity: 0.7;
+        border-bottom: 1px solid black;
     }
 `

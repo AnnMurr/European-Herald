@@ -11,15 +11,15 @@ export const SearchPage = () => {
     const [foundСards, setFoundСards] = useState<Array<CardType>>([])
 
     return (
-            <Container>
-                <Wrapper>
-                    <SearchInput  
-                    setFoundСards={setFoundСards} 
-                    searchValueOfHeaderInput={state} 
-                    searchValue={searchValue} 
+        <Container>
+            <Wrapper>
+                <SearchInput
+                    setFoundСards={setFoundСards}
+                    searchValueOfHeaderInput={state}
+                    searchValue={searchValue}
                     setSearchValue={setSearchValue} />
-                    <NewsBlock foundСards={foundСards} searchValue={searchValue} />
-                </Wrapper>
-            </Container>
+                <NewsBlock foundСards={foundСards} searchValue={searchValue} />
+            </Wrapper>
+        </Container>
     )
 }

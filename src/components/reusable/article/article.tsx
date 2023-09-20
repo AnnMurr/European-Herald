@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { Spinner } from "../spinner/spinner";
 import { FoundCardType } from "./types";
 import { Title, Image, Text, Date } from ".";
+import { CardType } from "../../../redux/reducers/types";
 
 export const Article = () => {
     const { articlename } = useParams()
     const dataCardsFromRedux = useAppSelector((state) => state)
-    const [card, setCard] = useState<any>(null)
+    const [card, setCard] = useState<CardType | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
       
   useEffect(() => {

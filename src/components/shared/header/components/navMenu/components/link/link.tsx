@@ -1,12 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Item } from "./styledLink";
+import { LinkProps } from "../../../../types";
 
-interface LinkProps {
-    linkName: string
-}
-
-export const Link: React.FC<LinkProps> = ({linkName}) => {
+export const Link: React.FC<LinkProps> = ({ linkName }) => {
     return (
         <Item>
             <NavLink

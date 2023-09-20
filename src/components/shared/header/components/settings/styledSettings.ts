@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
     width: 100%;
@@ -8,7 +8,7 @@ export const Container = styled.div`
     background-color: white;
     position: absolute;
     top: 8rem;
-    right: 2em;
+    left: 2em;
 `
 
 export const BtnCloseWrapper = styled.div`

@@ -101,19 +101,19 @@ export const cardsSlice = createSlice({
     reducers: {
         getCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index;
+                return array.findIndex((item) => item.title === card.title) === index
             })
             state.cards = filteredCards
         },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index;
+                return array.findIndex((item) => item.title === card.title) === index
             })
             state.filteredCards = filteredCards
         },
         getFilteredCategoryForBlocks: (state, action: PayloadAction<{ cards: Array<CardType>, category: string }>) => {
             const filteredCards = action.payload.cards.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index;
+                return array.findIndex((item) => item.title === card.title) === index
             })
 
             switch (action.payload.category) {
