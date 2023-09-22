@@ -14,7 +14,7 @@ export interface LinkContextType {
 export const LinkContextProvider: React.FC<LinkContextProviderProps> = ({
   children,
 }) => {
-  const [hideNavigation, setHideNavigation] = useState<boolean>(false);
+  const [hideNavigation, setHideNavigation] = useState<boolean>(false)
 
   const checkLink = (url: string | null) => {
     url === "/registration" || url === "/login" || url === "/passwordrecovery"

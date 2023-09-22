@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
 
 export const Label = styled.label`
     display: flex;
@@ -13,12 +14,12 @@ export const IconBtnInner = styled(Link)`
     right: 23px;
 `
 
-export const Input = styled.input`
+export const Input = styled.input<ThemeStyledProps>`
     border: none;
     border-radius: 5px;
     margin-left: 5px;
     height: 100%;
-    background-color: #bdbaba69;
+    background-color:${({ themestyles }) => themestyles.backgroundInputSearch};
     padding: 5px 25px 5px 10px;
 `
 

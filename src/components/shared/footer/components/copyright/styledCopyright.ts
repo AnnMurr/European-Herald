@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
 
-export const Span = styled.span`
+export const Span = styled.span<ThemeStyledProps>`
     font-size: 12px;
-    color: #000;
+    color:${({ themestyles }) => themestyles.color};
 `

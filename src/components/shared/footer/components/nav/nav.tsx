@@ -1,17 +1,12 @@
-import { List, StyledLink } from "./styledNav"
+import { Link } from "./components/link/link";
+import { List } from "./styledNav";
 
 export const NavMenu = () => {
     return (
         <List>
-            <li>
-                <StyledLink to={'/contact'}>Contact Us</StyledLink>
-            </li>
-            <li>
-                <StyledLink to={'/privacy-policy'}>Privacy Policy</StyledLink>
-            </li>
-            <li>
-                <StyledLink to={'/about'}>About Us</StyledLink>
-            </li>
+            <Link link={'/contact'} text={'Contact Us'} />
+            <Link link={'/privacy-policy'} text={'Privacy Policy'} />
+            <Link link={'/about'} text={'About Us'} />
         </List>
     )
 }

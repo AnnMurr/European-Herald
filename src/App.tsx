@@ -19,35 +19,38 @@ import { useEffect } from 'react';
 import { useAppDispatch } from './redux/store/store';
 import { Article } from './components/reusable/article/article';
 import { SearchPage } from './components/ui/searchPage/searchPage';
+import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 
 function App() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-      dispatch(fetchCards())
+    dispatch(fetchCards())
   }, [])
 
   return (
     <LinkContextProvider>
-      <Router>
-        <Body>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/registration' element={<Registration />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/passwordrecovery' element={<PasswordRecovery />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/category/:categoryname' element={<FilteredCategory  />} />
-            <Route path='/article/:articlename' element={<Article />} />
-            <Route path='/search' element={<SearchPage />} />
-            <Route path='*' element={<ErrorPage />} />
-          </Routes>
-          <Footer />
-        </Body>
-      </Router>
+      <ThemeContextProvider>
+        <Router>
+          <Body>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/registration' element={<Registration />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/passwordrecovery' element={<PasswordRecovery />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/category/:categoryname' element={<FilteredCategory />} />
+              <Route path='/article/:articlename' element={<Article />} />
+              <Route path='/search' element={<SearchPage />} />
+              <Route path='*' element={<ErrorPage />} />
+            </Routes>
+            <Footer />
+          </Body>
+        </Router>
+      </ThemeContextProvider>
     </LinkContextProvider>
   );
 }

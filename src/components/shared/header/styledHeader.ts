@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
+import { ThemeStyledProps } from "../../../contexts/themeContext/types";
 
-export const Container = styled.header`
+export const Container = styled.header<ThemeStyledProps>`
     width: 100%;
-    background-color: white;
+    background-color:${({ themestyles }) => themestyles.background};
     padding: 1em 2em;
     border-bottom: 1px solid #0000006e;
     position: fixed;

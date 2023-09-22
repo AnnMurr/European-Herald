@@ -1,6 +1,6 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { axiosConfig } from "../../api/axiosConfig"
-import { CardType, InitialStateType } from "./types"
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { axiosConfig } from "../../api/axiosConfig";
+import { CardType, InitialStateType } from "./types";
 
 const initialState: InitialStateType = {
     cards: [],
@@ -28,7 +28,7 @@ export const fetchCards = createAsyncThunk(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
             })
 
             
@@ -56,7 +56,7 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -83,7 +83,7 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5b54a1a4-0fd3-4124-b16f-27f94967fbcc',
+                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)

@@ -5,15 +5,18 @@ import { Container, HeaderMenuNav, HeaderMenuNavInner, RightContent } from "./st
 import { Search } from "./components/search/search";
 import { SettingsBtn } from "./components/settingsBtn/settingsBtn";
 import { Settings } from "./components/settings/settings";
+import { ThemeContext } from "../../../contexts/themeContext/themeContext";
+import { ThemeContextType } from "../../../contexts/themeContext/types";
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
     const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false)
     const { hideNavigation }: LinkContextType = useContext(LinkContext)
     const userIconBtnRef = useRef<HTMLDivElement>(null)
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
 
     return (
-        <Container>
+        <Container themestyles={themeContext.themeStyles}>
             <Logo />
             {!hideNavigation ?
                 <HeaderMenuNav>

@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { Theme } from "../../../../../../contexts/themeContext/types";
 
 interface SocialMediaIconStyle {
     className: string
+    themestyles: Theme
 }
 
 export const Item = styled.li`
@@ -9,7 +11,7 @@ export const Item = styled.li`
 `
 
 export const Link = styled.a<SocialMediaIconStyle>`
-    color: #000;
+    color:${({ themestyles }) => themestyles.color};
     width:${({ className }) => className === 'app-store' ? 'fit-content' : ''};
     height: ${({ className }) => className === 'app-store' ? 'fit-content' : ''};
     display: ${({ className }) => className === 'app-store' ? 'fit-content' : ''};

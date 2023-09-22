@@ -9,7 +9,7 @@ export const Container = styled.div<CardStylesProps>`
     transition: all 0.5s ease;
 
     &:hover {
-        opacity: 0.8;
+        opacity:${({theme}) => theme === 'dark' ? '0.5' : '0.8'};
     }
 
     @media (max-width: 924px) {

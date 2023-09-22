@@ -1,3 +1,4 @@
+import { Theme, ThemeType } from "../../../contexts/themeContext/types"
 import { CardType } from "../../../redux/reducers/types"
 
 export interface NewsCardProps {
@@ -7,7 +8,9 @@ export interface NewsCardProps {
 }
 
 export interface CardStylesProps {
-    cardclass?: string
+    cardclass?: string,
     datacard?: CardType,
-    cardtype?: string
+    cardtype?: string,
+    themestyles?: Theme,
+    theme?: ThemeType
 }

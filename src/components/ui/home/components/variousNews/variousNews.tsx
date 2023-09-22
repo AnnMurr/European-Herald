@@ -1,22 +1,25 @@
+import { useContext } from "react";
 import { CardType } from "../../../../../redux/reducers/types";
 import { NewsCard } from "../../../../reusable/newsCard/newsСard";
 import { Block, TitleText } from "./styledVariousNews";
 import { v4 as uuidv4 } from "uuid";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 
 interface VariousNewsProps {
     cards: Array<CardType>
 }
 
 export const VariousNews: React.FC<VariousNewsProps> = ({ cards }) => {
-
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
 
     return (
         <>
             <div>
-                <TitleText>Various News</TitleText>
+                <TitleText themestyles={themeContext.themeStyles}>Various News</TitleText>
             </div>
             <Block>
-                {cards.map((item) => <NewsCard  cardClass={'card'} type={'smallCard'} key={uuidv4()} dataCard={item} />)}
+                {cards.map((item) => <NewsCard cardClass={'card'} type={'smallCard'} key={uuidv4()} dataCard={item} />)}
             </Block>
         </>
     )

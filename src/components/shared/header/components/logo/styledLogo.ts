@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
 
 export const LogoContainer = styled.div`
     width: fit-content;
@@ -6,8 +7,8 @@ export const LogoContainer = styled.div`
     padding-bottom: 5px;
 `
 
-export const LogoText = styled.h2`
+export const LogoText = styled.h2<ThemeStyledProps>`
     font-family: 'Staatliches';
     font-size: 30px;
-    color: black;
+    color: ${({ themestyles }) => themestyles.color};
 `

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../../../contexts/themeContext/types";
 
 export const BlockWrapper = styled.div`
     padding: 10px 0 50px 0;
@@ -13,8 +14,8 @@ export const TitleNewsBlockText = styled.h4`
     font-size: 20px;
 `
 
-export const StyledLink = styled(Link)`
-    color: #000;
+export const StyledLink = styled(Link)<ThemeStyledProps>`
+    color:${({ themestyles }) => themestyles.color};
     display: block; 
     width: fit-content;
     border-bottom: 2px solid transparent;
