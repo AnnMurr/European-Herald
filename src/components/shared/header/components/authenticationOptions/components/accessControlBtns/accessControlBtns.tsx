@@ -1,21 +1,31 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../../../../../reusable/button/styledButton";
-import { BtnWrapper, Underline } from "./styledButtons";
+import { BtnWrapper } from "./styledButtons";
 import { AccessControlBtnsProps } from "../../../../types";
+import { Button } from "../../../../../../reusable/button/button";
 
-export const AccessControlBtns = ({ closeModal }: AccessControlBtnsProps) => {
-    return (
-        <BtnWrapper>
-            <Link to={'./login'}>
-                <Button type="button" className="btn" onClick={() => closeModal(false)}>Sign in
-                    <Underline className="underline" />
-                </Button>
-            </Link>
-            <Link to={'./registration'}>
-                <Button type="button" className="btn" onClick={() => closeModal(false)}>Sign up
-                    <Underline className="underline" />
-                </Button>
-            </Link>
-        </BtnWrapper>
-    )
+export const AccessControlBtns: React.FC<AccessControlBtnsProps> = ({ closeModal }) => {
+  return (
+    <BtnWrapper>
+      <Link to={'./login'}>
+        <Button
+          type={'button'}
+          text={'Sign In'}
+          func={() => closeModal(false)}
+          style={{
+            margin: "10px  0",
+            width: '100%'
+          }} />
+      </Link>
+      <Link to={'./registration'}>
+        <Button
+          type={'button'}
+          text={'Sign Up'}
+          func={() => closeModal(false)}
+          style={{
+            margin: "10px  0",
+            width: '100%'
+          }} />
+      </Link>
+    </BtnWrapper>
+  )
 }

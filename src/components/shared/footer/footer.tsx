@@ -6,11 +6,11 @@ import { LinkContext, LinkContextType } from "../../../contexts/linkContext/link
 import { useContext } from "react";
 
 export const Footer = () => {
-    const { hideNavigation }: LinkContextType = useContext(LinkContext)
+    const { hideContent }: LinkContextType = useContext(LinkContext)
 
     return (
         <>
-            {!hideNavigation ?
+            {!hideContent ?
                 <footer>
                     <Wrapper>
                         <SocialMedia />

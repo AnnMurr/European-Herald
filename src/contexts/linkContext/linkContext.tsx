@@ -7,29 +7,29 @@ interface LinkContextProviderProps {
 }
 
 export interface LinkContextType {
-  hideNavigation?: boolean;
+  hideContent?: boolean;
   checkLink?: (value: string | null) => void;
 }
 
 export const LinkContextProvider: React.FC<LinkContextProviderProps> = ({
   children,
 }) => {
-  const [hideNavigation, setHideNavigation] = useState<boolean>(false)
+  const [hideContent, sethideContent] = useState<boolean>(false)
 
   const checkLink = (url: string | null) => {
     url === "/registration" || url === "/login" || url === "/passwordrecovery"
-      ? setHideNavigation(true)
-      : setHideNavigation(false);
+      ? sethideContent(true)
+      : sethideContent(false);
   };
 
   return (
     <LinkContext.Provider
       value={{
-        hideNavigation: hideNavigation,
+        hideContent: hideContent,
         checkLink: checkLink,
       }}
     >
       {children}
     </LinkContext.Provider>
-  );
-};
+  )
+}

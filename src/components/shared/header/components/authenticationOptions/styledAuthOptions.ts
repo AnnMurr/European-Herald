@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
 
-export const Container = styled.div`
+export const Container = styled.div<ThemeStyledProps>`
     width: 100%;
     max-width: 300px;
-    border: 1px solid;
     padding: 20px;
-    background-color: white;
+    background-color:${({ themestyles }) => themestyles.backgroundForm};
     position: absolute;
-    top: 8rem;
+    top: 8.5rem;
     right: 2em;
+    box-shadow:${({ theme }) => theme === 'light' ? '0px 0px 8px #534c4c' : ''};
 `
 
 export const BtnCloseWrapper = styled.div`

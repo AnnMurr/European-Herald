@@ -1,25 +1,23 @@
-import {
-  TextField,
-  Button as MuiButton,
-  FormControl,
-  FormHelperText,
-} from "@mui/material";
+import { TextField, FormControl, FormHelperText } from "@mui/material";
 import { ForgotRouting } from "../forgotRouting/forgotRouting";
 import { BtnShowPassword, Label } from "./styledForm";
 import { useForm } from "react-hook-form";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { inputPasswordType } from "../../types";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+import { Button } from "../../../../reusable/button/button";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] =
-    useState<inputPasswordType>("password");
+  const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
+  const themeContext = useContext<ThemeContextType>(ThemeContext)
 
   const togglePasswordType = () =>
     typeOfPassword === "password"
       ? setTypeOfPassword("text")
-      : setTypeOfPassword("password");
+      : setTypeOfPassword("password")
 
   const {
     register,
@@ -28,12 +26,12 @@ export const Form = () => {
     reset,
   } = useForm({
     mode: "onChange",
-  });
+  })
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    reset();
-  };
+    console.log(data)
+    reset()
+  }
 
   return (
     <FormControl
@@ -46,7 +44,7 @@ export const Form = () => {
         flexDirection: "column",
       }}
     >
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Email
         <TextField
           {...register("email", {
@@ -63,8 +61,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type="text"
+          placeholder="Your email"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#fff",
+            borderRadius: "5px",
           }}
           error={!!errors.email}
         />
@@ -79,14 +80,17 @@ export const Form = () => {
           {errors.email?.message as string}
         </FormHelperText>
       </Label>
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Password
         <TextField
           id="outlined-size-small"
           size="small"
           type={typeOfPassword}
+          placeholder="Your password"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#fff",
+            borderRadius: "5px",
           }}
         />
         <BtnShowPassword>
@@ -98,15 +102,7 @@ export const Form = () => {
         </BtnShowPassword>
       </Label>
       <ForgotRouting />
-      <MuiButton
-        type="submit"
-        variant="contained"
-        sx={{
-          margin: "30px 0 20px 0",
-        }}
-      >
-        Sign In
-      </MuiButton>
+      <Button type={'submit'} text={'Sign In'} style={{ margin: "30px 0 20px 0" }} />
     </FormControl>
-  );
-};
+  )
+}

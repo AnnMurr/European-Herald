@@ -20,21 +20,3 @@ img {
   margin: 0 5px;
   border-bottom: 2px solid brown;
 }
-
-.btn::before {
-  content: "";
-  width: 0;
-  height: 100%;
-  position: absolute;
-  left: 0%;
-  top: 100%;
-  transition: width 0.5s;
-}
-
-.btn:hover::before {
-  width: 100%;
-}
-
-.btn:hover .underline {
-  left: 0;
-}

@@ -1,27 +1,22 @@
-import { useState } from "react";
-import {
-  TextField,
-  Button as MuiButton,
-  FormHelperText,
-  FormControl,
-} from "@mui/material";
+import { useContext, useState } from "react";
+import { TextField, FormHelperText, FormControl } from "@mui/material";
 import { BtnShowPassword, Label, StarMessage } from "./styledForm";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { TogglePasswordType, inputPasswordType } from "../../types";
 import { useForm } from "react-hook-form";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+import { Button } from "../../../../reusable/button/button";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] =
-    useState<inputPasswordType>("password");
-  const [typeOfRepeatPassword, setTypeOfRepeatPassword] =
-    useState<inputPasswordType>("password");
-  const togglePasswordType: TogglePasswordType = (type, setType) =>
-    type === "password" ? setType("text") : setType("password");
-
-  const today = new Date();
-  const maxDate = new Date(today);
-  maxDate.setFullYear(today.getFullYear() - 12);
+  const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
+  const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<inputPasswordType>("password")
+  const togglePasswordType: TogglePasswordType = (type, setType) => type === "password" ? setType("text") : setType("password")
+  const themeContext = useContext<ThemeContextType>(ThemeContext)
+  const today = new Date()
+  const maxDate = new Date(today)
+  maxDate.setFullYear(today.getFullYear() - 12)
 
   const {
     register,
@@ -31,12 +26,12 @@ export const Form = () => {
     getValues,
   } = useForm({
     mode: "onChange",
-  });
+  })
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    reset();
-  };
+    console.log(data)
+    reset()
+  }
 
   return (
     <FormControl
@@ -49,7 +44,7 @@ export const Form = () => {
         flexDirection: "column",
       }}
     >
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Name
         <TextField
           {...register("name", {
@@ -66,8 +61,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type="text"
+          placeholder="Your name"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
           error={!!errors.name}
         />
@@ -82,8 +80,8 @@ export const Form = () => {
           {errors.name?.message as string}
         </FormHelperText>
         <StarMessage>*</StarMessage>
-      </Label>
-      <Label>
+      </Label >
+      <Label themestyles={themeContext.themeStyles}>
         Last Name
         <TextField
           {...register("lastName", {
@@ -100,8 +98,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type="text"
+          placeholder="Your last name"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
           error={!!errors.lastName}
         />
@@ -117,7 +118,7 @@ export const Form = () => {
         </FormHelperText>
         <StarMessage>*</StarMessage>
       </Label>
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Email
         <TextField
           {...register("email", {
@@ -134,8 +135,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type="text"
+          placeholder="Your email"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
           error={!!errors.email}
         />
@@ -151,7 +155,7 @@ export const Form = () => {
         </FormHelperText>
         <StarMessage>*</StarMessage>
       </Label>
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Birthday
         <TextField
           id="outlined-size-small"
@@ -165,10 +169,12 @@ export const Form = () => {
           }}
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
         />
       </Label>
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Password
         <TextField
           {...register("password", {
@@ -191,8 +197,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type={typeOfPassword}
+          placeholder="Your password"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
           error={!!errors.password}
         />
@@ -217,7 +226,7 @@ export const Form = () => {
       >
         {errors.password?.message as string}
       </FormHelperText>
-      <Label>
+      <Label themestyles={themeContext.themeStyles}>
         Repeat Password
         <TextField
           {...register("repeatPassword", {
@@ -228,8 +237,11 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type={typeOfRepeatPassword}
+          placeholder="Repeat your password"
           sx={{
             margin: "5px 0",
+            backgroundColor: "#dfdcdc",
+            borderRadius: "5px",
           }}
           error={!!errors.repeatPassword}
         />
@@ -254,15 +266,7 @@ export const Form = () => {
       >
         {errors.repeatPassword?.message as string}
       </FormHelperText>
-      <MuiButton
-        variant="contained"
-        type="submit"
-        sx={{
-          margin: "30px 0 20px 0",
-        }}
-      >
-        Sign Up
-      </MuiButton>
+      <Button type={'submit'} text={'Sign Up'} style={{ margin: "30px 0 20px 0" }} />
     </FormControl>
-  );
-};
+  )
+}

@@ -11,14 +11,14 @@ import { ThemeContextType } from "../../../contexts/themeContext/types";
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
     const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false)
-    const { hideNavigation }: LinkContextType = useContext(LinkContext)
+    const { hideContent }: LinkContextType = useContext(LinkContext)
     const userIconBtnRef = useRef<HTMLDivElement>(null)
     const themeContext = useContext<ThemeContextType>(ThemeContext)
 
     return (
         <Container themestyles={themeContext.themeStyles}>
             <Logo />
-            {!hideNavigation ?
+            {!hideContent ?
                 <HeaderMenuNav>
                     <HeaderMenuNavInner>
                         <SettingsBtn setIsSettingsActive={setIsSettingsActive} />

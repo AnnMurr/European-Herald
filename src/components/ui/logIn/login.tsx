@@ -3,9 +3,12 @@ import { LinkContext, LinkContextType } from "../../../contexts/linkContext/link
 import { useLocation } from "react-router-dom";
 import { Form, RegistrationRouting, Title } from ".";
 import { Container, Wrapper } from "./styledLogIn";
+import { ThemeContextType } from "../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 
 export const Login = () => {
     const { checkLink }: LinkContextType = useContext(LinkContext)
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
     const location = useLocation()
 
     useEffect(() => {
@@ -17,7 +20,7 @@ export const Login = () => {
     })
     return (
         <Container>
-            <Wrapper>
+            <Wrapper themestyles={themeContext.themeStyles}>
                 <Title />
                 <Form />
                 <RegistrationRouting />

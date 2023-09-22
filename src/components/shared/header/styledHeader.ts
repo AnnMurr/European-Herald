@@ -3,7 +3,7 @@ import { ThemeStyledProps } from "../../../contexts/themeContext/types";
 
 export const Container = styled.header<ThemeStyledProps>`
     width: 100%;
-    background-color:${({ themestyles }) => themestyles.background};
+    background-color:${({ themestyles }) => themestyles.backgroundHeader};
     padding: 1em 2em;
     border-bottom: 1px solid #0000006e;
     position: fixed;

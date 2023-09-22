@@ -1,29 +1,18 @@
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
 
-export const Container = styled.div`
+export const Container = styled.div<ThemeStyledProps>`
     width: 100%;
     max-width: 300px;
-    border: 1px solid;
     padding: 20px;
-    background-color: white;
+    background-color:${({themestyles}) => themestyles.backgroundForm};
     position: absolute;
-    top: 8rem;
+    top: 8.5rem;
     left: 2em;
+    box-shadow:${({ theme }) => theme === 'light' ? '0px 0px 8px #534c4c' : ''};
 `
 
 export const BtnCloseWrapper = styled.div`
     margin-left: auto;
     width: fit-content; 
-`
-
-export const Content = styled.div`
-    display: flex;
-    padding-top: 30px;
-    width: 100%;
-    justify-content: center;
-`
-
-export const Span = styled.div`
-    font-weight: 600;
-    font-size: 16px;
 `
