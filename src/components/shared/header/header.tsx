@@ -13,6 +13,7 @@ export const Header = () => {
     const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false)
     const { hideContent }: LinkContextType = useContext(LinkContext)
     const userIconBtnRef = useRef<HTMLDivElement>(null)
+    const settingsIconBtnRef = useRef<HTMLDivElement>(null)
     const themeContext = useContext<ThemeContextType>(ThemeContext)
 
     return (
@@ -21,8 +22,8 @@ export const Header = () => {
             {!hideContent ?
                 <HeaderMenuNav>
                     <HeaderMenuNavInner>
-                        <SettingsBtn setIsSettingsActive={setIsSettingsActive} />
-                        {isSettingsActive ? <Settings closeModal={setIsSettingsActive} /> : null}
+                        <SettingsBtn settingsIconBtnRef={settingsIconBtnRef}  setIsSettingsActive={setIsSettingsActive} />
+                        {isSettingsActive ? <Settings settingsIconBtnRef={settingsIconBtnRef} closeModal={setIsSettingsActive} /> : null}
                         <NavMenu />
                         <RightContent>
                             <Search />

@@ -5,7 +5,11 @@ import { ThemeContext } from "../../../../../../../contexts/themeContext/themeCo
 import { MaterialUISwitch } from "../swich/swich";
 import { Text } from "./components/text/text";
 
-export const Content = () => {
+interface ContentProps {
+    switchRef: React.RefObject<HTMLButtonElement>
+}
+
+export const Content: React.FC<ContentProps> = ({ switchRef }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)
     const isChecked = themeContext.currentTheme === 'dark'
 
@@ -13,6 +17,7 @@ export const Content = () => {
         <Container>
             <Text text={'Light'} themeStyles={themeContext.themeStyles} />
             <MaterialUISwitch
+                ref={switchRef}
                 checked={isChecked}
                 onChange={themeContext.changeTheme}
                 theme={themeContext}

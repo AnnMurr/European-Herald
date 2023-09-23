@@ -15,10 +15,7 @@ export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ cl
     const closeModalOutsideClick = (e: MouseEvent) => {
         const event = e.target as Node
 
-        if (auntRef.current instanceof HTMLElement &&
-            !auntRef.current.contains(event) &&
-            userIconBtnRef.current instanceof HTMLElement &&
-            !userIconBtnRef.current.contains(event)) {
+        if (!auntRef.current?.contains(event) && !userIconBtnRef.current?.contains(event)) {
             closeModal(false)
         }
     }
@@ -31,7 +28,7 @@ export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ cl
 
     return (
         <Container themestyles={themeContext.themeStyles} theme={themeContext.currentTheme} ref={auntRef}>
-            <BtnCloseWrapper >
+            <BtnCloseWrapper>
                 <IconBtn color={themeContext.themeStyles.color} onClickFunc={closeAuthOptions} icon={faXmark} size='lg' />
             </BtnCloseWrapper>
             <AccessControlBtns closeModal={closeModal} />
