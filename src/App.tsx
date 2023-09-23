@@ -20,6 +20,7 @@ import { useAppDispatch } from './redux/store/store';
 import { Article } from './components/reusable/article/article';
 import { SearchPage } from './components/ui/searchPage/searchPage';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
+import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -32,6 +33,7 @@ function App() {
     <LinkContextProvider>
       <ThemeContextProvider>
         <Router>
+          <ScrollToTop />
           <Body>
             <Header />
             <Routes>
@@ -52,7 +54,7 @@ function App() {
         </Router>
       </ThemeContextProvider>
     </LinkContextProvider>
-  );
+  )
 }
 
 export default App;
