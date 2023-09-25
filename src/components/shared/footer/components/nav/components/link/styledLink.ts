@@ -11,4 +11,8 @@ export const StyledLink = styled(Link)<ThemeStyledProps>`
     &:hover {
         border-bottom: ${({ themestyles }) => `1px solid ${themestyles.color}`};
     }
+
+    @media screen and (max-width: 520px) {
+        font-size: 12px;
+    }
 `

@@ -7,11 +7,19 @@ export const Label = styled.label`
     align-items: center;
     height: 32px;
     width: 200px;
+
+     @media screen and (max-width: 380px) {
+        width: auto;
+    }
 `
 
 export const IconBtnInner = styled(Link)`
     position: relative;
     right: 23px;
+
+    @media screen and (max-width: 380px) {
+        position: static;
+    }
 `
 
 export const Input = styled.input<ThemeStyledProps>`
@@ -21,6 +29,10 @@ export const Input = styled.input<ThemeStyledProps>`
     height: 100%;
     background-color:${({ themestyles }) => themestyles.backgroundInputSearch};
     padding: 5px 25px 5px 10px;
+
+    @media screen and (max-width: 380px) {
+        display: none;
+    }
 `
 
 export const Span = styled.span`

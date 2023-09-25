@@ -8,6 +8,10 @@ export const List = styled.ul`
 
 export const Nav = styled.nav`
     padding-right: 30px;
-    max-width: 60%;
+    max-width: 90%;
     width: 100%;
+
+    @media screen and (max-width: 1140px) {
+        display: none;
+    }
 `

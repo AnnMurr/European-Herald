@@ -10,6 +10,7 @@ export const TitleText = styled.h3<CardStylesProps>`
         props.themestyles?.color};
     font-size: ${({ cardtype }) => cardtype === 'BigCard' ? '25px' : '17px'};
     font-weight: 700;
+    overflow-wrap: anywhere;
 
     @media (max-width: 576px) {
         font-size: 18px;

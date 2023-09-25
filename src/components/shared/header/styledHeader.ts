@@ -30,3 +30,13 @@ export const RightContent = styled.div`
     display: flex;
     align-items: center;
 `
+export const LeftContent = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+
+    @media screen and (max-width: 1140px) {
+        justify-content: start;
+    }
+`
