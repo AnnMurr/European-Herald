@@ -1,12 +1,10 @@
 import { useContext, useRef, useState } from "react";
 import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
-import { AuthenticationOptions, Logo, NavMenu, UserIconBtn } from ".";
+import { AuthenticationOptions, Logo, NavMenu, Search, Settings, SettingsBtn, UserIconBtn } from ".";
 import { Container, HeaderMenuNav, HeaderMenuNavInner, RightContent } from "./styledHeader";
-import { Search } from "./components/search/search";
-import { SettingsBtn } from "./components/settingsBtn/settingsBtn";
-import { Settings } from "./components/settings/settings";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
+import { Burger } from "./components/burger/burger";
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
@@ -22,8 +20,12 @@ export const Header = () => {
             {!hideContent ?
                 <HeaderMenuNav>
                     <HeaderMenuNavInner>
-                        <SettingsBtn settingsIconBtnRef={settingsIconBtnRef}  setIsSettingsActive={setIsSettingsActive} />
+
+                        <SettingsBtn settingsIconBtnRef={settingsIconBtnRef} setIsSettingsActive={setIsSettingsActive} />
                         {isSettingsActive ? <Settings settingsIconBtnRef={settingsIconBtnRef} closeModal={setIsSettingsActive} /> : null}
+
+                        <Burger />
+
                         <NavMenu />
                         <RightContent>
                             <Search />

@@ -20,3 +20,13 @@ img {
   margin: 0 5px;
   border-bottom: 2px solid brown;
 }
+
+.burger-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1140px) {
+  .burger-menu {
+    display: block;
+  }
+}
