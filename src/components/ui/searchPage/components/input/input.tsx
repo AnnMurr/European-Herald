@@ -8,19 +8,21 @@ import { decryptData, encryptData } from "../../../../../utils/encryption/encryp
 
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, searchValueOfHeaderInput, searchValue, setSearchValue }) => {
-
         const dataFromRedux = useAppSelector((state) => state)
-
         const cards = [...dataFromRedux.cards,
         ...dataFromRedux.categoryArts,
         ...dataFromRedux.categoryBusiness,
         ...dataFromRedux.categoryHealth,
         ...dataFromRedux.categorySports]
 
+        const handleKeyPress = (event: React.KeyboardEvent) => event.key === 'Enter' && searchNews()
+
+        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)
+
         const searchNews = (value = searchValue) => {
             let filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
             setFoundСards(filteredArray)
-            const encryptedData = encryptData(searchValue)
+            const encryptedData = encryptData(value)
             sessionStorage.setItem('searchVal', encryptedData)
         }
 
@@ -30,19 +32,16 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         useEffect(() => {
             searchValue === searchValueOfHeaderInput && searchNews()
-
         }, [searchValue])
 
         useEffect(() => {
-            const encryptedData = sessionStorage.getItem('searchVal')
-            const decryptedData = encryptedData && decryptData(encryptedData)
-            decryptedData && setSearchValue(decryptedData)
-            decryptedData && searchNews(decryptedData)
+            if (!searchValueOfHeaderInput) {
+                const encryptedData = sessionStorage.getItem('searchVal')
+                const decryptedData = encryptedData && decryptData(encryptedData)
+                decryptedData && setSearchValue(decryptedData)
+                decryptedData && searchNews(decryptedData)
+            }
         }, [])
-
-        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            setSearchValue(event.target.value)
-        }
 
         return (
             <div>
@@ -51,6 +50,7 @@ export const SearchInput: React.FC<SearchInputProps> =
                         maxLength={100}
                         onChange={handleChange}
                         type="search"
+                        onKeyDown={handleKeyPress}
                         value={searchValue} />
                     <MuiButton
                         sx={{

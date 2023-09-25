@@ -21,6 +21,7 @@ import { Article } from './components/reusable/article/article';
 import { SearchPage } from './components/ui/searchPage/searchPage';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
+import  './utils/browserRefresh/browserRefresh';
 
 function App() {
   const dispatch = useAppDispatch()
