@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ThemeContextType, ThemeType } from "./types";
+import { ThemeContextProviderProps, ThemeContextType, ThemeType } from "./types";
 import { Themes } from "./themes";
 
 const initialThemeContext: ThemeContextType = {
@@ -10,7 +10,7 @@ const initialThemeContext: ThemeContextType = {
 
 export const ThemeContext = React.createContext<ThemeContextType>(initialThemeContext)
 
-export const ThemeContextProvider = ({ children }: any) => {
+export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
     const [theme, setTheme] = useState<ThemeType>('light')
     const togleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 

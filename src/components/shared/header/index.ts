@@ -5,3 +5,5 @@ export { AuthenticationOptions } from './components/authenticationOptions/authen
 export { Search } from "./components/search/search";
 export { SettingsBtn } from "./components/settingsBtn/settingsBtn";
 export { Settings } from "./components/settings/settings";
+export { Burger } from "./components/burger/burger";
+export { SubBar } from "./components/subBar/subBar";

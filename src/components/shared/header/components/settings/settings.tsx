@@ -5,11 +5,7 @@ import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Content } from "./components/content/content";
-
-interface SettingsProps {
-    closeModal: React.Dispatch<React.SetStateAction<boolean>>,
-    settingsIconBtnRef: React.RefObject<HTMLDivElement>
-}
+import { SettingsProps } from "../../types";
 
 export const Settings: React.FC<SettingsProps> = ({ closeModal, settingsIconBtnRef }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)

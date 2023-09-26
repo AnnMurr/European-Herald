@@ -1,10 +1,5 @@
-import { Theme } from "../../../../../../../../../contexts/themeContext/types";
+import { TextProps } from "../../../../../../types";
 import { Span } from "./styledText";
-
-interface TextProps {
-    text: string,
-    themeStyles: Theme,
-}
 
 export const Text: React.FC<TextProps> = ({text, themeStyles}) => {
     return (

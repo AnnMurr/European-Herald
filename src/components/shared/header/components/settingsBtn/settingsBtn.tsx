@@ -3,11 +3,7 @@ import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-
-interface SettingsBtnProps {
-    setIsSettingsActive: React.Dispatch<React.SetStateAction<boolean>>,
-    settingsIconBtnRef: React.RefObject<HTMLDivElement>
-}
+import { SettingsBtnProps } from "../../types";
 
 export const SettingsBtn: React.FC<SettingsBtnProps> = ({ setIsSettingsActive, settingsIconBtnRef }) => {
     const toggleSettingsModal = () => setIsSettingsActive((prev: boolean) => !prev)

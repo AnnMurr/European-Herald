@@ -19,3 +19,6 @@ export interface ThemeStyledProps {
     themestyles: Theme,
     theme?: ThemeType
 }
+export interface ThemeContextProviderProps {
+    children: React.ReactNode
+}

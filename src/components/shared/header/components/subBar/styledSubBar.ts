@@ -5,7 +5,6 @@ export const List = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    
 `
 
 export const Nav = styled.nav<ThemeStyledProps>`
