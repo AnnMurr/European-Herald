@@ -11,6 +11,7 @@ import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { createUser } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { useNavigate } from "react-router-dom";
+import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -22,7 +23,8 @@ export const Form = () => {
   maxDate.setFullYear(today.getFullYear() - 12)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-
+  const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
+console.log('form', authorizedContext.isAuthorized)
   const {
     register,
     formState: { errors },
@@ -38,6 +40,7 @@ export const Form = () => {
     dispatch(createUser(data))
     reset()
     setTimeout(() => {navigate('/')}, 2000)
+    authorizedContext.logIn()
   }
 
   return (

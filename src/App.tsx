@@ -10,40 +10,45 @@ import './utils/browserRefresh/browserRefresh';
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
 import { ToastContainer } from 'react-toastify';
+import { AuthorizedContextProvider } from './contexts/authorizedContext/authorizedContext';
+import { getUserByToken } from './redux/reducers/usersReducer/usersReducer';
 
 function App() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(fetchCards())
+    dispatch(getUserByToken())
   }, [])
 
   return (
-    <LinkContextProvider>
-      <ThemeContextProvider>
-        <Router>
-          <ScrollToTop />
-          <Body>
-            <Header />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/registration' element={<Registration />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/passwordrecovery' element={<PasswordRecovery />} />
-              <Route path='/contact' element={<Contact />} />
-              <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-              <Route path='/about' element={<About />} />
-              <Route path='/category/:categoryname' element={<FilteredCategory />} />
-              <Route path='/article/:articlename' element={<Article />} />
-              <Route path='/search' element={<SearchPage />} />
-              <Route path='*' element={<ErrorPage />} />
-            </Routes>
-            <Footer />
-            <ToastContainer />
-          </Body>
-        </Router>
-      </ThemeContextProvider>
-    </LinkContextProvider>
+    <AuthorizedContextProvider>
+      <LinkContextProvider>
+        <ThemeContextProvider>
+          <Router>
+            <ScrollToTop />
+            <Body>
+              <Header />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/registration' element={<Registration />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/passwordrecovery' element={<PasswordRecovery />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/category/:categoryname' element={<FilteredCategory />} />
+                <Route path='/article/:articlename' element={<Article />} />
+                <Route path='/search' element={<SearchPage />} />
+                <Route path='*' element={<ErrorPage />} />
+              </Routes>
+              <Footer />
+              <ToastContainer />
+            </Body>
+          </Router>
+        </ThemeContextProvider>
+      </LinkContextProvider>
+    </AuthorizedContextProvider>
   )
 }
 

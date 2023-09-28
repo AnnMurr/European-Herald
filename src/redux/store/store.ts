@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { cardsDataReducer } from "../reducers/cardsReducer";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { usersDataReducer } from "../reducers/usersReducer/usersReducer";
 
 export const store = configureStore({
     reducer: {
-        newsCards: cardsDataReducer
+        newsCards: cardsDataReducer,
+        user: usersDataReducer
     }
 })
 
