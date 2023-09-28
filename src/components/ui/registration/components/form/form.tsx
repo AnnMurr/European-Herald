@@ -8,6 +8,9 @@ import { useForm } from "react-hook-form";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
+import { useAppDispatch } from "../../../../../redux/store/store";
+import { createUser } from "../../../../../redux/reducers/usersReducer/usersReducer";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -17,6 +20,8 @@ export const Form = () => {
   const today = new Date()
   const maxDate = new Date(today)
   maxDate.setFullYear(today.getFullYear() - 12)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -28,9 +33,11 @@ export const Form = () => {
     mode: "onChange",
   })
 
+
   const onSubmit = (data: any) => {
-    console.log(data)
+    dispatch(createUser(data))
     reset()
+    setTimeout(() => {navigate('/')}, 2000)
   }
 
   return (
@@ -158,6 +165,7 @@ export const Form = () => {
       <Label themestyles={themeContext.themeStyles}>
         Birthday
         <TextField
+      {...register("birthday")}
           id="outlined-size-small"
           size="small"
           type="date"

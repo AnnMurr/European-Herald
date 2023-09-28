@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
 import { fetchCards } from './redux/reducers/cardsReducer';
@@ -7,10 +6,10 @@ import { useAppDispatch } from './redux/store/store';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
 import { About, Article, Body, Contact, ErrorPage, FilteredCategory, Footer, Header, Home, Login, PasswordRecovery, PrivacyPolicy, Registration, SearchPage } from './components';
-import  './utils/browserRefresh/browserRefresh';
-
+import './utils/browserRefresh/browserRefresh';
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -40,6 +39,7 @@ function App() {
               <Route path='*' element={<ErrorPage />} />
             </Routes>
             <Footer />
+            <ToastContainer />
           </Body>
         </Router>
       </ThemeContextProvider>
