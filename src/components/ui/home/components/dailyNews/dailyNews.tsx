@@ -10,7 +10,7 @@ interface DailyNewsProps {
 }
 
 export const DailyNews: React.FC<DailyNewsProps> = ({ cards }) => {
-    const isLoading = useAppSelector((state) => state.loading)
+    const isLoading = useAppSelector((state) => state.newsCards.loading)
 
     return (
         <Container>

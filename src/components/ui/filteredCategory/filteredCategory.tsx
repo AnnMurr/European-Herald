@@ -10,9 +10,9 @@ import { NewsCard } from "../../reusable/newsCard/newsСard";
 export const FilteredCategory = () => {
     const { categoryname } = useParams()
     const category = categoryname && categoryname.charAt(0).toUpperCase() + categoryname.slice(1)
-    const isLoading = useAppSelector((state) => state.loading)
+    const isLoading = useAppSelector((state) => state.newsCards.loading)
     const dispatch = useAppDispatch()
-    const cardsFromRedux = useAppSelector((state) => state.filteredCards)
+    const cardsFromRedux = useAppSelector((state) => state.newsCards.filteredCards)
 
     useEffect(() => {
         dispatch((fetchCategoryNews(category!)))

@@ -2,8 +2,8 @@ import { useAppSelector } from "../../../../../redux/store/store";
 import { Block } from "./components/block/block";
 
 export const CategoryBlock = () => {
-    const isLoading = useAppSelector((state) => state.loading)
-    const filteredCardsFromRedux = useAppSelector((state) => state)
+    const isLoading = useAppSelector((state) => state.newsCards.loading)
+    const filteredCardsFromRedux = useAppSelector((state) => state.newsCards)
     
     return (
         <>

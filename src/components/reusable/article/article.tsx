@@ -9,7 +9,7 @@ import { CardType } from "../../../redux/reducers/types";
 
 export const Article = () => {
     const { articlename } = useParams()
-    const dataCardsFromRedux = useAppSelector((state) => state)
+    const dataCardsFromRedux = useAppSelector((state) => state.newsCards)
     const [card, setCard] = useState<CardType | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
       

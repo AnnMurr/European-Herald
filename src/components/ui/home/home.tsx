@@ -7,7 +7,7 @@ import { DailyNews } from "./components/dailyNews/dailyNews";
 import { VariousNews } from "./components/variousNews/variousNews";
 
 export const Home = () => {
-    const cardsFromRedux = useAppSelector((state) => state.cards)
+    const cardsFromRedux = useAppSelector((state) => state.newsCards.cards)
     const firstSixthCards = cardsFromRedux.slice(0, 6)
     const dispatch = useAppDispatch()
     const categories = ['Business', 'Arts', 'Health', 'Sports']

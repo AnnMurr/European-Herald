@@ -8,7 +8,7 @@ import { decryptData, encryptData } from "../../../../../utils/encryption/encryp
 
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, searchValueOfHeaderInput, searchValue, setSearchValue }) => {
-        const dataFromRedux = useAppSelector((state) => state)
+        const dataFromRedux = useAppSelector((state) => state.newsCards)
         const cards = [...dataFromRedux.cards,
         ...dataFromRedux.categoryArts,
         ...dataFromRedux.categoryBusiness,
