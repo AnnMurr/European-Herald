@@ -8,7 +8,6 @@ interface UserModalProps {
 
 export const UserModal: React.FC<UserModalProps> = ({closeModal}) => {
     const userDataFromRedux = useAppSelector((state) => state.user)
-    console.log(userDataFromRedux)
 
     return (
         <>

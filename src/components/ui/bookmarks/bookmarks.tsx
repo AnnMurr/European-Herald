@@ -1,10 +1,11 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store";
-import { Container, Wrapper } from "./styledBookmarks";
+import { BookmarksWrap, Container, Wrapper } from "./styledBookmarks";
 import { Text } from "./components/text/text";
 import { NewsCard } from "../../reusable/newsCard/newsСard";
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react';
 import { pushCards } from "../../../redux/reducers/cardsReducer";
+import { Title } from "./components/title/title";
 
 export const Bookmarks = () => {
     const userDataFromRedux = useAppSelector((state) => state.user)
@@ -15,12 +16,19 @@ export const Bookmarks = () => {
         userDataBookmarks && dispatch(pushCards(userDataBookmarks))
     }, [])
     
+    useEffect(() => {
+        userDataBookmarks && dispatch(pushCards(userDataBookmarks))
+    }, [])
+
     return (
         <Container>
             <Wrapper>
-                {userDataBookmarks?.length ?? 0 ?
-                    userDataBookmarks?.map((bookmark) => <NewsCard cardClass={'card'} type={'BigCard'} key={uuidv4()} dataCard={bookmark} />) :
-                    <Text />}
+                <Title />
+                <BookmarksWrap>
+                    {userDataBookmarks?.length ?? 0 ?
+                        userDataBookmarks?.map((bookmark) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={bookmark} />) :
+                        <Text />}
+                </BookmarksWrap>
             </Wrapper>
         </Container>
     )

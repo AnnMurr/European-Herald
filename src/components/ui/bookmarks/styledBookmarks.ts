@@ -14,3 +14,10 @@ export const Wrapper = styled.div`
         padding: 120px 0 60px 0;
     }
 `
+
+export const BookmarksWrap = styled.div`
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+`
