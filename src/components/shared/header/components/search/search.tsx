@@ -27,7 +27,7 @@ export const Search = () => {
             <Label>
                 <Input onKeyDown={handleKeyPress} themestyles={themeContext.themeStyles} value={searchValue} onChange={handleChange} type="search" />
                 <IconBtnInner to={'/search'} state={searchValue}>
-                    <IconBtn onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
+                    <IconBtn classname={'SearchIconBtn'} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
                 </IconBtnInner>
             </Label>
         </Container>

@@ -12,11 +12,11 @@ export const Container = styled.div<CardStylesProps>`
         opacity:${({theme}) => theme === 'dark' ? '0.5' : '0.8'};
     }
 
-    @media (max-width: 924px) {
+    @media screen and (max-width: 924px) {
         max-width:${({cardtype}) => cardtype === 'BigCard' ? '100%' : '49.5%'};
     }
 
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
         max-width: 100%;
     }
 `
@@ -36,7 +36,7 @@ export const Wrapper = styled.div<CardStylesProps>`
         z-index: 1;
     } 
     
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
         height: 13rem;
     }
 `
@@ -58,7 +58,7 @@ export const Information = styled.div<CardStylesProps>`
     bottom: 20px;
     z-index: 3;
 
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
         bottom: 10px;
     }
 `

@@ -3,7 +3,7 @@ import { ThemeStyledProps } from "../../../../../../../contexts/themeContext/typ
 
 export const Item = styled.li<ThemeStyledProps>`
     font-weight: 700;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     font-size: 16px;
     font-family: 'Lato';
     

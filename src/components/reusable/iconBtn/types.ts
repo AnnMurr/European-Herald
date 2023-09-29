@@ -6,5 +6,6 @@ export interface IconBtnProps {
     color?: string,
     size: SizeType,
     icon: IconDefinition,
+    classname?: string,
     onClickFunc?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }

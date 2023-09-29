@@ -12,11 +12,11 @@ export const TitleText = styled.h3<CardStylesProps>`
     font-weight: 700;
     overflow-wrap: anywhere;
 
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
         font-size: 18px;
     }
 
-    @media (max-width: 320px) {
+    @media screen and (max-width: 320px) {
         font-size: 16px;
     }
 `

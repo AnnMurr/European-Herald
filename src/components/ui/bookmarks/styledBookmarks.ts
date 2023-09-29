@@ -9,15 +9,12 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
     padding: 160px 0 60px 0;
     min-height: 80vh;
-
-    @media screen and (max-width: 520px) {
-        padding: 120px 0 60px 0;
-    }
 `
 
 export const BookmarksWrap = styled.div`
     padding-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    row-gap: 10px;
+    column-gap: 5px;
 `

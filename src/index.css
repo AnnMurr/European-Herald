@@ -25,6 +25,16 @@ img {
   display: none;
 }
 
+.SearchIconBtn {
+  color: #000; 
+}
+
+@media (max-width: 380px) {
+  .SearchIconBtn {
+    color: #fff;
+  }
+}
+
 @media screen and (max-width: 1140px) {
   .burger-menu {
     display: block;

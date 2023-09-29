@@ -10,13 +10,13 @@ export const Container = styled.div`
 export const Inner = styled.div<ThemeStyledProps>`
     padding: 65px 50px;
     background-color:${({ themestyles }) => themestyles.backgroundSettingsForm};
+
+    @media screen and (max-width: 520px) {
+        padding: 40px 30px;
+    }
 `
 
 export const Wrapper = styled.div`
     padding: 160px 0 60px 0;
     min-height: 80vh;
-
-    @media screen and (max-width: 520px) {
-        padding: 120px 0 60px 0;
-    }
 `
