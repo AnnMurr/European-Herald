@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { TitleText } from "./styledTitle";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 
 export const Title = () => {
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
+    
     return (
-        <TitleText>Personal details</TitleText>
+        <TitleText themestyles={themeContext.themeStyles}>Personal details</TitleText>
     )
 }

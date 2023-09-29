@@ -7,7 +7,8 @@ export enum Colors {
     WHITE_OPACITY_80 = '#ffffffc9',
     GREY_OPACITY_40 = '#bdbaba69',
     DARK_BROWN = '#272424',
-    COD_GRRAY = '#101010'   
+    COD_GRRAY = '#101010',
+    Silver = '#d5d5d5'  
 }
 
 export const Themes: ThemesType = {
@@ -16,6 +17,7 @@ export const Themes: ThemesType = {
         backgroundInputSearch: Colors.GREY_OPACITY_40, 
         backgroundForm: Colors.WHITE, 
         backgroundHeader: Colors.WHITE, 
+        backgroundSettingsForm: Colors.Silver, 
         color: Colors.BLACK
     },
     dark: {
@@ -23,6 +25,7 @@ export const Themes: ThemesType = {
         backgroundInputSearch: Colors.WHITE_OPACITY_80,
         backgroundForm: Colors.DARK_BROWN, 
         backgroundHeader: Colors.COD_GRRAY, 
+        backgroundSettingsForm: Colors.DARK_BROWN, 
         color: Colors.WHITE
     }
 }

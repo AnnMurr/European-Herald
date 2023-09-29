@@ -6,7 +6,7 @@ interface UserModalProps {
     closeModal: () => void
 }
 
-export const UserModal: React.FC<UserModalProps> = ({closeModal}) => {
+export const UserModal: React.FC<UserModalProps> = ({ closeModal }) => {
     const userDataFromRedux = useAppSelector((state) => state.user)
 
     return (

@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `
 
 export const BookmarksWrap = styled.div`
-    padding-top: 60px;
+    padding-top: 40px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

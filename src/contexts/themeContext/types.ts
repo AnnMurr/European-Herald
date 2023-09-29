@@ -7,6 +7,7 @@ export interface Theme {
     backgroundInputSearch: Colors,
     backgroundForm: Colors,
     backgroundHeader: Colors,
+    backgroundSettingsForm: Colors,
 }
 
 export type ThemesType = Record<ThemeType, Theme>
