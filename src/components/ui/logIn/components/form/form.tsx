@@ -9,10 +9,17 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
+import { useAppDispatch } from "../../../../../redux/store/store";
+import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersReducer";
+import { useNavigate } from "react-router-dom";
+import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
   const themeContext = useContext<ThemeContextType>(ThemeContext)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
 
   const togglePasswordType = () =>
     typeOfPassword === "password"
@@ -28,9 +35,18 @@ export const Form = () => {
     mode: "onChange",
   })
 
+  const logInCheck = async (data: any) => {
+    const isCorrectData = await dispatch(fetchSignIn(data))
+
+    if (isCorrectData.payload) {
+      reset()
+      navigate('/') 
+      authorizedContext.logIn()
+    }
+  }
+
   const onSubmit = (data: any) => {
-    console.log(data)
-    reset()
+    logInCheck(data)
   }
 
   return (
@@ -83,6 +99,7 @@ export const Form = () => {
       <Label themestyles={themeContext.themeStyles}>
         Password
         <TextField
+          {...register("password")}
           id="outlined-size-small"
           size="small"
           type={typeOfPassword}

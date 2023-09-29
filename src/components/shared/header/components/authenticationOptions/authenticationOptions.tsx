@@ -34,7 +34,7 @@ export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ cl
             <BtnCloseWrapper>
                 <IconBtn color={themeContext.themeStyles.color} onClickFunc={closeAuthOptions} icon={faXmark} size='lg' />
             </BtnCloseWrapper>
-            {!authorizedContext.isAuthorized ? <AccessControlBtns closeModal={closeModal} /> : <UserModal />}
+            {!authorizedContext.isAuthorized ? <AccessControlBtns closeModal={closeModal} /> : <UserModal closeModal={closeAuthOptions} />}
         </Container>
     )
 }

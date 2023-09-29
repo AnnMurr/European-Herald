@@ -2,13 +2,14 @@ import { StyledLink, Wrap } from "./styledLink";
 
 interface LinkBtnProps {
     linkTo: string,
-    text: string
+    text: string,
+    closeModal: () => void
 }
 
-export const LinkBtn: React.FC<LinkBtnProps> = ({ linkTo, text }) => {
+export const LinkBtn: React.FC<LinkBtnProps> = ({ linkTo, text, closeModal }) => {
     return (
         <Wrap>
-            <StyledLink to={linkTo}>{text}</StyledLink>
+            <StyledLink onClick={closeModal} to={linkTo}>{text}</StyledLink>
         </Wrap>
     )
 } 

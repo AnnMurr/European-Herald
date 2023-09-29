@@ -28,7 +28,7 @@ export const fetchCards = createAsyncThunk(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
+                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
             })
 
             
@@ -56,7 +56,7 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
+                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -83,7 +83,7 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '79ab8a14-5a3f-482f-898e-bf774033caad',
+                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -130,7 +130,13 @@ export const cardsSlice = createSlice({
                     state.categoryBusiness = filteredCards.splice(12,4)
                     break
             }
-        }
+        },
+        pushCards: (state, action: PayloadAction<Array<CardType>>) => {
+            action.payload.forEach(card =>  {
+                state.cards.push(card)
+            })
+             
+        },
     },
     extraReducers: (builder) =>
         builder
@@ -173,4 +179,4 @@ export const cardsSlice = createSlice({
 
 export const cardsDataReducer = cardsSlice.reducer
 
-export const { getCards, getFilteredCards, getFilteredCategoryForBlocks } = cardsSlice.actions
+export const { getCards, getFilteredCards, getFilteredCategoryForBlocks, pushCards } = cardsSlice.actions

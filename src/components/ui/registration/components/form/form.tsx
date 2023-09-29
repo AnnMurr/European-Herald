@@ -9,9 +9,10 @@ import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch } from "../../../../../redux/store/store";
-import { createUser } from "../../../../../redux/reducers/usersReducer/usersReducer";
+import { createUser, getUserByEmail } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { showToastMessage } from "../../../../../utils/alerts/alert";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -24,7 +25,7 @@ export const Form = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
-console.log('form', authorizedContext.isAuthorized)
+
   const {
     register,
     formState: { errors },
@@ -35,12 +36,21 @@ console.log('form', authorizedContext.isAuthorized)
     mode: "onChange",
   })
 
+  const registrationCheck = async (data: any) => {
+    const isThisAccount = await dispatch(getUserByEmail(data.email))
+
+    if (!isThisAccount.payload) {
+      reset()
+      navigate('/')
+      dispatch(createUser(data))   
+      authorizedContext.logIn()
+    } else {
+      showToastMessage({ type: 'error', text: 'this email has already been registered' })
+    }
+  }
 
   const onSubmit = (data: any) => {
-    dispatch(createUser(data))
-    reset()
-    setTimeout(() => {navigate('/')}, 2000)
-    authorizedContext.logIn()
+    registrationCheck(data)
   }
 
   return (
@@ -168,7 +178,7 @@ console.log('form', authorizedContext.isAuthorized)
       <Label themestyles={themeContext.themeStyles}>
         Birthday
         <TextField
-      {...register("birthday")}
+          {...register("birthday")}
           id="outlined-size-small"
           size="small"
           type="date"

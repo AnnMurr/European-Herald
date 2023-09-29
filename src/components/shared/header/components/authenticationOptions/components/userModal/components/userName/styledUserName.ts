@@ -8,4 +8,6 @@ export const Container = styled.div`
 
 export const Span = styled.span`
     margin-left: 10px;
+    font-weight: 600;
+    font-size: 18px;
 `
