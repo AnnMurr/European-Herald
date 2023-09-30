@@ -7,5 +7,9 @@ export const TitleInner = styled.div`
 
 export const TitleText = styled.h2<ThemeStyledProps>`
     font-size: 35px;
-    color:${({themestyles}) => themestyles.color}
+    color:${({themestyles}) => themestyles.color};
+
+    @media screen and (max-width: 520px) {
+        font-size: 25px;
+    }
 `

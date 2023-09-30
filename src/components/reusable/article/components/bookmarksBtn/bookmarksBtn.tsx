@@ -4,28 +4,38 @@ import { faBookmark as faBookmarkSolid } from "@fortawesome/free-solid-svg-icons
 import { Inner } from "./styledBookmarksBtn";
 import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
 import { changeUserData } from "../../../../../redux/reducers/usersReducer/usersReducer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookmarksBtnProps } from "../../types";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { showToastMessage } from "../../../../../utils/alerts/alert";
 
 export const BookmarksBtn: React.FC<BookmarksBtnProps> = ({ dataCard }) => {
     const dispatch = useAppDispatch()
     const dataUserFromRedux = useAppSelector((state) => state.user.userData)
     const { articlename } = useParams()
     const [addedToBookmarks, setAddedToBookmarks] = useState<boolean>(false)
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
+    const { isAuthorized } = useContext<AuthorizedContextType>(AuthorizedContext)
 
     const addArticleToBookmarks = () => {
-        if (dataUserFromRedux) {
-            if (addedToBookmarks) {
-                dispatch(changeUserData({
-                    ...dataUserFromRedux,
-                    bookmarks: dataUserFromRedux?.bookmarks.filter(bookmark => bookmark.uri !== articlename)
-                }))
-            } else {
-                dispatch(changeUserData({
-                    ...dataUserFromRedux,
-                    bookmarks: [...(dataUserFromRedux?.bookmarks || []), dataCard]
-                }))
+        if (!isAuthorized) {
+            showToastMessage({ type: 'warning', text: 'Sorry, you must be registered and logged in to add a bookmark' })
+        } else {
+            if (dataUserFromRedux) {
+                if (addedToBookmarks) {
+                    dispatch(changeUserData({
+                        ...dataUserFromRedux,
+                        bookmarks: dataUserFromRedux?.bookmarks.filter(bookmark => bookmark.uri !== articlename)
+                    }))
+                } else {
+                    dispatch(changeUserData({
+                        ...dataUserFromRedux,
+                        bookmarks: [...(dataUserFromRedux?.bookmarks || []), dataCard]
+                    }))
+                }
             }
         }
     }
@@ -39,7 +49,7 @@ export const BookmarksBtn: React.FC<BookmarksBtnProps> = ({ dataCard }) => {
 
     return (
         <Inner>
-            <IconBtn onClickFunc={addArticleToBookmarks} icon={addedToBookmarks ? faBookmarkSolid : faBookmark} size={"lg"} />
+            <IconBtn color={themeContext.themeStyles.color} onClickFunc={addArticleToBookmarks} icon={addedToBookmarks ? faBookmarkSolid : faBookmark} size={"lg"} />
         </Inner>
     )
 }

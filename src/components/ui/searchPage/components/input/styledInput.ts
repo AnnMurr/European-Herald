@@ -15,4 +15,8 @@ export const Label = styled.label`
     margin: 0 auto;
     display: flex;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `

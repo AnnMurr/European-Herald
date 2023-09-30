@@ -29,6 +29,10 @@ img {
   color: #000; 
 }
 
+input::placeholder {
+  font-size: 14px;
+}
+
 @media (max-width: 380px) {
   .SearchIconBtn {
     color: #fff;

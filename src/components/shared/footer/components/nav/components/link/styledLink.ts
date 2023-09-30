@@ -13,6 +13,12 @@ export const StyledLink = styled(Link)<ThemeStyledProps>`
     }
 
     @media screen and (max-width: 520px) {
+        &:hover {
+            border-bottom: none;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
         font-size: 12px;
     }
 `
