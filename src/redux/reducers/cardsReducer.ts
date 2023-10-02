@@ -30,8 +30,7 @@ export const fetchCards = createAsyncThunk(
                 articlesSortBy: 'date',
                 apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
             })
-
-            
+           
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
             dispatch(getCards(articles))
         } catch (error) {

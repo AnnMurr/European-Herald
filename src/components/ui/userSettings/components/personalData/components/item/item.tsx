@@ -1,9 +1,10 @@
 import { Headline, ItemInner, Span } from "./styledItem";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { IconBtn } from "../../../../../../reusable/iconBtn/iconBtn";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
+import { EditModal } from "./components/editModal/editModal";
 
 interface ItemProps {
     name: string,
@@ -12,6 +13,7 @@ interface ItemProps {
 
 export const Item: React.FC<ItemProps> = ({ name, data }) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)
+    const [isEditModal, setIsEditModal] = useState<boolean>(false)
     
     return (
         <ItemInner>
@@ -20,8 +22,10 @@ export const Item: React.FC<ItemProps> = ({ name, data }) => {
                 <Span themestyles={themeContext.themeStyles}>{data}</Span>
             </div>
             <div>
-                <IconBtn color={themeContext.themeStyles.color} icon={faPenToSquare} size={"lg"} />
+                <IconBtn onClickFunc={() => setIsEditModal(true)} color={themeContext.themeStyles.color} icon={faPenToSquare} size={"lg"} />
             </div>
+
+            {isEditModal ? <EditModal closeModal={setIsEditModal} name={name} data={data} /> : null}
         </ItemInner>
     )
 }

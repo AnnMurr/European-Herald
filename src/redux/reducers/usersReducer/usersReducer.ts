@@ -7,11 +7,11 @@ import { decryptData } from "../../../utils/encryption/encryption";
 import { getToken, setToken } from "../../../store/localStorage/token/token";
 
 interface InitialState {
-    userData: null | UserDataType
+    userData: null | UserDataType,
 }
 
 const initialState: InitialState = {
-    userData: null
+    userData: null,
 }
 
 export interface UserDataType {

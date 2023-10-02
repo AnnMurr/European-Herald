@@ -5,6 +5,7 @@ import { fetchCategoryNewsBlocks } from "../../../redux/reducers/cardsReducer";
 import { CategoryBlock } from "./components/categoryBlock/categoryBlock";
 import { DailyNews } from "./components/dailyNews/dailyNews";
 import { VariousNews } from "./components/variousNews/variousNews";
+import { Weather } from "./components/weather/weather";
 
 export const Home = () => {
     const cardsFromRedux = useAppSelector((state) => state.newsCards.cards)
@@ -22,6 +23,7 @@ export const Home = () => {
             <Wrapper>
                 <DailyNews cards={firstSixthCards} />
                 <CategoryBlock />
+                <Weather />
                 <VariousNews cards={cardsForVariousNews} />
             </Wrapper>
         </Container>

@@ -15,6 +15,7 @@ import { getUserByToken } from './redux/reducers/usersReducer/usersReducer';
 import { Bookmarks } from './components/ui/bookmarks/bookmarks';
 import { UserSettings } from './components/ui/userSettings/userSettings';
 import { CheckAuthorization, CheckNotAuthorized } from './contexts/authorizedContext/isAuthorized';
+import { WeatherPage } from './components/ui/weatherPage/weatherPage';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -41,6 +42,7 @@ function App() {
                 <Route path='/category/:categoryname' element={<FilteredCategory />} />
                 <Route path='/article/:articlename' element={<Article />} />
                 <Route path='/search' element={<SearchPage />} />
+                <Route path='/weather' element={<WeatherPage />} />
                 <Route path='/registration' element={
                   <CheckAuthorization>
                     <Registration />
