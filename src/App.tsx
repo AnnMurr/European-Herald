@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
-import { fetchCards } from './redux/reducers/cardsReducer';
+import { fetchCards, fetchCategoryNewsBlocks } from './redux/reducers/cardsReducer';
 import { useAppDispatch, useAppSelector } from './redux/store/store';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
@@ -19,11 +19,16 @@ import { WeatherPage } from './components/ui/weatherPage/weatherPage';
 
 function App() {
   const dispatch = useAppDispatch()
-  
+  const categories = ['Business', 'Arts', 'Health', 'Sports']
+  const dataCardsFromRedux = useAppSelector((state) => state.newsCards)
+
   useEffect(() => {
     dispatch(fetchCards())
     dispatch(getUserByToken())
+    categories.forEach(category => dispatch(fetchCategoryNewsBlocks(category)))
   }, [])
+
+  console.log('app', dataCardsFromRedux)
 
   return (
     <AuthorizedContextProvider>

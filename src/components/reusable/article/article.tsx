@@ -35,7 +35,9 @@ export const Article = () => {
       setCard(foundCard)
       setIsLoading(false)
     }
-  }, [articlename])
+  }, [articlename, dataCardsFromRedux])
+
+  console.log('article', dataCardsFromRedux)
 
   return (
     <Container>

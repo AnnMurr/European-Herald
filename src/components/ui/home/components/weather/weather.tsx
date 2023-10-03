@@ -15,32 +15,34 @@ export const Weather = () => {
     const dispatch = useAppDispatch()
     const themeContext = useContext<ThemeContextType>(ThemeContext)
 
-    // useEffect(() => {
-    //     if ("geolocation" in navigator) {
-    //         navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
-    //             const { latitude, longitude } = position.coords
-    //             fetch(`http://api.weatherapi.com/v1/current.json?key=21c480deba1742eab47180549233009&q=${latitude},${longitude}&aqi=no&lang=en`)
-    //                 .then(response => response.json())
-    //                 .then(data => {
-    //                     dispatch(getWeather(data))
-    //                 })
-    //                 .catch(error => { throw error })
-    //         })
-    //     }
-    // }, [])
+    useEffect(() => {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+                const { latitude, longitude } = position.coords
+                fetch(`http://api.weatherapi.com/v1/current.json?key=21c480deba1742eab47180549233009&q=${latitude},${longitude}&aqi=no&lang=en`)
+                    .then(response => response.json())
+                    .then(data => {
+                        dispatch(getWeather(data))
+                    })
+                    .catch(error => { throw error })
+            })
+        }
+    }, [])
 
     console.log(weatherDataFromRedux)
 
     return (
-        <Container themestyles={themeContext.themeStyles}>
-            <Wrapper>
-                <TemperatureBlock weatherData={weatherDataFromRedux} />
-                <StyledLink themestyles={themeContext.themeStyles} to={'/weather'}>
-                    <DetailsBlock weatherData={weatherDataFromRedux} />
-                    <Location weatherData={weatherDataFromRedux} />
-                    <DateInformation weatherData={weatherDataFromRedux} />
-                </StyledLink>
-            </Wrapper>
-        </Container>
+        <>
+            {weatherDataFromRedux ? <Container themestyles={themeContext.themeStyles}>
+                <Wrapper>
+                    <TemperatureBlock weatherData={weatherDataFromRedux} />
+                    <StyledLink themestyles={themeContext.themeStyles} to={'/weather'}>
+                        <DetailsBlock weatherData={weatherDataFromRedux} />
+                        <Location weatherData={weatherDataFromRedux} />
+                        <DateInformation weatherData={weatherDataFromRedux} />
+                    </StyledLink>
+                </Wrapper>
+            </Container> : null}
+        </>
     )
 }
