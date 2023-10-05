@@ -1,8 +1,8 @@
-
+import { WeatherDataProps } from "../../types";
 import { Temperature } from "./components/temperature/temperature";
 import { Container, WeatherIconInner } from "./styledTemperatureBlock";
 
-export const TemperatureBlock: React.FC<any> = ({ weatherData }) => {
+export const TemperatureBlock: React.FC<WeatherDataProps> = ({ weatherData }) => {
     return (
         <Container>
             <WeatherIconInner>

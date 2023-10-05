@@ -16,7 +16,7 @@ export const Temperature: React.FC<WeatherDataProps> = ({weatherData}) => {
     return (
         <Wrapper>
             <TemperatureText>
-                {degrees === 'celcius' ? weatherData?.current.temp_c : weatherData?.current.temp_f}
+                {degrees === 'celcius' ? weatherData && Math.ceil(weatherData?.current.temp_c) : weatherData && Math.ceil(weatherData?.current.temp_f)}
             </TemperatureText>
             <InnerBtns>
                 <CelciusBtn 

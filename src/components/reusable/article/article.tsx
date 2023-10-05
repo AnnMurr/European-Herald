@@ -37,21 +37,18 @@ export const Article = () => {
     }
   }, [articlename, dataCardsFromRedux])
 
-  console.log('article', dataCardsFromRedux)
-
   return (
     <Container>
-      {card && !isLoading ? <Wrapper>
-        <Title dataCard={card} />
-        <Image dataCard={card} />
-        <InnerDateTabs>
-          <Date dataCard={card} />
-          <BookmarksBtn dataCard={card} />
-        </InnerDateTabs>
-        <Text dataCard={card} />
-      </Wrapper> : <Spinner />}
+      {card && !isLoading ?
+        <Wrapper>
+          <Title dataCard={card} />
+          <Image dataCard={card} />
+          <InnerDateTabs>
+            <Date dataCard={card} />
+            <BookmarksBtn dataCard={card} />
+          </InnerDateTabs>
+          <Text dataCard={card} />
+        </Wrapper> : <Spinner />}
     </Container>
   )
 }
-
-

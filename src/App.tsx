@@ -28,7 +28,6 @@ function App() {
     categories.forEach(category => dispatch(fetchCategoryNewsBlocks(category)))
   }, [])
 
-  console.log('app', dataCardsFromRedux)
 
   return (
     <AuthorizedContextProvider>

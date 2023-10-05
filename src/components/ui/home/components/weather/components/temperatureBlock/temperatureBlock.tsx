@@ -6,7 +6,7 @@ export const TemperatureBlock: React.FC<WeatherDataProps> = ({ weatherData }) =>
     return (
         <Container>
             <WeatherIconInner>
-                <img src={weatherData?.current.condition.icon} alt="wether icon" />
+                <img src={weatherData?.current.condition.icon} alt="weather icon" />
             </WeatherIconInner>
             <Temperature weatherData={weatherData} />
         </Container>
