@@ -3,15 +3,19 @@ import { TemperatureBlock } from "./components/temperatureBlock/temperatureBlock
 import { Container, Inner, Wrapper, CardsWrapper } from "./styledWeatherPage";
 import { Location } from "./components/location/location";
 import { v4 as uuidv4 } from "uuid";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { geForecasttWeather } from "../../../redux/reducers/weatherReducer/weatherReducer";
 import { ForecastCards } from "./components/forecastCards/forecastCards";
 import { DetailsBlock } from "./components/detailsBlock/detailsBlock";
 import { GoBackBtn } from "../../reusable/backBtn/backBtn";
+import { ThemeContextType } from "../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../contexts/themeContext/themeContext";
+import { Spinner } from "../../reusable/spinner/spinner";
 
 export const WeatherPage = () => {
-    const weatherDataFromRedux = useAppSelector(state => state.weather.weatherData)
-    const weatherForecastDataFromRedux = useAppSelector(state => state.weather.forecastData)
+    const { weatherData, forecastData, loading } = useAppSelector(state => state.weather)
+
+    const themeContext: ThemeContextType = useContext(ThemeContext)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -29,20 +33,20 @@ export const WeatherPage = () => {
         }
     }, [])
 
-    console.log('weatherForecastDataFromRedux', weatherForecastDataFromRedux)
     return (
         <Container>
             <Wrapper>
-            <GoBackBtn />
-                <Inner>
-                
-                    <Location weatherData={weatherDataFromRedux} />
-                    <TemperatureBlock weatherData={weatherDataFromRedux} />
-                    <DetailsBlock weatherData={weatherDataFromRedux} />
-                    <CardsWrapper>
-                        {weatherForecastDataFromRedux ? weatherForecastDataFromRedux.map((item: any) => <ForecastCards key={uuidv4()} forecastData={item} />) : null}
-                    </CardsWrapper>
-                </Inner>
+                <GoBackBtn />
+                {loading ?
+                    <Spinner /> :
+                    <Inner>
+                        <Location weatherData={weatherData} />
+                        <TemperatureBlock weatherData={weatherData} />
+                        <DetailsBlock weatherData={weatherData} />
+                        <CardsWrapper themestyles={themeContext.themeStyles}>
+                            {forecastData ? forecastData.map((item) => <ForecastCards key={uuidv4()} forecastData={item} />) : null}
+                        </CardsWrapper>
+                    </Inner>}
             </Wrapper>
         </Container>
     )

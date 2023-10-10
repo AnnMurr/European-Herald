@@ -9,4 +9,8 @@ export const Container = styled.div`
 
 export const WeatherIconInner = styled.div`
     width: 150px;
+
+     @media screen and (max-width: 768px) {
+        width: 80px;
+    }   
 `

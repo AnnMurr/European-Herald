@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Theme } from "../../../../../../../contexts/themeContext/types";
+import { Theme, ThemeStyledProps } from "../../../../../../../contexts/themeContext/types";
 import { DegreesType } from "../../../../types";
 
 interface DegreesBtnProps {
@@ -17,11 +17,12 @@ export const InnerBtns = styled.div`
     justify-content: space-between;
 `
 
-export const TemperatureText = styled.span`
+export const TemperatureText = styled.span<ThemeStyledProps>`
     font-size: 200px;
+    color: ${({ themestyles }) => themestyles.color};
 
-    @media screen and (max-width: 576px) {
-        font-size: 30px;
+    @media screen and (max-width: 768px) {
+        font-size: 100px;
     }
 `
 
@@ -32,6 +33,12 @@ export const CelciusBtn = styled.button<DegreesBtnProps>`
     font-size: 50px;
     border-right:${({ themestyles }) => `1px solid ${themestyles.color}` };
     padding: 0 20px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 28px;
+        line-height: 30px;
+        padding: 0 10px;
+    }   
 `
 
 export const FahrenheitBtn = styled.button<DegreesBtnProps>`
@@ -41,4 +48,10 @@ export const FahrenheitBtn = styled.button<DegreesBtnProps>`
     font-weight: 700;
     font-size: 50px;
     padding: 0 20px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 28px;
+        line-height: 30px;
+        padding: 0 10px;
+    }   
 `

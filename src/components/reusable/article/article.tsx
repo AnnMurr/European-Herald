@@ -7,6 +7,7 @@ import { FoundCardType } from "./types";
 import { Title, Image, Text, Date } from ".";
 import { CardType } from "../../../redux/reducers/types";
 import { BookmarksBtn } from "./components/bookmarksBtn/bookmarksBtn";
+import { GoBackBtn } from "../backBtn/backBtn";
 
 export const Article = () => {
   const { articlename } = useParams()
@@ -39,6 +40,7 @@ export const Article = () => {
 
   return (
     <Container>
+      <GoBackBtn />
       {card && !isLoading ?
         <Wrapper>
           <Title dataCard={card} />

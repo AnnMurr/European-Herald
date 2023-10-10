@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ThemeStyledProps } from "../../../contexts/themeContext/types";
 
 export const Container = styled.div`
     padding: 0 15px;
@@ -19,9 +20,13 @@ export const Inner = styled.div`
     padding: 50px;
 `
 
-export const CardsWrapper = styled.div`
+export const CardsWrapper = styled.div<ThemeStyledProps>`
     display: flex;
     justify-content: space-between;
-    background-color: #f2f2f2;
+    background-color: ${({ themestyles }) => themestyles.backgroundSettingsForm};
     margin-top: 30px;
+
+    @media screen and (max-width: 576px) {
+        display: block;
+    }   
 `

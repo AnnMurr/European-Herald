@@ -148,7 +148,7 @@ export const cardsSlice = createSlice({
             })
             .addCase(fetchCards.rejected, (state, action) => {
                 state.loading = false
-                state.error = action.payload as string | null;
+                state.error = action.payload as string
             })
 
             .addCase(fetchCategoryNews.pending, (state) => {

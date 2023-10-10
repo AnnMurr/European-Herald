@@ -13,7 +13,7 @@ export const Temperature: React.FC<WeatherDataProps> = ({ weatherData }) => {
 
     return (
         <Wrapper>
-            <TemperatureText>
+            <TemperatureText themestyles={themeContext.themeStyles}>
                 {degrees === 'celcius' ?
                     weatherData && Math.ceil(weatherData?.current.temp_c) :
                     weatherData && Math.ceil(weatherData?.current.temp_f)}

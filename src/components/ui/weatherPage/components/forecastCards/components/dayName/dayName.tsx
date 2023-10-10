@@ -9,7 +9,7 @@ export const DayName: React.FC<ForecastDataProps> = ({ forecastData }) => {
 
     return (
         <Wrapper>
-            <Day>{today === weekday ? 'Today' : weekday}</Day>
+            <Day>{today === weekday ? 'Today' : weekday?.slice(0, 3)}</Day>
         </Wrapper>
     )
 }

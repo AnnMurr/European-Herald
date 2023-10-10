@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
 import { fetchCards, fetchCategoryNewsBlocks } from './redux/reducers/cardsReducer';
-import { useAppDispatch, useAppSelector } from './redux/store/store';
+import { useAppDispatch } from './redux/store/store';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
 import { About, Article, Body, Contact, ErrorPage, FilteredCategory, Footer, Header, Home, Login, PasswordRecovery, PrivacyPolicy, Registration, SearchPage } from './components';
@@ -16,18 +16,18 @@ import { Bookmarks } from './components/ui/bookmarks/bookmarks';
 import { UserSettings } from './components/ui/userSettings/userSettings';
 import { CheckAuthorization, CheckNotAuthorized } from './contexts/authorizedContext/isAuthorized';
 import { WeatherPage } from './components/ui/weatherPage/weatherPage';
+import { getWetherData } from './redux/reducers/weatherReducer/weatherReducer';
 
 function App() {
   const dispatch = useAppDispatch()
   const categories = ['Business', 'Arts', 'Health', 'Sports']
-  const dataCardsFromRedux = useAppSelector((state) => state.newsCards)
 
   useEffect(() => {
     dispatch(fetchCards())
     dispatch(getUserByToken())
+    dispatch(getWetherData())
     categories.forEach(category => dispatch(fetchCategoryNewsBlocks(category)))
   }, [])
-
 
   return (
     <AuthorizedContextProvider>
