@@ -12,14 +12,12 @@ export const NewsCard: React.FC<NewsCardProps> = ({ cardClass, type, dataCard })
 
     const contentAnimation = {
         hidden: {
-            y: 200,
             opacity: 0,
         },
         visible: ({
-            y: 0,
             opacity: 1,
             transition: {
-                duration: 0.5,
+                duration: 1,
                 ease: "easeOut",
             },
 

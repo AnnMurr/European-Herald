@@ -28,7 +28,7 @@ export const fetchCards = createAsyncThunk(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
+                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
             })
            
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -55,7 +55,7 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
+                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -82,7 +82,7 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '6e89ac52-4f1e-471d-b607-63e85ec405d2',
+                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)

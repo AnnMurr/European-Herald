@@ -15,7 +15,7 @@ export const Weather = () => {
 
     const contentAnimation = {
         hidden: {
-            y: 200,
+            y: 100,
             opacity: 0,
         },
         visible: ({
@@ -25,7 +25,6 @@ export const Weather = () => {
                 duration: 0.5,
                 ease: "easeOut",
             },
-
         })
     }
 

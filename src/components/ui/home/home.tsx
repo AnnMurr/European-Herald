@@ -13,6 +13,7 @@ export const Home = () => {
     return (
         <Container>
             <Wrapper>
+            
                 <DailyNews cards={firstSixthCards} />
                 <CategoryBlock />
                 <Weather />

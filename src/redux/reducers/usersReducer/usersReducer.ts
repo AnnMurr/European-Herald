@@ -59,7 +59,7 @@ export const createUser = createAsyncThunk<void, UserDataFromRegistrationForm>(
             if (request.status === 201) {
                 showToastMessage({ type: 'success', text: 'Registration completed successfully' })
                 dispatch(setUserData(userPostData))
-                setToken(token.split(' ')[1])
+                setToken('token', token.split(' ')[1])
                 return request.data
             } else {
                 showToastMessage({ type: 'error', text: 'Error creating user' })
@@ -77,7 +77,7 @@ export const getUserByToken = createAsyncThunk(
     async (_, { dispatch, rejectWithValue }) => {
         try {
             const response = await usersApi.get('users')
-            const token = `Bearer ${decryptData(getToken()!)}`
+            const token = `Bearer ${decryptData(getToken('token')!)}`
             const data = response.data.filter((element: UserDataType) => element.token === token)
 
             if (data) {
@@ -115,7 +115,7 @@ export const fetchSignIn = createAsyncThunk<boolean, UserLogInData>(
             if (userData[0]) {
                 if (userData[0].password === userLogInData.password) {
                     dispatch(setUserData(userData[0]))
-                    setToken(userData[0].token.split(' ')[1])
+                    setToken('token', userData[0].token.split(' ')[1])
                     showToastMessage({ type: 'success', text: 'You are logged into your account' })
                     return true
                 } else {

@@ -8,6 +8,7 @@ export const BlockWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 10px;
+    min-height: 10em;
 `
 
 export const TitleNewsBlockText = styled.h4`

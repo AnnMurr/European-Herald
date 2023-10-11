@@ -1,11 +1,13 @@
-import { encryptData } from "../../../utils/encryption/encryption"
+import { encryptData } from "../../../utils/encryption/encryption";
 
-export const getToken = () => {
-    return localStorage.getItem('token')
+type SetTokenType = (key: string, value: string) => void
+
+export const getToken = (key: string) => {
+    return localStorage.getItem(key)
  }
 
-export const setToken = (token: string) => {
-    localStorage.setItem('token', encryptData(token))
+export const setToken: SetTokenType = (key, value) => {
+    localStorage.setItem(key, encryptData(value))
 }
 
 export const deleteToken = () => {

@@ -16,7 +16,7 @@ const initialAuthorizedContext: AuthorizedContextType = {
 export const AuthorizedContext = createContext<AuthorizedContextType>(initialAuthorizedContext)
 
 export const AuthorizedContextProvider = ({ children }: any) => {
-    const [isAuthorized, setIsAuthorized] = useState(!!getToken())
+    const [isAuthorized, setIsAuthorized] = useState(!!getToken('token'))
 
     const logIn = () => setIsAuthorized(true)
     const logOut = () => setIsAuthorized(false)
