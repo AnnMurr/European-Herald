@@ -11,16 +11,16 @@ interface BlockProps {
     name: string
 }
 
-export const Block = ({name , filteredCards}: BlockProps) => {
+export const Block = ({ name, filteredCards }: BlockProps) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)
-    
+
     return (
         <>
             <StyledLink themestyles={themeContext.themeStyles} to={`/category/${name}`}>
                 <TitleNewsBlockText>{name}</TitleNewsBlockText>
             </StyledLink>
             <BlockWrapper>
-                {filteredCards.map((item, index) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
+                {filteredCards.map((item) => <NewsCard type={'smallCard'} key={uuidv4()} dataCard={item} />)}
             </BlockWrapper>
         </>
     )
