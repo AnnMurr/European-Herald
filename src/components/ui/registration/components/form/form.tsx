@@ -84,7 +84,7 @@ export const Form = () => {
           placeholder="Your name"
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
           error={!!errors.name}
@@ -121,7 +121,7 @@ export const Form = () => {
           placeholder="Your last name"
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
           error={!!errors.lastName}
@@ -158,7 +158,7 @@ export const Form = () => {
           placeholder="Your email"
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
           error={!!errors.email}
@@ -190,7 +190,7 @@ export const Form = () => {
           }}
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
         />
@@ -221,7 +221,7 @@ export const Form = () => {
           placeholder="Your password"
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
           error={!!errors.password}
@@ -261,7 +261,7 @@ export const Form = () => {
           placeholder="Repeat your password"
           sx={{
             margin: "5px 0",
-            backgroundColor: "#dfdcdc",
+            backgroundColor: "#fff",
             borderRadius: "5px",
           }}
           error={!!errors.repeatPassword}
