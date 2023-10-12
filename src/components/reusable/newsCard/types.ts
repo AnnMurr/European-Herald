@@ -1,5 +1,5 @@
-import { Theme, ThemeType } from "../../../contexts/themeContext/types"
-import { CardType } from "../../../redux/reducers/types"
+import { Theme, ThemeType } from "../../../contexts/themeContext/types";
+import { CardType } from "../../../redux/reducers/types";
 
 export interface NewsCardProps {
     type: string,
