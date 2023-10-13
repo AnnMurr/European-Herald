@@ -4,7 +4,7 @@ import { BtnShowPassword, Label, StarMessage } from "./styledForm";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { TogglePasswordType, inputPasswordType } from "../../types";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
@@ -13,6 +13,7 @@ import { createUser, getUserByEmail } from "../../../../../redux/reducers/usersR
 import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
+import { UserDataFromRegistrationForm } from "../../../../../redux/reducers/usersReducer/types";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -32,11 +33,11 @@ export const Form = () => {
     handleSubmit,
     reset,
     getValues,
-  } = useForm({
+  } = useForm<UserDataFromRegistrationForm>({
     mode: "onChange",
   })
 
-  const registrationCheck = async (data: any) => {
+  const registrationCheck = async (data: UserDataFromRegistrationForm) => {
     const isThisAccount = await dispatch(getUserByEmail(data.email))
 
     if (!isThisAccount.payload) {
@@ -49,7 +50,7 @@ export const Form = () => {
     }
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<UserDataFromRegistrationForm> = (data) => {
     registrationCheck(data)
   }
 

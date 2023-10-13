@@ -21,6 +21,7 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         const searchNews = (value = searchValue) => {
             let filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
+            .filter((it, index, array) => array.findIndex(el => it.uri === el.uri) === index)
             setFoundСards(filteredArray)
             const encryptedData = encryptData(value)
             sessionStorage.setItem('searchVal', encryptedData)

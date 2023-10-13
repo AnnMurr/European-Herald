@@ -7,6 +7,6 @@ export const axiosConfig = axios.create({
 
 
 export const usersApi = axios.create({
-    baseURL: 'https://64e8878d99cf45b15fdfb7c2.mockapi.io',
+    baseURL: 'https://65294da655b137ddc83e91cc.mockapi.io',
     headers: {'Content-Type': 'application/json'}
 })

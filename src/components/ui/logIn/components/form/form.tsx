@@ -1,7 +1,7 @@
 import { TextField, FormControl, FormHelperText } from "@mui/material";
 import { ForgotRouting } from "../forgotRouting/forgotRouting";
 import { BtnShowPassword, Label } from "./styledForm";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { useContext, useState } from "react";
 import { inputPasswordType } from "../../types";
@@ -13,6 +13,7 @@ import { useAppDispatch } from "../../../../../redux/store/store";
 import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { UserDataType } from "../../../../../redux/reducers/usersReducer/types";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -31,21 +32,21 @@ export const Form = () => {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({
+  } = useForm<UserDataType>({
     mode: "onChange",
   })
 
-  const logInCheck = async (data: any) => {
+  const logInCheck = async (data: UserDataType) => {
     const isCorrectData = await dispatch(fetchSignIn(data))
 
     if (isCorrectData.payload) {
       reset()
-      navigate('/') 
+      navigate('/')
       authorizedContext.logIn()
     }
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<UserDataType> = (data) => {
     logInCheck(data)
   }
 
