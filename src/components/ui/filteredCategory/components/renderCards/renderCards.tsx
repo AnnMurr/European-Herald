@@ -32,7 +32,7 @@ export const RenderCards = () => {
             </CardsInner>
             {cardsFromRedux.length > currentPage * visibleItemsOnpage ?
                 <BtnInner>
-                    <Button func={getMoreItems} type={'button'} text={'Lern more >>'} />
+                    <Button func={getMoreItems} type={'button'} text={'Show more ▼'} />
                 </BtnInner> :
                 null}
         </>
