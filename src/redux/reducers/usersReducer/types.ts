@@ -1,4 +1,4 @@
-import { CardType } from "../types"
+import { CardType } from "../types";
 
 export interface UserDataType {
     name: string,

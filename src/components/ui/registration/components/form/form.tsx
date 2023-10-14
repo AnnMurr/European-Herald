@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
 import { UserDataFromRegistrationForm } from "../../../../../redux/reducers/usersReducer/types";
+import { emailPattern, passwordPattern } from "../../../../../store/consts/patterns/patterns";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -145,7 +146,7 @@ export const Form = () => {
           {...register("email", {
             required: true,
             pattern: {
-              value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+              value: emailPattern,
               message: "Incorrectly entered e-mail",
             },
             maxLength: {
@@ -203,7 +204,7 @@ export const Form = () => {
             required: true,
             pattern: {
               value:
-                /^(?=\S*?[0-9])(?=\S*?[?!@#$%^&*])(?=\S*?[a-z-а-я])(?=\S*?[A-Zа-яА-Я])\S+$/,
+              passwordPattern,
               message:
                 "Password must contain at least one digit, one special character '!@#$%^&*', one lowercase letter, one uppercase letter, and should not contain any spaces.",
             },

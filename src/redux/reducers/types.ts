@@ -31,6 +31,7 @@ export interface InitialStateType {
     categoryHealth: Array<CardType>,
     categoryArts: Array<CardType>,
     categoryBusiness: Array<CardType>,
+    foundCards: Array<CardType>,
     loading: boolean,
     error: string | null
 }

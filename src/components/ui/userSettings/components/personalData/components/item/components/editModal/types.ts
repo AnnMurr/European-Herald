@@ -2,6 +2,7 @@ export interface SaveBtnProps {
     inputValue: string,
     closeModal: (value: boolean) => void,
     name: string,
+    setError: (value: boolean) => void
 }
 
 export interface EditModalProps {
@@ -13,7 +14,8 @@ export interface EditModalProps {
 export interface EditInputProps {
     inputValue: string,
     setInputValue: (value: string) => void,
-    name: string
+    name: string,
+    error: boolean
 }
 
 export interface CrossBtnProps {

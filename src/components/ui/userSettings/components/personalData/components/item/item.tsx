@@ -24,7 +24,6 @@ export const Item: React.FC<ItemProps> = ({ name, data }) => {
             <div>
                 <IconBtn onClickFunc={() => setIsEditModal(true)} color={themeContext.themeStyles.color} icon={faPenToSquare} size={"lg"} />
             </div>
-
             {isEditModal ? <EditModal closeModal={setIsEditModal} name={name} data={data} /> : null}
         </ItemInner>
     )

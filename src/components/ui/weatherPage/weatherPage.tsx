@@ -26,7 +26,6 @@ export const WeatherPage = () => {
                     .then(response => response.json())
                     .then(data => {
                         dispatch(geForecasttWeather(data.forecast.forecastday))
-                        console.log('DATA FORECAST', data)
                     })
                     .catch(error => { throw error })
             })

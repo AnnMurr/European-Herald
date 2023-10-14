@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Inner = styled.div`
-    margin: 10px 0px 20px 0;  
+    margin-bottom: 10px;  
 `
 
 export const Input = styled.input`
@@ -10,4 +10,14 @@ export const Input = styled.input`
     border-radius: 5px;
     background-color: #bdbaba69;
     padding: 5px;
+`
+
+export const Label = styled.label`
+    display: block;
+    padding-bottom: 5px;
+    font-size: 16px;
+
+    @media screen and (max-width: 520px) {
+        font-size: 14px;
+    }
 `

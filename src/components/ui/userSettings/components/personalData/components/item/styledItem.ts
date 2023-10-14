@@ -13,7 +13,7 @@ export const ItemInner = styled.li`
 `
 
 export const Headline = styled.h5<ThemeStyledProps>`
-   font-size: 20px;
+   font-size: 18px;
    color:${({ themestyles }) => themestyles.color};
 
    @media screen and (max-width: 520px) {

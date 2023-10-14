@@ -1,8 +1,9 @@
 import React from "react";
-import { Inner, Input } from "./styledEditInput";
+import { Inner, Label } from "./styledEditInput";
 import { EditInputProps } from "../../types";
+import { TextField } from "@mui/material";
 
-export const EditInput: React.FC<EditInputProps> = ({ inputValue, setInputValue, name }) => {
+export const EditInput: React.FC<EditInputProps> = ({ inputValue, setInputValue, name, error }) => {
     const today = new Date()
     const maxDate = new Date(today)
     maxDate.setFullYear(today.getFullYear() - 12)
@@ -11,13 +12,23 @@ export const EditInput: React.FC<EditInputProps> = ({ inputValue, setInputValue,
 
     return (
         <Inner>
-            <Input
+            <Label>{name}</Label>
+            <TextField
                 onChange={handleChange}
                 type={name === 'Birthday' ? 'date' : 'text'}
                 value={inputValue}
-                min={name === 'Birthday' ? "1900-01-01" : ''}
-                max={name === 'Birthday' ? maxDate.toISOString().split("T")[0] : ''}
-                maxLength={30}
+                size="small"
+                InputProps={{
+                    inputProps: {
+                        min: name === 'Birthday' ? '1900-01-01' : '',
+                        max: name === 'Birthday' ? maxDate.toISOString().split('T')[0] : '',
+                        maxLength: 30,
+                    },
+                }}
+                sx={{
+                    width: '100%',
+                }}
+                error={error}
             />
         </Inner>
     )

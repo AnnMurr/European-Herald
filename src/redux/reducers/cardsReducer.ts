@@ -9,6 +9,7 @@ const initialState: InitialStateType = {
     categoryHealth: [],
     categoryArts: [],
     categoryBusiness: [],
+    foundCards: [],
     loading: false,
     error: null
 }
@@ -104,6 +105,9 @@ export const cardsSlice = createSlice({
             })
             state.cards = filteredCards
         },
+        getFoundCards: (state, action: PayloadAction<Array<CardType>>) => {
+            state.foundCards = action.payload
+        },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
                 return array.findIndex((item) => item.title === card.title) === index
@@ -178,4 +182,4 @@ export const cardsSlice = createSlice({
 
 export const cardsDataReducer = cardsSlice.reducer
 
-export const { getCards, getFilteredCards, getFilteredCategoryForBlocks, pushCards } = cardsSlice.actions
+export const { getCards, getFilteredCards, getFilteredCategoryForBlocks, getFoundCards, pushCards } = cardsSlice.actions

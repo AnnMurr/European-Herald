@@ -3,12 +3,11 @@ import React, { useState } from "react";
 export const LinkContext = React.createContext({});
 
 interface LinkContextProviderProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
-
 export interface LinkContextType {
-  hideContent?: boolean;
-  checkLink?: (value: string | null) => void;
+  hideContent?: boolean,
+  checkLink?: (value: string | null) => void
 }
 
 export const LinkContextProvider: React.FC<LinkContextProviderProps> = ({

@@ -19,7 +19,6 @@ export const Form = () => {
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
     reset();
   };
 

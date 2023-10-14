@@ -10,4 +10,10 @@ export const Container = styled.div`
     margin-left: -150px;
     top: 50%;
     margin-top: -160px;
+
+    @media screen and (max-width: 520px) {
+        max-width: 200px;
+        margin-left: -100px;
+        padding: 15px;
+    }
 `
