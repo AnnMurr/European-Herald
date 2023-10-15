@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../../../redux/store/store";
 import { Input, Label } from "./styledInput";
 import { Button as MuiButton } from "@mui/material";
@@ -7,7 +7,8 @@ import { decryptData, encryptData } from "../../../../../utils/encryption/encryp
 
 
 export const SearchInput: React.FC<SearchInputProps> =
-    ({ setFoundСards, searchValueOfHeaderInput, searchValue, setSearchValue }) => {
+    ({ setFoundСards, searchValueOfHeaderInput, setSearchValue }) => {
+        const [inputValue, setInputValue] = useState<string>('')
         const dataFromRedux = useAppSelector((state) => state.newsCards)
         const cards = [...dataFromRedux.cards,
         ...dataFromRedux.categoryArts,
@@ -17,9 +18,10 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         const handleKeyPress = (event: React.KeyboardEvent) => event.key === 'Enter' && searchNews()
 
-        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)
+        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.target.value)
 
-        const searchNews = (value = searchValue) => {
+        const searchNews = (value = inputValue) => {
+            setSearchValue(inputValue)
             let filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
             .filter((it, index, array) => array.findIndex(el => it.uri === el.uri) === index)
             setFoundСards(filteredArray)
@@ -28,20 +30,18 @@ export const SearchInput: React.FC<SearchInputProps> =
         }
 
         useEffect(() => {
-            searchValueOfHeaderInput && setSearchValue(searchValueOfHeaderInput)
+            searchValueOfHeaderInput && setInputValue(searchValueOfHeaderInput)
         }, [searchValueOfHeaderInput])
 
         useEffect(() => {
-            searchValue === searchValueOfHeaderInput && searchNews()
-        }, [searchValue])
+            inputValue === searchValueOfHeaderInput && searchNews()
+        }, [inputValue])
 
         useEffect(() => {
-            if (!searchValueOfHeaderInput) {
                 const encryptedData = sessionStorage.getItem('searchVal')
                 const decryptedData = encryptedData && decryptData(encryptedData)
-                decryptedData && setSearchValue(decryptedData)
+                decryptedData && setInputValue(decryptedData)
                 decryptedData && searchNews(decryptedData)
-            }
         }, [])
 
         return (
@@ -52,7 +52,7 @@ export const SearchInput: React.FC<SearchInputProps> =
                         onChange={handleChange}
                         type="search"
                         onKeyDown={handleKeyPress}
-                        value={searchValue} />
+                        value={inputValue} />
                     <MuiButton
                         sx={{
                             position: 'absolute',
