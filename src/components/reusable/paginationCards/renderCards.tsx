@@ -1,13 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { useAppSelector } from "../../../../../redux/store/store";
-import { CardType } from "../../../../../redux/reducers/types";
-import { Button } from "../../../../reusable/button/button";
-import { NewsCard } from "../../../../reusable/newsCard/newsСard";
 import { BtnInner, CardsInner } from "./styledRenderCards";
 import { v4 as uuidv4 } from 'uuid';
+import { useAppSelector } from "../../../redux/store/store";
+import { CardType } from "../../../redux/reducers/types";
+import { NewsCard } from "../newsCard/newsСard";
+import { Button } from "../button/button";
 
-export const RenderCards = () => {
-    const cardsFromRedux = useAppSelector((state) => state.newsCards.filteredCards)
+interface RenderCardsProps {
+    type: string,
+    dataCards: CardType[]
+}
+
+export const RenderCards: React.FC<RenderCardsProps> = ({type, dataCards}) => {
+    const filteredCards = useAppSelector((state) => state.newsCards.filteredCards)
+    const cardsFromRedux = type === 'foundСards' ? dataCards : filteredCards 
     const visibleItemsOnpage = 10
     const [currentPage, setCurrentPage] = useState(1)
     const [cards, setCards] = useState<Array<CardType>>([])
