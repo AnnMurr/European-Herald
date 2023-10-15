@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Container, Wrapper } from "./styledfFlteredCategory";
-import { fetchCategoryNews } from "../../../redux/reducers/cardsReducer";
+import { fetchCategoryNews } from "../../../redux/reducers/cardsReducer/cardsReducer";
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store";
 import { useParams } from "react-router-dom";
 import { Spinner } from "../../reusable/spinner/spinner";

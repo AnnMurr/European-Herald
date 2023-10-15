@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { BtnInner, CardsInner } from "./styledRenderCards";
 import { v4 as uuidv4 } from 'uuid';
 import { useAppSelector } from "../../../redux/store/store";
-import { CardType } from "../../../redux/reducers/types";
+import { CardType } from "../../../redux/reducers/cardsReducer/types";
 import { NewsCard } from "../newsCard/newsСard";
 import { Button } from "../button/button";
 

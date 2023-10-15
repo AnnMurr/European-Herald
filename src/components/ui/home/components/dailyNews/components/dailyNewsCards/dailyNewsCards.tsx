@@ -1,4 +1,4 @@
-import { CardType } from "../../../../../../../redux/reducers/types";
+import { CardType } from "../../../../../../../redux/reducers/cardsReducer/types";
 import { v4 as uuidv4 } from 'uuid';
 import { NewsCard } from "../../../../../../reusable/newsCard/newsСard";
 

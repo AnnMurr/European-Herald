@@ -1,5 +1,4 @@
 import { TextField, FormControl, FormHelperText } from "@mui/material";
-import { ForgotRouting } from "../forgotRouting/forgotRouting";
 import { BtnShowPassword, Label } from "./styledForm";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
@@ -14,7 +13,7 @@ import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersRed
 import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { UserDataType } from "../../../../../redux/reducers/usersReducer/types";
-import { emailPattern } from "../../../../../store/consts/patterns/patterns";
+import { emailPattern } from "../../../../../consts/patterns/patterns";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -120,7 +119,6 @@ export const Form = () => {
           />
         </BtnShowPassword>
       </Label>
-      <ForgotRouting />
       <Button type={'submit'} text={'Sign In'} style={{ margin: "30px 0 20px 0" }} />
     </FormControl>
   )

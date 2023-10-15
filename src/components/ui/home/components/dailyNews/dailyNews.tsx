@@ -1,4 +1,4 @@
-import { CardType } from "../../../../../redux/reducers/types";
+import { CardType } from "../../../../../redux/reducers/cardsReducer/types";
 import { useAppSelector } from "../../../../../redux/store/store";
 import { Spinner } from "../../../../reusable/spinner/spinner";
 import { Title } from "./components/title/title";

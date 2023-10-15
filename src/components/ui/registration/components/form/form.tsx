@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
 import { UserDataFromRegistrationForm } from "../../../../../redux/reducers/usersReducer/types";
-import { emailPattern, passwordPattern } from "../../../../../store/consts/patterns/patterns";
+import { emailPattern, passwordPattern } from "../../../../../consts/patterns/patterns";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")

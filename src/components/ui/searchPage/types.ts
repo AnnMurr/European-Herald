@@ -1,4 +1,4 @@
-import { CardType } from "../../../redux/reducers/types";
+import { CardType } from "../../../redux/reducers/cardsReducer/types";
 
 export interface TextProps {
     text: string

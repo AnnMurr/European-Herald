@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CardType } from "../../../../../redux/reducers/types";
+import { CardType } from "../../../../../redux/reducers/cardsReducer/types";
 import { NewsCard } from "../../../../reusable/newsCard/newsСard";
 import { Block, TitleText } from "./styledVariousNews";
 import { v4 as uuidv4 } from "uuid";

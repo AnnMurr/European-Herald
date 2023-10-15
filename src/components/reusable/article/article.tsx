@@ -4,9 +4,8 @@ import { useAppSelector } from "../../../redux/store/store";
 import { useEffect, useState } from "react";
 import { Spinner } from "../spinner/spinner";
 import { FoundCardType } from "./types";
-import { Title, Image, Text, Date } from ".";
-import { CardType } from "../../../redux/reducers/types";
-import { BookmarksBtn } from "./components/bookmarksBtn/bookmarksBtn";
+import { Title, Image, Text, Date, BookmarksBtn } from ".";
+import { CardType } from "../../../redux/reducers/cardsReducer/types";
 import { GoBackBtn } from "../backBtn/backBtn";
 
 export const Article = () => {

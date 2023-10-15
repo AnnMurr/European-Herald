@@ -4,7 +4,7 @@ import { Text } from "./components/text/text";
 import { NewsCard } from "../../reusable/newsCard/newsСard";
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react';
-import { pushCards } from "../../../redux/reducers/cardsReducer";
+import { pushCards } from "../../../redux/reducers/cardsReducer/cardsReducer";
 import { Title } from "./components/title/title";
 
 export const Bookmarks = () => {

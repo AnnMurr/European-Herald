@@ -1,16 +1,13 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store";
-import { TemperatureBlock } from "./components/temperatureBlock/temperatureBlock";
 import { Container, Inner, Wrapper, CardsWrapper } from "./styledWeatherPage";
-import { Location } from "./components/location/location";
 import { v4 as uuidv4 } from "uuid";
 import { useContext, useEffect } from "react";
 import { geForecasttWeather } from "../../../redux/reducers/weatherReducer/weatherReducer";
-import { ForecastCards } from "./components/forecastCards/forecastCards";
-import { DetailsBlock } from "./components/detailsBlock/detailsBlock";
 import { GoBackBtn } from "../../reusable/backBtn/backBtn";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 import { Spinner } from "../../reusable/spinner/spinner";
+import { DetailsBlock, ForecastCards, TemperatureBlock, Location } from ".";
 
 export const WeatherPage = () => {
     const { weatherData, forecastData, loading } = useAppSelector(state => state.weather)

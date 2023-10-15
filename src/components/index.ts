@@ -1,4 +1,3 @@
-export { PasswordRecovery } from '../components/ui/passwordRecovery/passwordRecovery';
 export { Footer } from '../components/shared/footer/footer';
 export { Contact } from '../components/ui/contact/contact';
 export { PrivacyPolicy } from '../components/ui/privacyPolicy/privacyPolicy';

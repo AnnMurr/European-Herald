@@ -1,5 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { axiosConfig } from "../../api/axiosConfig";
+import { axiosConfig } from "../../../api/axiosConfig";
 import { CardType, InitialStateType } from "./types";
 
 const initialState: InitialStateType = {

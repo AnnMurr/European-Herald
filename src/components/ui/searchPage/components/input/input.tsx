@@ -4,7 +4,7 @@ import { Input, Label } from "./styledInput";
 import { Button as MuiButton } from "@mui/material";
 import { SearchInputProps } from "../../types";
 import { decryptData, encryptData } from "../../../../../utils/encryption/encryption";
-import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer";
+import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
 
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, setSearchValue }) => {

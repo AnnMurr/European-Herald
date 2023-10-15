@@ -6,7 +6,7 @@ import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../../../redux/store/store";
-import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer";
+import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
 
 export const Search = () => {
     const [searchValue, setSearchValue] = useState<string>('')

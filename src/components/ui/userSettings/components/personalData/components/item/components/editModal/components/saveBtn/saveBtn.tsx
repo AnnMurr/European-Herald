@@ -4,7 +4,7 @@ import { Inner } from "./styledSaveBtn";
 import { changeUserData } from "../../../../../../../../../../../redux/reducers/usersReducer/usersReducer";
 import { SaveBtnProps } from "../../types";
 import { UserDataType } from "../../../../../../../../../../../redux/reducers/usersReducer/types";
-import { emailPattern } from "../../../../../../../../../../../store/consts/patterns/patterns";
+import { emailPattern } from "../../../../../../../../../../../consts/patterns/patterns";
 
 export const SaveBtn: React.FC<SaveBtnProps> = ({ inputValue, closeModal, name, setError }) => {
     const dispatch = useAppDispatch()

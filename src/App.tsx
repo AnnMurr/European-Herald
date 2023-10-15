@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LinkContextProvider } from './contexts/linkContext/linkContext';
-import { fetchCards, fetchCategoryNewsBlocks } from './redux/reducers/cardsReducer';
+import { fetchCards, fetchCategoryNewsBlocks } from './redux/reducers/cardsReducer/cardsReducer';
 import { useAppDispatch } from './redux/store/store';
 import { ThemeContextProvider } from './contexts/themeContext/themeContext';
 import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
-import { About, Article, Body, Contact, ErrorPage, FilteredCategory, Footer, Header, Home, Login, PasswordRecovery, PrivacyPolicy, Registration, SearchPage } from './components';
+import { About, Article, Body, Contact, ErrorPage, FilteredCategory, Footer, Header, Home, Login, PrivacyPolicy, Registration, SearchPage } from './components';
 import './utils/browserRefresh/browserRefresh';
 import './assets/styles/fonts.css';
 import './assets/styles/reset.css';
@@ -39,7 +39,6 @@ function App() {
               <Header />
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/passwordrecovery' element={<PasswordRecovery />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/privacy-policy' element={<PrivacyPolicy />} />
                 <Route path='/about' element={<About />} />
