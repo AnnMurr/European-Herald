@@ -10,8 +10,9 @@ const initialState: InitialStateType = {
     categoryArts: [],
     categoryBusiness: [],
     foundCards: [],
+    searchValueOfHeaderInput: null,
     loading: false,
-    error: null
+    error: null,
 }
 
 export const fetchCards = createAsyncThunk(
@@ -108,6 +109,9 @@ export const cardsSlice = createSlice({
         getFoundCards: (state, action: PayloadAction<Array<CardType>>) => {
             state.foundCards = action.payload
         },
+        getSearchValueOfHeaderInput: (state, action: PayloadAction<string | null>) => {
+            state.searchValueOfHeaderInput = action.payload
+        },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
                 return array.findIndex((item) => item.title === card.title) === index
@@ -182,4 +186,4 @@ export const cardsSlice = createSlice({
 
 export const cardsDataReducer = cardsSlice.reducer
 
-export const { getCards, getFilteredCards, getFilteredCategoryForBlocks, getFoundCards, pushCards } = cardsSlice.actions
+export const { getCards, getSearchValueOfHeaderInput, getFilteredCards, getFilteredCategoryForBlocks, getFoundCards, pushCards } = cardsSlice.actions

@@ -5,11 +5,14 @@ import { useContext, useState } from "react";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../../../redux/store/store";
+import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer";
 
 export const Search = () => {
     const [searchValue, setSearchValue] = useState<string>('')
     const themeContext = useContext<ThemeContextType>(ThemeContext)
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)
 
@@ -17,7 +20,8 @@ export const Search = () => {
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            navigate('/search', { state: searchValue })
+            dispatch(getSearchValueOfHeaderInput(searchValue))
+            navigate('/search')
             resetInputValue()
         }
     }

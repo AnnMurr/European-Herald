@@ -33,5 +33,6 @@ export interface InitialStateType {
     categoryBusiness: Array<CardType>,
     foundCards: Array<CardType>,
     loading: boolean,
-    error: string | null
+    error: string | null,
+    searchValueOfHeaderInput: string | null,
 }
