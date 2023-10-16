@@ -8,7 +8,7 @@ import { RenderCards } from "../../reusable/paginationCards/renderCards";
 
 export const FilteredCategory = () => {
     const { categoryname } = useParams()
-    const filteredCards = useAppSelector((state) => state.newsCards.filteredCards)
+    
     const category = categoryname && categoryname.charAt(0).toUpperCase() + categoryname.slice(1)
     const isLoading = useAppSelector((state) => state.newsCards.loading)
     const dispatch = useAppDispatch()
@@ -22,7 +22,7 @@ export const FilteredCategory = () => {
             <Wrapper>
                 {isLoading ?
                     <Spinner /> :
-                    <RenderCards type={'filteredCards'} dataCards={filteredCards} />}
+                    <RenderCards type={'filteredCards'} />}
             </Wrapper>
         </Container >
     )

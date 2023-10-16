@@ -4,7 +4,7 @@ import { Input, Label } from "./styledInput";
 import { Button as MuiButton } from "@mui/material";
 import { SearchInputProps } from "../../types";
 import { decryptData, encryptData } from "../../../../../utils/encryption/encryption";
-import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
+import { getFoundCards, getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
 
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, setSearchValue }) => {
@@ -17,16 +17,17 @@ export const SearchInput: React.FC<SearchInputProps> =
         ...dataFromRedux.categoryBusiness,
         ...dataFromRedux.categoryHealth,
         ...dataFromRedux.categorySports]
-
+            
         const handleKeyPress = (event: React.KeyboardEvent) => event.key === 'Enter' && searchNews()
 
         const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.target.value)
 
         const searchNews = (value = inputValue) => {
             setSearchValue(inputValue)
-            let filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
+            const filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
                 .filter((it, index, array) => array.findIndex(el => it.uri === el.uri) === index)
-            setFoundСards(filteredArray)
+                dispatch(getFoundCards(filteredArray))
+                setFoundСards(filteredArray)
             const encryptedData = encryptData(value)
             sessionStorage.setItem('searchVal', encryptedData)
         }
