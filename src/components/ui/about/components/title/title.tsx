@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { TitleInner, TitleText } from "./styledTitle";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { TitleInner, TitleText } from "./styledTitle";
 
 interface TitleProps {
     text: string

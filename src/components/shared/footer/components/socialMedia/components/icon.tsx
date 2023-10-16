@@ -1,9 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Item, Link } from "./styledIcon";
-import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 import { ThemeContextType } from "../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../contexts/themeContext/themeContext";
+
+import { Item, Link } from "./styledIcon";
 interface IconProps {
     icon: IconDefinition
 }

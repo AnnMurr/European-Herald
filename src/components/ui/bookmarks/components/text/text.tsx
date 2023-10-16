@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { Container, Span } from "./styledText";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { Container, Span } from "./styledText";
 
 export const Text = () => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

@@ -1,10 +1,12 @@
-import { BurgerInner } from "./styledBurger";
+import { useContext } from "react";
+
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
-import { useContext } from "react";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { BurgerProps } from "../../types";
+
+import { BurgerInner } from "./styledBurger";
 
 export const Burger: React.FC<BurgerProps> = ({setIsSubBarActive, burgerBtnRef}) => {
     const toggleSubBar = () => setIsSubBarActive((prev: boolean) => !prev)

@@ -1,8 +1,10 @@
 import { useContext } from "react";
+
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { TextProps } from "../../../../types";
-import { Span, Container } from "./styledText";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
+
+import { Span, Container } from "./styledText";
 
 export const Text: React.FC<TextProps> = ({ text }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)

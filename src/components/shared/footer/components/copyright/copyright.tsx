@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { Span } from "./styledCopyright";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { Span } from "./styledCopyright";
 
 export const Copyright = () => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

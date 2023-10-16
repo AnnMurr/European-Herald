@@ -1,16 +1,18 @@
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
 import { IconBtn } from "../../../iconBtn/iconBtn";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark as faBookmarkSolid } from "@fortawesome/free-solid-svg-icons";
-import { Inner } from "./styledBookmarksBtn";
-import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
 import { changeUserData } from "../../../../../redux/reducers/usersReducer/usersReducer";
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { BookmarksBtnProps } from "../../types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
+
+import { Inner } from "./styledBookmarksBtn";
 
 export const BookmarksBtn: React.FC<BookmarksBtnProps> = ({ dataCard }) => {
     const dispatch = useAppDispatch()

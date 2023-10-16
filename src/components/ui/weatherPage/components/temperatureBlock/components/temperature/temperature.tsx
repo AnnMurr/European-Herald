@@ -1,8 +1,10 @@
+import { useContext, useState } from 'react';
+
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { DegreesType, WeatherDataProps } from "../../../../types";
+
 import { CelciusBtn, TemperatureText, Wrapper, FahrenheitBtn, InnerBtns } from "./styledTemperature";
-import { useContext, useState } from 'react';
 
 export const Temperature: React.FC<WeatherDataProps> = ({ weatherData }) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

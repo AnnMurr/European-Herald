@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { StyledLink, Wrap } from "./styledLink";
+
 import { ThemeContextType } from "../../../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../../../contexts/themeContext/themeContext";
 
+import { StyledLink, Wrap } from "./styledLink";
 interface LinkBtnProps {
     linkTo: string,
     text: string,

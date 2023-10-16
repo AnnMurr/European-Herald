@@ -1,8 +1,9 @@
-import { TextField, FormControl, FormHelperText } from "@mui/material";
-import { BtnShowPassword, Label } from "./styledForm";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
+import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+import { TextField, FormControl, FormHelperText } from "@mui/material";
+import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { inputPasswordType } from "../../types";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
@@ -10,10 +11,11 @@ import { ThemeContext } from "../../../../../contexts/themeContext/themeContext"
 import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersReducer";
-import { useNavigate } from "react-router-dom";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { UserDataType } from "../../../../../redux/reducers/usersReducer/types";
 import { emailPattern } from "../../../../../consts/patterns/patterns";
+
+import { BtnShowPassword, Label } from "./styledForm";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")

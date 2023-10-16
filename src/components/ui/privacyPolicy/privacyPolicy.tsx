@@ -1,7 +1,8 @@
-import { Container, Wrapper } from "./styledPrivacyPolicy";
 import { Title } from "./components/title/title";
 import { Text } from "./components/text/text";
 import { ContactUsText, TextContent } from "./textContent";
+
+import { Container, Wrapper } from "./styledPrivacyPolicy";
 
 export const PrivacyPolicy = () => {
   return (

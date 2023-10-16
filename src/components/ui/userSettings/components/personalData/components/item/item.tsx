@@ -1,10 +1,12 @@
-import { Headline, ItemInner, Span } from "./styledItem";
+import React, { useContext, useState } from "react";
+
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { IconBtn } from "../../../../../../reusable/iconBtn/iconBtn";
-import React, { useContext, useState } from "react";
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
 import { EditModal } from "./components/editModal/editModal";
+
+import { Headline, ItemInner, Span } from "./styledItem";
 
 interface ItemProps {
     name: string,

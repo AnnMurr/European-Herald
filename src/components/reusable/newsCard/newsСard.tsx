@@ -1,11 +1,13 @@
-import { Wrapper, BackgroundImage, Container, Information, StyledLink } from "./styledNewsCard";
+import { useContext } from "react";
+
 import { NewsCardProps } from "./types";
 import { Title } from "./components/title/title";
 import { CardDate } from "./components/date/date";
-import { useContext } from "react";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 import { motion } from "framer-motion";
+
+import { Wrapper, BackgroundImage, Container, Information, StyledLink } from "./styledNewsCard";
 
 export const NewsCard: React.FC<NewsCardProps> = ({ cardClass, type, dataCard }) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

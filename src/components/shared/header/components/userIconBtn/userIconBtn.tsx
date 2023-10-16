@@ -1,7 +1,8 @@
+import { useContext } from "react";
+
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { UserIconBtnProps } from "../../types";
-import { useContext } from "react";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 

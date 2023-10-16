@@ -1,7 +1,9 @@
 import React from "react";
-import { Inner, Label } from "./styledEditInput";
+
 import { EditInputProps } from "../../types";
 import { TextField } from "@mui/material";
+
+import { Inner, Label } from "./styledEditInput";
 
 export const EditInput: React.FC<EditInputProps> = ({ inputValue, setInputValue, name, error }) => {
     const today = new Date()

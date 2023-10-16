@@ -1,10 +1,12 @@
 import { useContext, useEffect } from "react";
-import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { useLocation } from "react-router-dom";
+
+import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { Form, RegistrationRouting, Title } from ".";
-import { Container, Wrapper } from "./styledLogIn";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
+
+import { Container, Wrapper } from "./styledLogIn";
 
 export const Login = () => {
     const { checkLink }: LinkContextType = useContext(LinkContext)

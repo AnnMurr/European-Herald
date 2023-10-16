@@ -1,13 +1,15 @@
+import { useContext, useEffect, useRef } from "react";
+
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
-import { BtnCloseWrapper, Container } from "./styledAuthOptions";
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationOptionsProps } from "../../types";
-import { useContext, useEffect, useRef } from "react";
 import { AccessControlBtns } from "./components/accessControlBtns/accessControlBtns";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { UserModal } from "./components/userModal/userModal";
+
+import { BtnCloseWrapper, Container } from "./styledAuthOptions";
 
 export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ closeModal, userIconBtnRef }) => {
     const closeAuthOptions = () => closeModal(false)

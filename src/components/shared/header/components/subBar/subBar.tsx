@@ -1,12 +1,14 @@
+import { useContext, useEffect, useRef } from "react";
+
 import { Link } from "./components/link/link";
 import { v4 as uuidv4 } from 'uuid';
-import { Nav, List, BtnCloseWrapper } from "./styledSubBar";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
-import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { SubBarProps } from "../../types";
+
+import { Nav, List, BtnCloseWrapper } from "./styledSubBar";
 
 export const SubBar: React.FC<SubBarProps> = ({ setIsSubBarActive, burgerBtnRef }) => {
     const links = ['Home', 'Sports', 'Health', 'Arts', 'Games', 'Business', 'Science', 'Shopping', 'Society', 'Computers']

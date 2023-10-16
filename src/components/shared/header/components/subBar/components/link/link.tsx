@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { Item } from "./styledLink";
+
 import { LinkProps } from "../../../../types";
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
+
+import { Item } from "./styledLink";
 
 export const Link: React.FC<LinkProps> = ({ linkName, closeSubBar }) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

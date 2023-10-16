@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { StyledLink } from "./styledLink";
+
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
+
+import { StyledLink } from "./styledLink";
 
 interface LinkProps {
     link: string,

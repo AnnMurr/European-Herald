@@ -1,9 +1,11 @@
 import { useContext, useRef, useState } from "react";
-import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
+
 import { AuthenticationOptions, Burger, Logo, NavMenu, Search, Settings, SettingsBtn, SubBar, UserIconBtn } from ".";
-import { Container, HeaderMenuNav, HeaderMenuNavInner, LeftContent, RightContent } from "./styledHeader";
+import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
+
+import { Container, HeaderMenuNav, HeaderMenuNavInner, LeftContent, RightContent } from "./styledHeader";
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)

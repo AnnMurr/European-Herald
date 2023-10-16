@@ -1,8 +1,10 @@
 import { useContext } from "react";
+
 import { NewsCardProps } from "../../types";
-import { TitleInner, TitleText } from "./styledTitle";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { TitleInner, TitleText } from "./styledTitle";
 
 export const Title: React.FC<NewsCardProps> = ({ cardClass, dataCard, type }) => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)

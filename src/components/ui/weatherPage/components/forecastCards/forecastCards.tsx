@@ -1,11 +1,13 @@
 import { useContext } from "react";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ForecastDataProps } from "../../types";
 import { DayName } from "./components/dayName/dayName";
 import { Icon } from "./components/icon/icon";
 import { Temperature } from "./components/temperature/temperature";
-import { Container, Wrapper } from "./styledForecastCards";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { Container, Wrapper } from "./styledForecastCards";
 
 export const ForecastCards: React.FC<ForecastDataProps> = ({ forecastData }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)

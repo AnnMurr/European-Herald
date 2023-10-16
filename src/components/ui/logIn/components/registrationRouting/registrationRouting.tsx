@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { Span, StyledLink } from "./styledRegistrationRouting";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { Span, StyledLink } from "./styledRegistrationRouting";
 
 export const RegistrationRouting = () => {
   const themeContext = useContext<ThemeContextType>(ThemeContext)

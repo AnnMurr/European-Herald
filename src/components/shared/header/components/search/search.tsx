@@ -1,12 +1,14 @@
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Container, IconBtnInner, Input, Label } from "./styledSearch";
-import { useContext, useState } from "react";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
+
+import { Container, IconBtnInner, Input, Label } from "./styledSearch";
 
 export const Search = () => {
     const [searchValue, setSearchValue] = useState<string>('')

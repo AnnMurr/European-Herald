@@ -1,7 +1,9 @@
-import { Paragraph } from "./styledText";
+import { useContext } from "react";
+
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-import { useContext } from "react";
+
+import { Paragraph } from "./styledText";
 
 interface TextProps {
     text: string | React.ReactElement

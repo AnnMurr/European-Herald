@@ -1,10 +1,12 @@
+import { useContext } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Span, Inner, Name, IconIner } from "./styledDetailsBlock";
 import { faDroplet, faSun, faTemperatureQuarter, faWind } from "@fortawesome/free-solid-svg-icons";
 import { WeatherDataProps } from "../../types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
-import { useContext } from "react";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
+
+import { Container, Span, Inner, Name, IconIner } from "./styledDetailsBlock";
 
 export const DetailsBlock: React.FC<WeatherDataProps> = ({ weatherData }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)

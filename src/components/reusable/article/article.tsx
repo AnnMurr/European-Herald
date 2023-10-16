@@ -1,12 +1,15 @@
-import { Container, InnerDateTabs, Wrapper } from "./styledArticle";
-import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../../redux/store/store";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { CardType } from "../../../redux/reducers/cardsReducer/types";
+import { useAppSelector } from "../../../redux/store/store";
+
 import { Spinner } from "../spinner/spinner";
 import { FoundCardType } from "./types";
 import { Title, Image, Text, Date, BookmarksBtn } from ".";
-import { CardType } from "../../../redux/reducers/cardsReducer/types";
 import { GoBackBtn } from "../backBtn/backBtn";
+
+import { Container, InnerDateTabs, Wrapper } from "./styledArticle";
 
 export const Article = () => {
   const { articlename } = useParams()

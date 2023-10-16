@@ -1,10 +1,10 @@
 import { useAppDispatch, useAppSelector } from "../../../../../../../../../../../redux/store/store";
 import { Button } from "../../../../../../../../../../reusable/button/button";
-import { Inner } from "./styledSaveBtn";
 import { changeUserData } from "../../../../../../../../../../../redux/reducers/usersReducer/usersReducer";
 import { SaveBtnProps } from "../../types";
 import { UserDataType } from "../../../../../../../../../../../redux/reducers/usersReducer/types";
 import { emailPattern } from "../../../../../../../../../../../consts/patterns/patterns";
+import { Inner } from "./styledSaveBtn";
 
 export const SaveBtn: React.FC<SaveBtnProps> = ({ inputValue, closeModal, name, setError }) => {
     const dispatch = useAppDispatch()

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "./styledIconBtn";
 import { IconBtnProps } from "./types";
+import { Button } from "./styledIconBtn";
 
 export const IconBtn: React.FC<IconBtnProps> = ({ size, icon, onClickFunc, color, classname }) => {
     return (

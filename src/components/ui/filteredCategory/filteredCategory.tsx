@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { Container, Wrapper } from "./styledfFlteredCategory";
+import { useParams } from "react-router-dom";
+
 import { fetchCategoryNews } from "../../../redux/reducers/cardsReducer/cardsReducer";
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store";
-import { useParams } from "react-router-dom";
 import { Spinner } from "../../reusable/spinner/spinner";
 import { RenderCards } from "../../reusable/paginationCards/renderCards";
+
+import { Container, Wrapper } from "./styledfFlteredCategory";
 
 export const FilteredCategory = () => {
     const { categoryname } = useParams()

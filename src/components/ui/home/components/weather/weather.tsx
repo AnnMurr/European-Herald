@@ -1,13 +1,12 @@
 import { useContext } from "react";
-import { Container, StyledLink, Wrapper } from "./styledWeather";
+
 import { useAppSelector } from "../../../../../redux/store/store";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-import { TemperatureBlock } from "./components/temperatureBlock/temperatureBlock";
-import { DateInformation } from "./components/dateInformation/dateInformation";
-import { DetailsBlock } from "./components/detailsBlock/detailsBlock";
-import { Location } from "./components/location/location";
 import { motion } from "framer-motion";
+import { DateInformation, DetailsBlock, TemperatureBlock, Location } from ".";
+
+import { Container, StyledLink, Wrapper } from "./styledWeather";
 
 export const Weather = () => {
     const weatherDataFromRedux = useAppSelector(state => state.weather.weatherData)

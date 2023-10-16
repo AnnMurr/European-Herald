@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { ThemeStyledProps } from "../../../../../contexts/themeContext/types";
+import styled from "styled-components";
 
 export const Paragraph = styled.p<ThemeStyledProps>`
     font-size: 16px;

@@ -1,32 +1,49 @@
-import { useEffect } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { LinkContextProvider } from './contexts/linkContext/linkContext';
-import { fetchCards, fetchCategoryNewsBlocks } from './redux/reducers/cardsReducer/cardsReducer';
-import { useAppDispatch } from './redux/store/store';
-import { ThemeContextProvider } from './contexts/themeContext/themeContext';
-import { ScrollToTop } from './utils/scrollToTop/scrollToTop';
-import { About, Article, Body, Contact, ErrorPage, FilteredCategory, Footer, Header, Home, Login, PrivacyPolicy, Registration, SearchPage } from './components';
-import './utils/browserRefresh/browserRefresh';
-import './assets/styles/fonts.css';
-import './assets/styles/reset.css';
-import { ToastContainer } from 'react-toastify';
-import { AuthorizedContextProvider } from './contexts/authorizedContext/authorizedContext';
-import { getUserByToken } from './redux/reducers/usersReducer/usersReducer';
-import { Bookmarks } from './components/ui/bookmarks/bookmarks';
-import { UserSettings } from './components/ui/userSettings/userSettings';
-import { CheckAuthorization, CheckNotAuthorized } from './contexts/authorizedContext/isAuthorized';
-import { WeatherPage } from './components/ui/weatherPage/weatherPage';
-import { getWetherData } from './redux/reducers/weatherReducer/weatherReducer';
+import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import "./utils/browserRefresh/browserRefresh";
+
+import { Bookmarks } from "./components/ui/bookmarks/bookmarks";
+import { UserSettings } from "./components/ui/userSettings/userSettings";
+import { WeatherPage } from "./components/ui/weatherPage/weatherPage";
+import { AuthorizedContextProvider } from "./contexts/authorizedContext/authorizedContext";
+import { CheckAuthorization, CheckNotAuthorized } from "./contexts/authorizedContext/isAuthorized";
+import { LinkContextProvider } from "./contexts/linkContext/linkContext";
+import { ThemeContextProvider } from "./contexts/themeContext/themeContext";
+import { fetchCards, fetchCategoryNewsBlocks } from "./redux/reducers/cardsReducer/cardsReducer";
+import { getUserByToken } from "./redux/reducers/usersReducer/usersReducer";
+import { getWetherData } from "./redux/reducers/weatherReducer/weatherReducer";
+import { useAppDispatch } from "./redux/store/store";
+import { ScrollToTop } from "./utils/scrollToTop/scrollToTop";
+import {
+  About,
+  Article,
+  Body,
+  Contact,
+  ErrorPage,
+  FilteredCategory,
+  Footer,
+  Header,
+  Home,
+  Login,
+  PrivacyPolicy,
+  Registration,
+  SearchPage
+} from "./components";
+
+import "./assets/styles/fonts.css";
+import "./assets/styles/reset.css";
 
 function App() {
   const dispatch = useAppDispatch()
-  const categories = ['Business', 'Arts', 'Health', 'Sports']
+  const categories = ["Business", "Arts", "Health", "Sports"]
 
   useEffect(() => {
     dispatch(fetchCards())
     dispatch(getUserByToken())
     dispatch(getWetherData())
-    categories.forEach(category => dispatch(fetchCategoryNewsBlocks(category)))
+    categories.forEach((category) => dispatch(fetchCategoryNewsBlocks(category)))
   }, [])
 
   return (
@@ -38,31 +55,50 @@ function App() {
             <Body>
               <Header />
               <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/category/:categoryname' element={<FilteredCategory />} />
-                <Route path='/article/:articlename' element={<Article />} />
-                <Route path='/search' element={<SearchPage />} />
-                <Route path='/weather' element={<WeatherPage />} />
-                <Route path='/registration' element={
-                  <CheckAuthorization>
-                    <Registration />
-                  </CheckAuthorization>} />
-                <Route path='/login' element={
-                  <CheckAuthorization>
-                    <Login />
-                  </CheckAuthorization>} />
-                <Route path='/bookmarks' element={
-                  <CheckNotAuthorized>
-                    <Bookmarks />
-                  </CheckNotAuthorized>} />
-                <Route path='/settings' element={
-                  <CheckNotAuthorized>
-                    <UserSettings />
-                  </CheckNotAuthorized>} />
-                <Route path='*' element={<ErrorPage />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/about" element={<About />} />
+                <Route
+                  path="/category/:categoryname"
+                  element={<FilteredCategory />}
+                />
+                <Route path="/article/:articlename" element={<Article />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/weather" element={<WeatherPage />} />
+                <Route
+                  path="/registration"
+                  element={
+                    <CheckAuthorization>
+                      <Registration />
+                    </CheckAuthorization>
+                  }
+                />
+                <Route
+                  path="/login"
+                  element={
+                    <CheckAuthorization>
+                      <Login />
+                    </CheckAuthorization>
+                  }
+                />
+                <Route
+                  path="/bookmarks"
+                  element={
+                    <CheckNotAuthorized>
+                      <Bookmarks />
+                    </CheckNotAuthorized>
+                  }
+                />
+                <Route
+                  path="/settings"
+                  element={
+                    <CheckNotAuthorized>
+                      <UserSettings />
+                    </CheckNotAuthorized>
+                  }
+                />
+                <Route path="*" element={<ErrorPage />} />
               </Routes>
               <Footer />
               <ToastContainer />
@@ -71,7 +107,7 @@ function App() {
         </ThemeContextProvider>
       </LinkContextProvider>
     </AuthorizedContextProvider>
-  )
+  );
 }
 
 export default App;

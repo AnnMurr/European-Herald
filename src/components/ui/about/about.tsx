@@ -1,8 +1,6 @@
-import { Title } from "./components/title/title";
-import { Text } from "./components/text/text";
-import { List } from "./components/list/list";
-import { Container, Wrapper } from "./styledAbout";
+import { Title, Text, List } from ".";
 import { TextContent } from "./textContent";
+import { Container, Wrapper } from "./styledAbout";
 
 export const About = () => {
     return (

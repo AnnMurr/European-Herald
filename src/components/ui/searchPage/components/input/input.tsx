@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+
 import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
-import { Input, Label } from "./styledInput";
 import { Button as MuiButton } from "@mui/material";
 import { SearchInputProps } from "../../types";
 import { decryptData, encryptData } from "../../../../../utils/encryption/encryption";
 import { getFoundCards, getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
+
+import { Input, Label } from "./styledInput";
 
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, setSearchValue }) => {

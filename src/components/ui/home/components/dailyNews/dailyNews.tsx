@@ -3,6 +3,7 @@ import { useAppSelector } from "../../../../../redux/store/store";
 import { Spinner } from "../../../../reusable/spinner/spinner";
 import { Title } from "./components/title/title";
 import { Cards } from "./components/dailyNewsCards/dailyNewsCards";
+
 import { Container, Block } from "./styledDailyNews";
 
 interface DailyNewsProps {

@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { ItemContainer, Span } from "./styledItem";
+
 import { ThemeContextType } from "../../../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
+
+import { ItemContainer, Span } from "./styledItem";
 
 interface ItemProps {
     spanText: string,

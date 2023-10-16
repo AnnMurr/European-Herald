@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { CardsInner } from "./styledNewsBlock";
+
 import { Cards } from "./components/cards/cards";
 import { Text } from "./components/text/text";
 import { NewsBlockProps } from "../../types";
+
+import { CardsInner } from "./styledNewsBlock";
 
 export const NewsBlock: React.FC<NewsBlockProps> = ({ foundСards, searchValue }) => {
     const [text, setText] = useState<string>('')

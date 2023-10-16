@@ -1,7 +1,8 @@
 import { Title } from "./components/title/title";
-import { Container, Wrapper } from "./styledContact";
 import { Text } from "./components/text/text";
 import { TextContent } from "./textContent";
+
+import { Container, Wrapper } from "./styledContact";
 
 export const Contact = () => {
   return (

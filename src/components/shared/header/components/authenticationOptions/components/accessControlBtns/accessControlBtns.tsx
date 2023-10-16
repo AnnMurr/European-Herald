@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { BtnWrapper } from "./styledButtons";
+
 import { AccessControlBtnsProps } from "../../../../types";
 import { Button } from "../../../../../../reusable/button/button";
+
+import { BtnWrapper } from "./styledButtons";
 
 export const AccessControlBtns: React.FC<AccessControlBtnsProps> = ({ closeModal }) => {
   return (

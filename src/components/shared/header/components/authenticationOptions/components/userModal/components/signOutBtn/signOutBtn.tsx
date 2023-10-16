@@ -1,11 +1,13 @@
 import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { Button } from "../../../../../../../../reusable/button/button";
-import { Wrapper } from "./styledSignOutBtn";
 import { AuthorizedContext, AuthorizedContextType } from "../../../../../../../../../contexts/authorizedContext/authorizedContext";
 import { deleteToken } from "../../../../../../../../../store/localStorage/token/token";
 import { useAppDispatch } from "../../../../../../../../../redux/store/store";
 import { deleteUserData } from "../../../../../../../../../redux/reducers/usersReducer/usersReducer";
-import { useLocation, useNavigate } from "react-router-dom";
+
+import { Wrapper } from "./styledSignOutBtn";
 
 export const SignOutBtn = () => {
     const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
