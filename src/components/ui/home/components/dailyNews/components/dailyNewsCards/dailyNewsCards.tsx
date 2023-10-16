@@ -6,7 +6,7 @@ interface DailyNewsCardsProps {
     cards: Array<CardType>
 }
 
-export const Cards = ({cards}: DailyNewsCardsProps) => {
+export const Cards: React.FC<DailyNewsCardsProps> = ({ cards }) => {
     return (
         <>
             {cards.map((item, index) => <NewsCard type={index < 2 ? 'BigCard' : 'smallCard'} key={uuidv4()} dataCard={item} />)}

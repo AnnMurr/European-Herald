@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { DataCardProps } from "../../types";
-import { ImageInner } from "./styledImage";
+import { ImageInner, Img } from "./styledImage";
+import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 
-export const Image = ({ dataCard }: DataCardProps) => {
+export const Image: React.FC<DataCardProps> = ({ dataCard }) => {
+    const themeContext = useContext<ThemeContextType>(ThemeContext)
+
     return (
         <ImageInner>
-            <img src={dataCard.image} alt="image" />
+            <Img themestyles={themeContext.themeStyles} src={dataCard.image} alt={dataCard.source.title} />
         </ImageInner>
     )
 }

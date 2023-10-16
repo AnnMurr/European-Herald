@@ -12,6 +12,10 @@ export const TitleText = styled.h3<CardStylesProps>`
     font-weight: 700;
     overflow-wrap: anywhere;
 
+    @media screen and (max-width: 946px) {
+        font-size: ${({ cardtype }) => cardtype === 'BigCard' ? '22px' : '16px'};
+    }
+
     @media screen and (max-width: 576px) {
         font-size: 18px;
     }

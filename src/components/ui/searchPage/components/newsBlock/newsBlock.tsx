@@ -15,7 +15,7 @@ export const NewsBlock: React.FC<NewsBlockProps> = ({ foundСards, searchValue }
         <div>
             <CardsInner>
                 {foundСards.length > 0 ?
-                    <Cards foundСards={foundСards} /> :
+                    <Cards /> :
                     <Text text={text} />}
             </CardsInner>
         </div>

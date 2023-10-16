@@ -12,7 +12,7 @@ export const Container = styled.div<CardStylesProps>`
         opacity:${({theme}) => theme === 'dark' ? '0.5' : '0.8'};
     }
 
-    @media screen and (max-width: 924px) {
+    @media screen and (max-width: 724px) {
         max-width:${({cardtype}) => cardtype === 'BigCard' ? '100%' : '49.5%'};
     }
 

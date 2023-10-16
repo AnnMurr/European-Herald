@@ -25,7 +25,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({ cardClass, type, dataCard })
     }
 
     return (
-        <Container theme={themeContext.currentTheme} cardtype={type}>
+        <Container theme={themeContext.currentTheme} cardtype={type} cardclass={cardClass}>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

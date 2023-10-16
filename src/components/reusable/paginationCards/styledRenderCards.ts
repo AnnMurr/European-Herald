@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const CardsInner = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+   
     row-gap: 30px;
+    justify-content: space-between;
 `
 
 export const BtnInner = styled.div`
