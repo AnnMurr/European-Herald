@@ -11,7 +11,7 @@ export const Logo = () => {
 
     return (
         <LogoContainer>
-            <Link to={'htpps://AnnMurr.github.io/European-Herald'}>
+            <Link to={'/'}>
                 <LogoText themestyles={themeContext.themeStyles}>European Herald</LogoText>
             </Link>
         </LogoContainer>
