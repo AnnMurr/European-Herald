@@ -18,7 +18,16 @@ export const IconBtnInner = styled(Link)`
     right: 23px;
 
     @media screen and (max-width: 380px) {
-        position: static;
+        // position: static;
+        display: none;
+    }
+`
+
+export const IconBtnInnerMobile = styled(Link)`
+    display: none;
+
+    @media screen and (max-width: 380px) {
+        display: block;
     }
 `
 
@@ -27,6 +36,7 @@ export const Input = styled.input<ThemeStyledProps>`
     border-radius: 5px;
     margin-left: 5px;
     height: 100%;
+    width: 100%;
     background-color:${({ themestyles }) => themestyles.backgroundInputSearch};
     padding: 5px 25px 5px 10px;
 

@@ -7,6 +7,7 @@ export const Container = styled.div<CardStylesProps>`
     height: auto;
     width: 100%;
     transition: all 0.5s ease;
+    position: relative;
 
     &:hover {
         opacity:${({theme}) => theme === 'dark' ? '0.5' : '0.8'};
@@ -53,9 +54,11 @@ export const BackgroundImage = styled.div<CardStylesProps>`
     background-repeat: no-repeat;
 `
 
+
+
 export const Information = styled.div<CardStylesProps>`
     position: ${({cardclass}) => cardclass !== 'card' ? 'absolute' : 'static'};
-    bottom: 20px;
+    bottom: 0;
     z-index: 3;
 
     @media screen and (max-width: 1024px) {
@@ -65,5 +68,4 @@ export const Information = styled.div<CardStylesProps>`
 
 export const StyledLink = styled(Link)`
     width: 100%; 
-    position: relative;
 `

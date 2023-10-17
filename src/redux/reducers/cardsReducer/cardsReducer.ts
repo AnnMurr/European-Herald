@@ -30,7 +30,7 @@ export const fetchCards = createAsyncThunk(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
             })
            
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -57,7 +57,7 @@ export const fetchCategoryNews = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -84,7 +84,7 @@ export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
                 },
                 resultType: 'articles',
                 articlesSortBy: 'date',
-                apiKey: '5792a2bc-6ec5-4411-9290-448aad071b74',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
                 articlesCount: 50,
             })
             const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
@@ -102,7 +102,7 @@ export const cardsSlice = createSlice({
     reducers: {
         getCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index
+                return array.findIndex((item) => item.uri === card.uri) === index
             })
             state.cards = filteredCards
         },
@@ -114,13 +114,13 @@ export const cardsSlice = createSlice({
         },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
             const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index
+                return array.findIndex((item) => item.uri === card.uri) === index
             })
             state.filteredCards = filteredCards
         },
         getFilteredCategoryForBlocks: (state, action: PayloadAction<{ cards: Array<CardType>, category: string }>) => {
             const filteredCards = action.payload.cards.filter((card, index, array) => {
-                return array.findIndex((item) => item.title === card.title) === index
+                return array.findIndex((item) => item.uri === card.uri) === index
             })
 
             switch (action.payload.category) {

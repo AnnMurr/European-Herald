@@ -69,7 +69,8 @@ export const SearchInput: React.FC<SearchInputProps> =
                         sx={{
                             position: 'absolute',
                             right: '0',
-                            height: '-webkit-fill-available'
+                            height: '43px',
+                            
                         }}
                         onClick={() => searchNews()}
                         variant="contained"

@@ -8,7 +8,7 @@ import { ThemeContext } from "../../../../../contexts/themeContext/themeContext"
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
 
-import { Container, IconBtnInner, Input, Label } from "./styledSearch";
+import { Container, IconBtnInner, Input, Label, IconBtnInnerMobile } from "./styledSearch";
 
 export const Search = () => {
     const [searchValue, setSearchValue] = useState<string>('')
@@ -33,8 +33,11 @@ export const Search = () => {
             <Label>
                 <Input onKeyDown={handleKeyPress} themestyles={themeContext.themeStyles} value={searchValue} onChange={handleChange} type="search" />
                 <IconBtnInner to={'/search'} state={searchValue}>
-                    <IconBtn classname={'SearchIconBtn'} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
+                    <IconBtn color={'#000'} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
                 </IconBtnInner>
+                <IconBtnInnerMobile to={'/search'} state={searchValue}>
+                    <IconBtn color={themeContext.themeStyles.color} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
+                </IconBtnInnerMobile>
             </Label>
         </Container>
     )
