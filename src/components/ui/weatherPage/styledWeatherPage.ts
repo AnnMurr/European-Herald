@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     position: relative;
 
     @media screen and (max-width: 520px) {
-        padding: 120px 0 60px 0;
+        padding: 140px 0 60px 0;
     }
 `
 

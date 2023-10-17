@@ -51,7 +51,7 @@ export const getWetherData = createAsyncThunk(
                     navigator.geolocation.getCurrentPosition(resolve, reject)
                 })
                 const { latitude, longitude } = position.coords
-                const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=21c480deba1742eab47180549233009&q=${latitude},${longitude}&aqi=no&lang=en`)
+                const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=16fba77cc5f442648bd165016231710&q=${latitude},${longitude}&aqi=no&lang=en`)
                 dispatch(getWeather(response.data))
             }
         } catch (error) {

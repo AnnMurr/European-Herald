@@ -21,7 +21,7 @@ export const WeatherPage = () => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
                 const { latitude, longitude } = position.coords
-                fetch(`http://api.weatherapi.com/v1/forecast.json?key=21c480deba1742eab47180549233009&q=${latitude},${longitude}&days=5&aqi=yes&alerts=yes`)
+                fetch(`https://api.weatherapi.com/v1/forecast.json?key=16fba77cc5f442648bd165016231710&q=${latitude},${longitude}&days=5&aqi=yes&alerts=yes`)
                     .then(response => response.json())
                     .then(data => {
                         dispatch(geForecasttWeather(data.forecast.forecastday))
