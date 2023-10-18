@@ -11,6 +11,10 @@ export const Container = styled.div<ThemeStyledProps>`
     display: flex;
     align-items: center;
     color: ${({ themestyles }) => themestyles.color};
+
+    @media screen and (max-width: 520px) {
+        margin: 0 0 50px 0;
+    }
 `
 
 export const Wrapper = styled.div`

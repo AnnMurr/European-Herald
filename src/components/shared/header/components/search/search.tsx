@@ -20,11 +20,15 @@ export const Search = () => {
 
     const resetInputValue = () => setSearchValue('')
 
+    const getSerch =() => {
+        dispatch(getSearchValueOfHeaderInput(searchValue))
+        navigate('/search')
+        resetInputValue()
+    }
+
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            dispatch(getSearchValueOfHeaderInput(searchValue))
-            navigate('/search')
-            resetInputValue()
+            getSerch()
         }
     }
 
@@ -33,10 +37,10 @@ export const Search = () => {
             <Label>
                 <Input onKeyDown={handleKeyPress} themestyles={themeContext.themeStyles} value={searchValue} onChange={handleChange} type="search" />
                 <IconBtnInner to={'/search'} state={searchValue}>
-                    <IconBtn color={'#000'} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
+                    <IconBtn color={'#000'} onClickFunc={getSerch} icon={faMagnifyingGlass} size={'sm'} />
                 </IconBtnInner>
                 <IconBtnInnerMobile to={'/search'} state={searchValue}>
-                    <IconBtn color={themeContext.themeStyles.color} onClickFunc={resetInputValue} icon={faMagnifyingGlass} size={'sm'} />
+                    <IconBtn color={themeContext.themeStyles.color} onClickFunc={getSerch} icon={faMagnifyingGlass} size={'sm'} />
                 </IconBtnInnerMobile>
             </Label>
         </Container>
