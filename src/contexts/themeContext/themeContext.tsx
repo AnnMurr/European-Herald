@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import { ThemeContextProviderProps, ThemeContextType, ThemeType } from "./types";
 import { Themes } from "./themes";
-import { getToken, setToken } from "../../store/localStorage/token/token";
-import { decryptData } from "../../utils/encryption/encryption";
+import { getCurrentTheme, setCurrentTheme } from "../../store/localStorage/theme/themeStore";
 
 const initialThemeContext: ThemeContextType = {
     currentTheme: 'light',
-    changeTheme: () => {},
+    changeTheme: () => { },
     themeStyles: Themes['light']
 }
 
@@ -17,13 +17,14 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ chil
     const togleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 
     useEffect(() => {
-        getToken('theme') && setTheme(decryptData(getToken('theme')!))
+        const currentThemeFromStore = getCurrentTheme()
+        currentThemeFromStore && setTheme(currentThemeFromStore)
     }, [])
 
     useEffect(() => {
-        setToken('theme', theme)
+        setCurrentTheme(theme)
     }, [theme])
-    
+
     return (
         <ThemeContext.Provider value={{
             currentTheme: theme,

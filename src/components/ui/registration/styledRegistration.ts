@@ -5,6 +5,10 @@ export const Container = styled.div`
     background-color: #00000017;
     padding: 120px 15px 60px 15px;
     min-height: 100vh;
+
+    @media screen and (max-width: 520px) {
+        padding: 140px 15px 60px 15px;
+    }
 `
 
 export const Wrapper = styled.div<ThemeStyledProps>`

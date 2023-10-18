@@ -2,10 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usersApi } from "../../../api/axiosConfig";
 import { showToastMessage } from "../../../utils/alerts/alert";
 import { v4 as uuidv4 } from "uuid";
-import { decryptData } from "../../../utils/encryption/encryption";
-import { getToken, setToken } from "../../../store/localStorage/token/token";
+import { getAuthenticationToken, setAuthenticationToken } from "../../../store/localStorage/token/token";
 import { UserDataFromRegistrationForm, UserDataType, UserLogInData } from "./types";
-
 interface InitialState {
     userData: null | UserDataType,
 }
@@ -27,14 +25,13 @@ export const createUser = createAsyncThunk<void, UserDataFromRegistrationForm>(
                 password: userData.password,
                 token: token,
                 bookmarks: []
-
             }
             const request = await usersApi.post('usersData', userPostData)
 
             if (request.status === 201) {
                 showToastMessage({ type: 'success', text: 'Registration completed successfully' })
                 dispatch(setUserData(userPostData))
-                setToken('token', token.split(' ')[1])
+                setAuthenticationToken(token.split(' ')[1])
                 return request.data
             } else {
                 showToastMessage({ type: 'error', text: 'Error creating user' })
@@ -52,7 +49,7 @@ export const getUserByToken = createAsyncThunk(
     async (_, { dispatch, rejectWithValue }) => {
         try {
             const response = await usersApi.get('usersData')
-            const token = `Bearer ${decryptData(getToken('token')!)}`
+            const token = `Bearer ${getAuthenticationToken()}`
             const data = response.data.filter((element: UserDataType) => element.token === token)
 
             if (data) {
@@ -90,7 +87,7 @@ export const fetchSignIn = createAsyncThunk<boolean, UserLogInData>(
             if (userData[0]) {
                 if (userData[0].password === userLogInData.password) {
                     dispatch(setUserData(userData[0]))
-                    setToken('token', userData[0].token.split(' ')[1])
+                    setAuthenticationToken(userData[0].token.split(' ')[1])
                     showToastMessage({ type: 'success', text: 'You are logged into your account' })
                     return true
                 } else {

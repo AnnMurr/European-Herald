@@ -1,12 +1,23 @@
+import { useContext } from "react";
+
 import { WeatherDataProps } from "../../types";
+import { WeatherContextType } from "../../../../../../../contexts/weatherContext/types";
+import { WeatherContext } from "../../../../../../../contexts/weatherContext/weatherContext";
+
 import { Container, Span } from "./styledDetailsBlock";
 
 export const DetailsBlock: React.FC<WeatherDataProps> = ({ weatherData }) => {
+    const weatherContext = useContext<WeatherContextType>(WeatherContext)
+
     return (
         <Container>
             <li>
                 <Span>
-                    Feels like: {weatherData?.current.feelslike_c} <span>°C</span>
+                    Feels like: {' '}
+                    {weatherContext.currentDegrees === 'celcius' ?
+                        weatherData && Math.ceil(weatherData?.current.feelslike_c) :
+                        weatherData && Math.ceil(weatherData?.current.feelslike_f)}
+                    <span>{weatherContext.currentDegrees === 'celcius' ? '°C' : '°F'}</span>
                 </Span>
             </li>
             <li>

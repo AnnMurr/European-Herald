@@ -8,6 +8,7 @@ export interface Theme {
     backgroundForm: Colors,
     backgroundHeader: Colors,
     backgroundSettingsForm: Colors,
+    backgroundForecastBlock: Colors,
 }
 
 export type ThemesType = Record<ThemeType, Theme>

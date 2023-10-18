@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getToken } from "../../store/localStorage/token/token";
+import { getAuthenticationToken } from "../../store/localStorage/token/token";
 export interface AuthorizedContextType {
     logIn: () => void,
     logOut: () => void,
@@ -18,7 +18,7 @@ const initialAuthorizedContext: AuthorizedContextType = {
 export const AuthorizedContext = createContext<AuthorizedContextType>(initialAuthorizedContext)
 
 export const AuthorizedContextProvider: React.FC<AuthorizedContextProviderProps>  = ({ children }) => {
-    const [isAuthorized, setIsAuthorized] = useState(!!getToken('token'))
+    const [isAuthorized, setIsAuthorized] = useState(!!getAuthenticationToken())
 
     const logIn = () => setIsAuthorized(true)
     const logOut = () => setIsAuthorized(false)

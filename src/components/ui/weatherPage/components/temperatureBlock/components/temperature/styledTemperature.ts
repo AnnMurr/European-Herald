@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Theme, ThemeStyledProps } from "../../../../../../../contexts/themeContext/types";
-import { DegreesType } from "../../../../types";
-
+import { DegreesType } from "../../../../../../../contexts/weatherContext/types";
 interface DegreesBtnProps {
     degrees: DegreesType,
     themestyles: Theme,
@@ -24,6 +23,10 @@ export const TemperatureText = styled.span<ThemeStyledProps>`
     @media screen and (max-width: 768px) {
         font-size: 100px;
     }
+
+    @media screen and (max-width: 365px) {
+        font-size: 70px;
+    }
 `
 
 export const CelciusBtn = styled.button<DegreesBtnProps>`
@@ -39,6 +42,12 @@ export const CelciusBtn = styled.button<DegreesBtnProps>`
         line-height: 30px;
         padding: 0 10px;
     }   
+
+    @media screen and (max-width: 365px) {
+        font-size: 20px;
+        line-height: 23px;
+        padding: 0 5px;
+    }
 `
 
 export const FahrenheitBtn = styled.button<DegreesBtnProps>`
@@ -54,4 +63,10 @@ export const FahrenheitBtn = styled.button<DegreesBtnProps>`
         line-height: 30px;
         padding: 0 10px;
     }   
+
+    @media screen and (max-width: 365px) {
+        font-size: 20px;
+        line-height: 23px;
+        padding: 0 5px;
+    }
 `

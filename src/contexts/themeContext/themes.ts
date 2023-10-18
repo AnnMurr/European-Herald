@@ -8,7 +8,8 @@ export enum Colors {
     GREY_OPACITY_40 = '#bdbaba69',
     DARK_BROWN = '#272424',
     COD_GRRAY = '#101010',
-    Silver = '#d5d5d5'  
+    SILVER = '#d5d5d5',
+    CONCRETE = '#f2f2f2'  
 }
 
 export const Themes: ThemesType = {
@@ -17,7 +18,8 @@ export const Themes: ThemesType = {
         backgroundInputSearch: Colors.GREY_OPACITY_40, 
         backgroundForm: Colors.WHITE, 
         backgroundHeader: Colors.WHITE, 
-        backgroundSettingsForm: Colors.Silver, 
+        backgroundSettingsForm: Colors.SILVER, 
+        backgroundForecastBlock: Colors.CONCRETE, 
         color: Colors.BLACK
     },
     dark: {
@@ -26,6 +28,7 @@ export const Themes: ThemesType = {
         backgroundForm: Colors.DARK_BROWN, 
         backgroundHeader: Colors.COD_GRRAY, 
         backgroundSettingsForm: Colors.DARK_BROWN, 
+        backgroundForecastBlock: Colors.DARK_BROWN, 
         color: Colors.WHITE
     }
 }

@@ -18,7 +18,6 @@ export const IconBtnInner = styled(Link)`
     right: 23px;
 
     @media screen and (max-width: 380px) {
-        // position: static;
         display: none;
     }
 `

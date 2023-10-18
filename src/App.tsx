@@ -4,13 +4,11 @@ import { ToastContainer } from "react-toastify";
 
 import "./utils/browserRefresh/browserRefresh";
 
-import { Bookmarks } from "./components/ui/bookmarks/bookmarks";
-import { UserSettings } from "./components/ui/userSettings/userSettings";
-import { WeatherPage } from "./components/ui/weatherPage/weatherPage";
 import { AuthorizedContextProvider } from "./contexts/authorizedContext/authorizedContext";
 import { CheckAuthorization, CheckNotAuthorized } from "./contexts/authorizedContext/isAuthorized";
 import { LinkContextProvider } from "./contexts/linkContext/linkContext";
 import { ThemeContextProvider } from "./contexts/themeContext/themeContext";
+import { WeatherContextProvider } from "./contexts/weatherContext/weatherContext";
 import { fetchCards, fetchCategoryNewsBlocks } from "./redux/reducers/cardsReducer/cardsReducer";
 import { getUserByToken } from "./redux/reducers/usersReducer/usersReducer";
 import { getWetherData } from "./redux/reducers/weatherReducer/weatherReducer";
@@ -20,6 +18,7 @@ import {
   About,
   Article,
   Body,
+  Bookmarks,
   Contact,
   ErrorPage,
   FilteredCategory,
@@ -29,7 +28,9 @@ import {
   Login,
   PrivacyPolicy,
   Registration,
-  SearchPage
+  SearchPage,
+  UserSettings,
+  WeatherPage
 } from "./components";
 
 import "./assets/styles/fonts.css";
@@ -50,60 +51,62 @@ function App() {
     <AuthorizedContextProvider>
       <LinkContextProvider>
         <ThemeContextProvider>
-          <Router>
-            <ScrollToTop />
-            <Body>
-              <Header />
-              <Routes>
-                <Route path="/European-Herald/dist/" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/about" element={<About />} />
-                <Route
-                  path="/category/:categoryname"
-                  element={<FilteredCategory />}
-                />
-                <Route path="/article/:articlename" element={<Article />} />
-                <Route path="/search" element={<SearchPage />} />
-                <Route path="/weather" element={<WeatherPage />} />
-                <Route
-                  path="/registration"
-                  element={
-                    <CheckAuthorization>
-                      <Registration />
-                    </CheckAuthorization>
-                  }
-                />
-                <Route
-                  path="/login"
-                  element={
-                    <CheckAuthorization>
-                      <Login />
-                    </CheckAuthorization>
-                  }
-                />
-                <Route
-                  path="/bookmarks"
-                  element={
-                    <CheckNotAuthorized>
-                      <Bookmarks />
-                    </CheckNotAuthorized>
-                  }
-                />
-                <Route
-                  path="/settings"
-                  element={
-                    <CheckNotAuthorized>
-                      <UserSettings />
-                    </CheckNotAuthorized>
-                  }
-                />
-                <Route path="*" element={<ErrorPage />} />
-              </Routes>
-              <Footer />
-              <ToastContainer />
-            </Body>
-          </Router>
+          <WeatherContextProvider>
+            <Router>
+              <ScrollToTop />
+              <Body>
+                <Header />
+                <Routes>
+                  <Route path="/European-Herald/dist/" element={<Home />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/about" element={<About />} />
+                  <Route
+                    path="/category/:categoryname"
+                    element={<FilteredCategory />}
+                  />
+                  <Route path="/article/:articlename" element={<Article />} />
+                  <Route path="/search" element={<SearchPage />} />
+                  <Route path="/weather" element={<WeatherPage />} />
+                  <Route
+                    path="/registration"
+                    element={
+                      <CheckAuthorization>
+                        <Registration />
+                      </CheckAuthorization>
+                    }
+                  />
+                  <Route
+                    path="/login"
+                    element={
+                      <CheckAuthorization>
+                        <Login />
+                      </CheckAuthorization>
+                    }
+                  />
+                  <Route
+                    path="/bookmarks"
+                    element={
+                      <CheckNotAuthorized>
+                        <Bookmarks />
+                      </CheckNotAuthorized>
+                    }
+                  />
+                  <Route
+                    path="/settings"
+                    element={
+                      <CheckNotAuthorized>
+                        <UserSettings />
+                      </CheckNotAuthorized>
+                    }
+                  />
+                  <Route path="*" element={<ErrorPage />} />
+                </Routes>
+                <Footer />
+                <ToastContainer />
+              </Body>
+            </Router>
+          </WeatherContextProvider>
         </ThemeContextProvider>
       </LinkContextProvider>
     </AuthorizedContextProvider>
