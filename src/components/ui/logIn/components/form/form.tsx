@@ -43,7 +43,7 @@ export const Form = () => {
 
     if (isCorrectData.payload) {
       reset()
-      navigate('/')
+      navigate('/European-Herald/dist/')
       authorizedContext.logIn()
     }
   }
