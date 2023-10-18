@@ -8,18 +8,32 @@ export const Container = styled.div<ThemeStyledProps>`
     justify-content: center;
     row-gap: 40px;
     column-gap: 50px;
-    background-color: ${({ themestyles }) => themestyles.backgroundSettingsForm};
+    background-color: ${({ themestyles }) => themestyles.backgroundForecastBlock};
     padding: 50px;
     color: ${({ themestyles }) => themestyles.color};
 
     @media screen and (max-width: 768px) {
         padding: 30px;
+    }
+
+    @media screen and (max-width: 340px) {
+        padding: 20px;
+        row-gap: 25px;
+        column-gap: 20px;
     }   
 `
 
-export const Inner = styled.div`
+export const Item = styled.div`
     padding: 5px 0;
     text-align: center;
+`
+
+export const Inner = styled.div`
+    @media screen and (max-width: 400px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const Span = styled.span`

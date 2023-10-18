@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
 import { Button as MuiButton } from "@mui/material";
 import { SearchInputProps } from "../../types";
-import { decryptData, encryptData } from "../../../../../utils/encryption/encryption";
 import { getFoundCards, getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
+import { getSearchValueToStore, setSearchValueFromStore } from "../../../../../store/sessionStorage/search/searchValue";
 
 import { Input, Label } from "./styledInput";
 
@@ -19,7 +19,7 @@ export const SearchInput: React.FC<SearchInputProps> =
         ...dataFromRedux.categoryBusiness,
         ...dataFromRedux.categoryHealth,
         ...dataFromRedux.categorySports]
-            
+
         const handleKeyPress = (event: React.KeyboardEvent) => event.key === 'Enter' && searchNews()
 
         const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.target.value)
@@ -28,10 +28,9 @@ export const SearchInput: React.FC<SearchInputProps> =
             setSearchValue(inputValue)
             const filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
                 .filter((it, index, array) => array.findIndex(el => it.uri === el.uri) === index)
-                dispatch(getFoundCards(filteredArray))
-                setFoundСards(filteredArray)
-            const encryptedData = encryptData(value)
-            sessionStorage.setItem('searchVal', encryptedData)
+            dispatch(getFoundCards(filteredArray))
+            setFoundСards(filteredArray)
+            setSearchValueFromStore(value)
         }
 
         useEffect(() => {
@@ -49,10 +48,9 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         useEffect(() => {
             if (!searchValueOfHeaderInput) {
-                const encryptedData = sessionStorage.getItem('searchVal')
-                const decryptedData = encryptedData && decryptData(encryptedData)
-                decryptedData && setInputValue(decryptedData)
-                decryptedData && searchNews(decryptedData)
+                const searchValueFromStore = getSearchValueToStore()
+                searchValueFromStore && setInputValue(searchValueFromStore)
+                searchValueFromStore && searchNews(searchValueFromStore)
             }
         }, [])
 
@@ -70,7 +68,7 @@ export const SearchInput: React.FC<SearchInputProps> =
                             position: 'absolute',
                             right: '0',
                             height: '43px',
-                            
+
                         }}
                         onClick={() => searchNews()}
                         variant="contained"

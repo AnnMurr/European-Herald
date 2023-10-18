@@ -5,6 +5,10 @@ export const Container = styled.div`
     max-width: 60%;
     margin: 0 auto;
     width: 100%;
+
+    @media screen and (max-width: 560px) {
+        max-width: 90%;
+    }
 `
 
 export const Span = styled.span<ThemeStyledProps>`

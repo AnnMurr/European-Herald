@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 20px;
     justify-content: center;
+    padding: 20px 0;
 `
 
 export const WeatherIconInner = styled.div`

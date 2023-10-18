@@ -1,6 +1,7 @@
-import { DegreesType } from "./temperature";
+
 import { Theme } from "../../../../../../../../../contexts/themeContext/types";
 import styled from "styled-components";
+import { DegreesType } from "../../../../../../../../../contexts/weatherContext/types";
 
 interface DegreesBtnProps {
     degrees: DegreesType,

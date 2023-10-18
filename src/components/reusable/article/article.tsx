@@ -13,22 +13,25 @@ import { Container, InnerDateTabs, Wrapper } from "./styledArticle";
 
 export const Article = () => {
   const { articlename } = useParams()
-  const dataCardsFromRedux = useAppSelector((state) => state.newsCards)
+  const dataCardsFromRedux = useAppSelector((state) => state)
   const [card, setCard] = useState<CardType | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
     let foundCard: FoundCardType = null
+    const userBookmarks = dataCardsFromRedux.user.userData?.bookmarks
 
     setIsLoading(true)
     const categoriesToSearch = [
-      dataCardsFromRedux.cards,
-      dataCardsFromRedux.filteredCards,
-      dataCardsFromRedux.categorySports,
-      dataCardsFromRedux.categoryHealth,
-      dataCardsFromRedux.categoryArts,
-      dataCardsFromRedux.categoryBusiness,
+      dataCardsFromRedux.newsCards.cards,
+      dataCardsFromRedux.newsCards.filteredCards,
+      dataCardsFromRedux.newsCards.categorySports,
+      dataCardsFromRedux.newsCards.categoryHealth,
+      dataCardsFromRedux.newsCards.categoryArts,
+      dataCardsFromRedux.newsCards.categoryBusiness,
     ]
+    
+    userBookmarks && categoriesToSearch.push(userBookmarks)
 
     categoriesToSearch.forEach((category) => {
       !foundCard && (foundCard = category.find((dataCard) => dataCard.uri === articlename))

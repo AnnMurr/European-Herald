@@ -10,20 +10,20 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
     padding: 160px 0 60px 0;
     position: relative;
-
-    @media screen and (max-width: 520px) {
-        padding: 140px 0 60px 0;
-    }
 `
 
 export const Inner = styled.div`
     padding: 50px;
+
+    @media screen and (max-width: 520px) {
+        padding: 20px;
+    }
 `
 
 export const CardsWrapper = styled.div<ThemeStyledProps>`
     display: flex;
     justify-content: space-between;
-    background-color: ${({ themestyles }) => themestyles.backgroundSettingsForm};
+    background-color: ${({ themestyles }) => themestyles.backgroundForecastBlock};
     margin-top: 30px;
 
     @media screen and (max-width: 576px) {
