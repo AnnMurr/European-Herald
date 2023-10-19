@@ -17,6 +17,7 @@ export const Nav = styled.nav<ThemeStyledProps>`
     left: 0;
     background-color:${({themestyles}) => themestyles.backgroundForm};
     height: 100vh;
+    overflow-y: scroll;
 
     @media screen and (max-width: 520px) {
         max-width: 100%;

@@ -4,7 +4,6 @@ import { ThemeContextType } from "../../../../../../../contexts/themeContext/typ
 import { ThemeContext } from "../../../../../../../contexts/themeContext/themeContext";
 
 import { ItemContainer, Span } from "./styledItem";
-
 interface ItemProps {
     spanText: string,
     text: string

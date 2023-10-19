@@ -30,8 +30,7 @@ export const EditInput: React.FC<EditInputProps> = ({ inputValue, setInputValue,
                 sx={{
                     width: '100%',
                 }}
-                error={error}
-            />
+                error={error}/>
         </Inner>
     )
 }

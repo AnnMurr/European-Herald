@@ -6,29 +6,33 @@ import { TextField, FormHelperText, FormControl } from "@mui/material";
 import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { TogglePasswordType, inputPasswordType } from "../../types";
+import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch } from "../../../../../redux/store/store";
-import { createUser, getUserByEmail } from "../../../../../redux/reducers/usersReducer/usersReducer";
-import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
-import { showToastMessage } from "../../../../../utils/alerts/alert";
 import { UserDataFromRegistrationForm } from "../../../../../redux/reducers/usersReducer/types";
-import { emailPattern, passwordPattern } from "../../../../../consts/patterns/patterns";
+import { createUser, getUserByEmail } from "../../../../../redux/reducers/usersReducer/usersReducer";
+import { SpacesPattern, emailPattern, passwordPattern } from "../../../../../consts/consts";
+import { showToastMessage } from "../../../../../utils/alerts/alert";
 
 import { BtnShowPassword, Label, StarMessage } from "./styledForm";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
   const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<inputPasswordType>("password")
-  const togglePasswordType: TogglePasswordType = (type, setType) => type === "password" ? setType("text") : setType("password")
   const themeContext = useContext<ThemeContextType>(ThemeContext)
+  const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
   const today = new Date()
   const maxDate = new Date(today)
   maxDate.setFullYear(today.getFullYear() - 12)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
+  
+  const togglePasswordType: TogglePasswordType = (type, setType) => {
+    type === "password" ? setType("text") : setType("password")
+  }
 
   const {
     register,
@@ -81,6 +85,10 @@ export const Form = () => {
               value: 20,
               message: "Maximum length is 20 characters.",
             },
+            pattern: {
+              value: SpacesPattern,
+              message: 'Spaces are not allowed.',
+            },
           })}
           id="outlined-size-small"
           size="small"
@@ -117,6 +125,10 @@ export const Form = () => {
             maxLength: {
               value: 30,
               message: "Maximum length is 30 characters.",
+            },
+            pattern: {
+              value: SpacesPattern,
+              message: 'Spaces are not allowed.',
             },
           })}
           id="outlined-size-small"

@@ -4,7 +4,7 @@ import { Spinner } from "../../../../reusable/spinner/spinner";
 import { Title } from "./components/title/title";
 import { Cards } from "./components/dailyNewsCards/dailyNewsCards";
 
-import { Container, Block } from "./styledDailyNews";
+import { Block } from "./styledDailyNews";
 
 interface DailyNewsProps {
     cards: Array<CardType>
@@ -14,7 +14,7 @@ export const DailyNews: React.FC<DailyNewsProps> = ({ cards }) => {
     const isLoading = useAppSelector((state) => state.newsCards.loading)
 
     return (
-        <Container>
+        <div>
             {isLoading ?
                 <Spinner /> :
                 <div>
@@ -23,6 +23,6 @@ export const DailyNews: React.FC<DailyNewsProps> = ({ cards }) => {
                         <Cards cards={cards} />
                     </Block>
                 </div>}
-        </Container>
+        </div>
     )
 }

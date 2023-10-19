@@ -9,8 +9,8 @@ import { Container, Wrapper } from "./styledSearchPage";
 
 export const SearchPage = () => {
     const [searchValue, setSearchValue] = useState<string>('')
-    const { state } = useLocation()
     const [foundСards, setFoundСards] = useState<Array<CardType>>([])
+    const { state } = useLocation()
 
     return (
         <Container>

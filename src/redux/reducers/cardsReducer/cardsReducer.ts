@@ -15,87 +15,6 @@ const initialState: InitialStateType = {
     error: null,
 }
 
-export const fetchCards = createAsyncThunk(
-    "posts/fetchCards",
-    async (_, { dispatch, rejectWithValue }) => {
-        try {
-            const response = await axiosConfig.post('', {
-                query: {
-                    $query: {
-                        lang: 'eng',
-                    },
-                    $filter: {
-                        forceMaxDataTimeWindow: '31',
-                    }
-                },
-                resultType: 'articles',
-                articlesSortBy: 'date',
-                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
-            })
-           
-            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
-            dispatch(getCards(articles))
-        } catch (error) {
-            error instanceof Error && rejectWithValue(error.message)
-        }
-    }
-)
-
-export const fetchCategoryNews = createAsyncThunk<void, string>(
-    "posts/fetchCategoryNews",
-    async (category, { dispatch, rejectWithValue }) => {
-        try {
-            const response = await axiosConfig.post('', {
-                query: {
-                    $query: {
-                        lang: 'eng',
-                        categoryUri: `dmoz/${category}`,
-                    },
-                    $filter: {
-                        forceMaxDataTimeWindow: '31',
-                    },
-                },
-                resultType: 'articles',
-                articlesSortBy: 'date',
-                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
-                articlesCount: 50,
-            })
-            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
-            dispatch(getFilteredCards(articles))
-        } catch (error) {
-            error instanceof Error && rejectWithValue(error.message)
-        }
-    }
-)
-
-export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
-    "posts/fetchCategoryNewsBlocks",
-    async (category, { dispatch, rejectWithValue }) => {
-        try {
-            const response = await axiosConfig.post('', {
-                query: {
-                    $query: {
-                        lang: 'eng',
-                        categoryUri: `dmoz/${category}`,
-                    },
-                    $filter: {
-                        forceMaxDataTimeWindow: '31',
-                    },
-                },
-                resultType: 'articles',
-                articlesSortBy: 'date',
-                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
-                articlesCount: 50,
-            })
-            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
-            const payload = { cards: articles, category: category }
-            dispatch(getFilteredCategoryForBlocks(payload))
-        } catch (error) {
-            error instanceof Error && rejectWithValue(error.message)
-        }
-    }
-)
-
 export const cardsSlice = createSlice({
     name: 'cards',
     initialState,
@@ -141,8 +60,7 @@ export const cardsSlice = createSlice({
         pushCards: (state, action: PayloadAction<Array<CardType>>) => {
             action.payload.forEach(card =>  {
                 state.cards.push(card)
-            })
-             
+            }) 
         },
     },
     extraReducers: (builder) =>
@@ -183,6 +101,90 @@ export const cardsSlice = createSlice({
                 state.error = action.payload as string | null;
             })
 })
+
+export const fetchCards = createAsyncThunk(
+    "posts/fetchCards",
+    async (_, { dispatch, rejectWithValue }) => {
+        try {
+            const response = await axiosConfig.post('', {
+                query: {
+                    $query: {
+                        lang: 'eng',
+                    },
+                    $filter: {
+                        forceMaxDataTimeWindow: '31',
+                    }
+                },
+                resultType: 'articles',
+                articlesSortBy: 'date',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
+            })
+           
+            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            dispatch(getCards(articles))
+
+        } catch (error) {
+            error instanceof Error && rejectWithValue(error.message)
+        }
+    }
+)
+
+export const fetchCategoryNews = createAsyncThunk<void, string>(
+    "posts/fetchCategoryNews",
+    async (category, { dispatch, rejectWithValue }) => {
+        try {
+            const response = await axiosConfig.post('', {
+                query: {
+                    $query: {
+                        lang: 'eng',
+                        categoryUri: `dmoz/${category}`,
+                    },
+                    $filter: {
+                        forceMaxDataTimeWindow: '31',
+                    },
+                },
+                resultType: 'articles',
+                articlesSortBy: 'date',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
+                articlesCount: 50,
+            })
+            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            dispatch(getFilteredCards(articles))
+
+        } catch (error) {
+            error instanceof Error && rejectWithValue(error.message)
+        }
+    }
+)
+
+export const fetchCategoryNewsBlocks = createAsyncThunk<void, string>(
+    "posts/fetchCategoryNewsBlocks",
+    async (category, { dispatch, rejectWithValue }) => {
+        try {
+            const response = await axiosConfig.post('', {
+                query: {
+                    $query: {
+                        lang: 'eng',
+                        categoryUri: `dmoz/${category}`,
+                    },
+                    $filter: {
+                        forceMaxDataTimeWindow: '31',
+                    },
+                },
+                resultType: 'articles',
+                articlesSortBy: 'date',
+                apiKey: '1100bb84-20ca-42fb-a344-f38a00a77552',
+                articlesCount: 50,
+            })
+            const articles: Array<CardType> = response.data.articles.results.filter((article: CardType) => article.image !== null)
+            const payload = { cards: articles, category: category }
+            dispatch(getFilteredCategoryForBlocks(payload))
+
+        } catch (error) {
+            error instanceof Error && rejectWithValue(error.message)
+        }
+    }
+)
 
 export const cardsDataReducer = cardsSlice.reducer
 

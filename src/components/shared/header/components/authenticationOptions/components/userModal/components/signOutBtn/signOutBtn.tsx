@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Button } from "../../../../../../../../reusable/button/button";
-import { AuthorizedContext, AuthorizedContextType } from "../../../../../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContext } from "../../../../../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContextType } from "../../../../../../../../../contexts/authorizedContext/types";
 import { deleteToken } from "../../../../../../../../../store/localStorage/token/token";
 import { useAppDispatch } from "../../../../../../../../../redux/store/store";
 import { deleteUserData } from "../../../../../../../../../redux/reducers/usersReducer/usersReducer";

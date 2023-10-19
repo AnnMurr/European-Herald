@@ -8,8 +8,9 @@ import { faBookmark as faBookmarkSolid } from "@fortawesome/free-solid-svg-icons
 import { changeUserData } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { BookmarksBtnProps } from "../../types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
+import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
 
 import { Inner } from "./styledBookmarksBtn";

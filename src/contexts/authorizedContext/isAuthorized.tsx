@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { AuthorizedContext, AuthorizedContextType } from "./authorizedContext";
 import { Navigate } from "react-router-dom";
-export interface CheckAuthorizationProps {
-    children: React.ReactNode
-}
+
+import { AuthorizedContext } from "./authorizedContext";
+import { AuthorizedContextType, CheckAuthorizationProps } from "./types";
 
 export const CheckAuthorization: React.FC<CheckAuthorizationProps> = ({ children }) => {
     const { isAuthorized } = useContext<AuthorizedContextType>(AuthorizedContext)

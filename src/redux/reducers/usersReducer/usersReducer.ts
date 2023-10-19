@@ -3,14 +3,24 @@ import { usersApi } from "../../../api/axiosConfig";
 import { showToastMessage } from "../../../utils/alerts/alert";
 import { v4 as uuidv4 } from "uuid";
 import { getAuthenticationToken, setAuthenticationToken } from "../../../store/localStorage/token/token";
-import { UserDataFromRegistrationForm, UserDataType, UserLogInData } from "./types";
-interface InitialState {
-    userData: null | UserDataType,
-}
+import { InitialState, UserDataFromRegistrationForm, UserDataType, UserLogInData } from "./types";
 
 const initialState: InitialState = {
     userData: null,
 }
+
+export const usersSlice = createSlice({
+    name: 'users',
+    initialState,
+    reducers: {
+        setUserData: (state, action) => {
+            state.userData = action.payload
+        },
+        deleteUserData: (state) => {
+            state.userData = null
+        }
+    },
+})
 
 export const createUser = createAsyncThunk<void, UserDataFromRegistrationForm>(
     "data/createUser",
@@ -96,7 +106,9 @@ export const fetchSignIn = createAsyncThunk<boolean, UserLogInData>(
             } else {
                 showToastMessage({ type: 'error', text: 'Incorrect credentials' })
             }
+            
             return false
+
         } catch (error) {
             return error instanceof Error && rejectWithValue(error.message)
         }
@@ -118,19 +130,6 @@ export const changeUserData = createAsyncThunk<void, UserDataType>(
         }
     }
 )
-
-export const usersSlice = createSlice({
-    name: 'users',
-    initialState,
-    reducers: {
-        setUserData: (state, action) => {
-            state.userData = action.payload
-        },
-        deleteUserData: (state) => {
-            state.userData = null
-        }
-    },
-})
 
 export const { setUserData, deleteUserData } = usersSlice.actions
 

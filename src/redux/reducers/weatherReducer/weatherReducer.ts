@@ -1,13 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { WeatherDataType, WeatherForecastDataType } from "./types";
+import { InitialState } from "./types";
 import axios from "axios";
-
-interface InitialState {
-    weatherData: WeatherDataType | null,
-    forecastData: Array<WeatherForecastDataType> | null,
-    loading: boolean,
-    error: string | null,
-}
 
 const initialState: InitialState = {
     weatherData: null,
@@ -54,6 +47,7 @@ export const getWetherData = createAsyncThunk(
                 const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=16fba77cc5f442648bd165016231710&q=${latitude},${longitude}&aqi=no&lang=en`)
                 dispatch(getWeather(response.data))
             }
+            
         } catch (error) {
             return error instanceof Error && rejectWithValue(error.message)
         }

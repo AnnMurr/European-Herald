@@ -33,6 +33,10 @@ input::placeholder {
   font-size: 14px;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 380px) {
   .SearchIconBtn {
     color: #fff;

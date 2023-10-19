@@ -4,7 +4,6 @@ import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 
 import { Paragraph } from "./styledText";
-
 interface TextProps {
     text: string
 }

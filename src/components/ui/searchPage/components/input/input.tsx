@@ -11,9 +11,9 @@ import { Input, Label } from "./styledInput";
 export const SearchInput: React.FC<SearchInputProps> =
     ({ setFoundСards, setSearchValue }) => {
         const { searchValueOfHeaderInput } = useAppSelector((state) => state.newsCards)
+        const dataFromRedux = useAppSelector((state) => state.newsCards)
         const [inputValue, setInputValue] = useState<string>('')
         const dispatch = useAppDispatch()
-        const dataFromRedux = useAppSelector((state) => state.newsCards)
         const cards = [...dataFromRedux.cards,
         ...dataFromRedux.categoryArts,
         ...dataFromRedux.categoryBusiness,
@@ -26,8 +26,11 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         const searchNews = (value = inputValue) => {
             setSearchValue(inputValue)
+            
             const filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
-                .filter((it, index, array) => array.findIndex(el => it.uri === el.uri) === index)
+                .filter((element, index, array) => array.findIndex(el => element.uri === el.uri) === index)
+                .filter((element, index, array) => array.findIndex(el => element.title === el.title) === index)
+                
             dispatch(getFoundCards(filteredArray))
             setFoundСards(filteredArray)
             setSearchValueFromStore(value)
@@ -40,10 +43,6 @@ export const SearchInput: React.FC<SearchInputProps> =
         useEffect(() => {
             inputValue === searchValueOfHeaderInput && searchNews()
             setTimeout(() => dispatch(getSearchValueOfHeaderInput(null)), 200)
-        }, [inputValue])
-
-        useEffect(() => {
-
         }, [inputValue])
 
         useEffect(() => {

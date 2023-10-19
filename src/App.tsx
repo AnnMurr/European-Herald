@@ -13,6 +13,7 @@ import { fetchCards, fetchCategoryNewsBlocks } from "./redux/reducers/cardsReduc
 import { getUserByToken } from "./redux/reducers/usersReducer/usersReducer";
 import { getWetherData } from "./redux/reducers/weatherReducer/weatherReducer";
 import { useAppDispatch } from "./redux/store/store";
+import { categoriesBlockHome } from "./consts/consts";
 import { ScrollToTop } from "./utils/scrollToTop/scrollToTop";
 import {
   About,
@@ -38,13 +39,12 @@ import "./assets/styles/reset.css";
 
 function App() {
   const dispatch = useAppDispatch()
-  const categories = ["Business", "Arts", "Health", "Sports"]
-
+  
   useEffect(() => {
     dispatch(fetchCards())
     dispatch(getUserByToken())
     dispatch(getWetherData())
-    categories.forEach((category) => dispatch(fetchCategoryNewsBlocks(category)))
+    categoriesBlockHome.forEach((category) => dispatch(fetchCategoryNewsBlocks(category)))
   }, [])
 
   return (
@@ -58,7 +58,7 @@ function App() {
                 <Header />
                 <Routes>
                   <Route path="/European-Herald/dist/" element={<Home />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/European-Herald/dist/contact" element={<Contact />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/about" element={<About />} />
                   <Route
