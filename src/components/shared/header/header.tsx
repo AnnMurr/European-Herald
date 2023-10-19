@@ -1,11 +1,13 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import { AuthenticationOptions, Burger, Logo, NavMenu, Search, Settings, SettingsBtn, SubBar, UserIconBtn } from ".";
 import { LinkContext, LinkContextType } from "../../../contexts/linkContext/linkContext";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 import { ThemeContextType } from "../../../contexts/themeContext/types";
+import { hideScroll } from "../../../utils/hideScroll/hideScroll";
 
 import { Container, HeaderMenuNav, HeaderMenuNavInner, LeftContent, RightContent } from "./styledHeader";
+
 
 export const Header = () => {
     const [isAuthOptionsActive, setIsAuthOptionsActive] = useState<boolean>(false)
@@ -16,6 +18,10 @@ export const Header = () => {
     const userIconBtnRef = useRef<HTMLDivElement>(null)
     const settingsIconBtnRef = useRef<HTMLDivElement>(null)
     const burgerBtnRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        hideScroll(isSubBarActive)
+    }, [isSubBarActive])
 
     return (
         <Container themestyles={themeContext.themeStyles}>

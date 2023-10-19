@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import { Theme, ThemeStyledProps } from "../../../../../../../contexts/themeContext/types";
-import { DegreesType } from "../../../../../../../contexts/weatherContext/types";
-interface DegreesBtnProps {
-    degrees: DegreesType,
-    themestyles: Theme,
-}
+import { ThemeStyledProps } from "../../../../../../../contexts/themeContext/types";
+import { DegreesBtnProps } from "../../../../types";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -31,7 +27,8 @@ export const TemperatureText = styled.span<ThemeStyledProps>`
 
 export const CelciusBtn = styled.button<DegreesBtnProps>`
     line-height: 50px;
-    color: ${({ themestyles, degrees }) => degrees === 'celcius' ? 'gray' :   themestyles.color};
+    color: ${({ themestyles, degrees }) => degrees === 'celcius' ? themestyles.color : 'gray'};
+    cursor: ${({ themestyles, degrees }) => degrees === 'celcius' ? 'default' : 'pointer'};
     font-weight: 700;
     font-size: 50px;
     border-right:${({ themestyles }) => `1px solid ${themestyles.color}` };
@@ -53,7 +50,8 @@ export const CelciusBtn = styled.button<DegreesBtnProps>`
 export const FahrenheitBtn = styled.button<DegreesBtnProps>`
     line-height: 50px;
     border-left:${({ themestyles }) => `1px solid ${themestyles.color}` };
-    color: ${({ themestyles, degrees }) => degrees === 'fahrenheit' ? 'gray' :   themestyles.color};
+    color: ${({ themestyles, degrees }) => degrees === 'fahrenheit' ? themestyles.color : 'gray'};
+    cursor: ${({ themestyles, degrees }) => degrees === 'fahrenheit' ? 'default' : 'pointer'};
     font-weight: 700;
     font-size: 50px;
     padding: 0 20px;

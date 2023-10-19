@@ -11,9 +11,10 @@ import { ThemeContext } from "../../../../../contexts/themeContext/themeContext"
 import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersReducer";
-import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { UserDataType } from "../../../../../redux/reducers/usersReducer/types";
-import { emailPattern } from "../../../../../consts/patterns/patterns";
+import { emailPattern } from "../../../../../consts/consts";
 
 import { BtnShowPassword, Label } from "./styledForm";
 
@@ -24,10 +25,9 @@ export const Form = () => {
   const navigate = useNavigate()
   const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
 
-  const togglePasswordType = () =>
-    typeOfPassword === "password"
-      ? setTypeOfPassword("text")
-      : setTypeOfPassword("password")
+  const togglePasswordType = () => typeOfPassword === "password" ?
+    setTypeOfPassword("text") :
+    setTypeOfPassword("password")
 
   const {
     register,

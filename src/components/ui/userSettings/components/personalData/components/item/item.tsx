@@ -7,7 +7,6 @@ import { ThemeContext } from "../../../../../../../contexts/themeContext/themeCo
 import { EditModal } from "./components/editModal/editModal";
 
 import { Headline, ItemInner, Span } from "./styledItem";
-
 interface ItemProps {
     name: string,
     data: string | undefined

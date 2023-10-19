@@ -29,13 +29,13 @@ export const TemperatureText = styled.span`
 `
 
 export const CelciusBtn = styled.button<DegreesBtnProps>`
-    opacity:${({ degrees }) => degrees === 'celcius' ? '0.4' : '1'};
-    color: ${({ themestyles }) => themestyles.color};
+    color: ${({ themestyles, degrees }) => degrees === 'celcius' ? themestyles.color : 'gray'};
+    cursor: ${({ themestyles, degrees }) => degrees === 'celcius' ? 'default' : 'pointer'};
     font-weight: 700;
 `
 
 export const FahrenheitBtn = styled.button<DegreesBtnProps>`
-    opacity:${({ degrees }) => degrees === 'fahrenheit' ? '0.4' : '1'};
-    color: ${({ themestyles }) => themestyles.color};
+    color: ${({ themestyles, degrees }) => degrees === 'fahrenheit' ? themestyles.color : 'gray'};
+    cursor: ${({ themestyles, degrees }) => degrees === 'fahrenheit' ? 'default' : 'pointer'};
     font-weight: 700;
 `

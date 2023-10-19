@@ -39,7 +39,6 @@ export interface WeatherDataType {
         tz_id: string,
     }
 }
-
 export interface WeatherForecastDataType {
     astro: {
         is_moon_up: number
@@ -90,4 +89,10 @@ export interface WeatherForecastDataType {
         uv: number
         hour: Array<Object>
     }
+}
+export interface InitialState {
+    weatherData: WeatherDataType | null,
+    forecastData: Array<WeatherForecastDataType> | null,
+    loading: boolean,
+    error: string | null,
 }

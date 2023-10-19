@@ -7,7 +7,7 @@ import { ThemeContext } from "../../../../../contexts/themeContext/themeContext"
 
 import { Inner, Span } from "./styledDate";
 
-export const Date = ({dataCard}: DataCardProps) => {
+export const Date = ({ dataCard }: DataCardProps) => {
     const dataCardDateTime = parseISO(dataCard.dateTime)
     const formattedDate = format(dataCardDateTime, 'dd.MM.yyyy - h:mm a')
     const themeContext: ThemeContextType = useContext(ThemeContext)

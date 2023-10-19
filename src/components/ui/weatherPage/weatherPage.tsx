@@ -13,7 +13,6 @@ import { Container, Inner, Wrapper, CardsWrapper } from "./styledWeatherPage";
 
 export const WeatherPage = () => {
     const { weatherData, forecastData, loading } = useAppSelector(state => state.weather)
-
     const themeContext: ThemeContextType = useContext(ThemeContext)
     const dispatch = useAppDispatch()
 

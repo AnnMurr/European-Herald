@@ -23,7 +23,6 @@ export interface CardType {
     url: string,
     wgt: number
 }
-
 export interface InitialStateType {
     cards: Array<CardType>,
     filteredCards: Array<CardType>,

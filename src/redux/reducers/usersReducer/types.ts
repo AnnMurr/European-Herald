@@ -1,5 +1,4 @@
 import { CardType } from "../cardsReducer/types";
-
 export interface UserDataType {
     name: string,
     lastName: string,
@@ -18,8 +17,11 @@ export interface UserDataFromRegistrationForm {
     repeatPassword: string,
     bookmarks: Array<CardType>
 }
-
 export interface UserLogInData {
     email: string,
     password: string
+}
+
+export interface InitialState {
+    userData: null | UserDataType,
 }

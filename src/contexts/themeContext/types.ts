@@ -1,6 +1,8 @@
 import { Colors } from "./themes";
 
 export type ThemeType = 'light' | 'dark'
+
+export type ThemesType = Record<ThemeType, Theme>
 export interface Theme {
     body: Colors,
     color: Colors,
@@ -10,8 +12,6 @@ export interface Theme {
     backgroundSettingsForm: Colors,
     backgroundForecastBlock: Colors,
 }
-
-export type ThemesType = Record<ThemeType, Theme>
 export interface ThemeContextType {
     currentTheme: ThemeType,
     changeTheme: () => void,

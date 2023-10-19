@@ -6,7 +6,8 @@ import { AuthenticationOptionsProps } from "../../types";
 import { AccessControlBtns } from "./components/accessControlBtns/accessControlBtns";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
-import { AuthorizedContext, AuthorizedContextType } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
+import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { UserModal } from "./components/userModal/userModal";
 
 import { BtnCloseWrapper, Container } from "./styledAuthOptions";
