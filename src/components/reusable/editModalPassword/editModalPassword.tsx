@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-import { Container } from "./styledEditModalPassword";
-import { ConfirmBtn, CrossBtn, EditInput } from ".";
+import { ConfirmBtn, EditInput } from ".";
 import { useAppSelector } from "../../../redux/store/store";
 import { EditModalProps } from "./types";
+import { CloseBtn } from "../closeBtn/closeBtn";
+
+import { Container } from "./styledEditModalPassword";
 
 export const EditModalPassword: React.FC<EditModalProps> = ({ setIsNewPasswordModal, closeModal, data }) => {
     const [inputValue, setInputValue] = useState<string>(data!)
@@ -22,7 +24,7 @@ export const EditModalPassword: React.FC<EditModalProps> = ({ setIsNewPasswordMo
     
     return (
         <Container>
-            <CrossBtn closeModal={closeModal} />
+            <CloseBtn closeModal={closeModal} currentColor={'#000'} />
             <EditInput error={error} setInputValue={setInputValue} />
             <ConfirmBtn passwordСheck={passwordСheck} />
         </Container>

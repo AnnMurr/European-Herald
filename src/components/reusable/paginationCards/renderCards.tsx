@@ -51,7 +51,7 @@ export const RenderCards: React.FC<RenderCardsProps> = ({ type }) => {
             </CardsInner>
             {cardsFromRedux.length > currentPage * visibleItemsOnpage ?
                 <BtnInner>
-                    <Button func={getMoreItems} type={'button'} text={'Show more ▼'} />
+                    <Button style={{textTransform: 'initial'}} func={getMoreItems} type={'button'} text={'Show more ▼'} />
                 </BtnInner> :
                 null}
         </>

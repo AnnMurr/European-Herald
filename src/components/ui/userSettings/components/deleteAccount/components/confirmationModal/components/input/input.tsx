@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 import { TextField } from "@mui/material";
-import { BtnShowPassword } from "../../../showPasswordBtn/showPasswordBtn";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { EditInputProps, InputPasswordType } from "../../types";
+import { BtnShowPassword } from "../../../../../../../../reusable/showPasswordBtn/showPasswordBtn";
+import { InputProps, InputPasswordType } from "../../types";
 
-import { Inner, Label } from "./styledEditInput";
+import { Inner, Label } from "./styledInput";
 
-export const EditInput: React.FC<EditInputProps> = ({ setInputValue, error }) => {
+
+export const Input: React.FC<InputProps> = ({ setInputValue, error }) => {
     const [typeOfPassword, setTypeOfPassword] = useState<InputPasswordType>("password")
 
     const togglePasswordType = () => typeOfPassword === "password" ?

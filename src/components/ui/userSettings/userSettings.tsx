@@ -6,6 +6,7 @@ import { ThemeContextType } from "../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../contexts/themeContext/themeContext";
 
 import { Container, Inner, Wrapper } from "./styledUserSettings";
+import { DeleteAccountBtn } from "./components/deleteAccount/deleteAccount";
 
 export const UserSettings = () => {
     const themeContext = useContext<ThemeContextType>(ThemeContext)
@@ -16,6 +17,7 @@ export const UserSettings = () => {
                 <Inner themestyles={themeContext.themeStyles}>
                     <Title />
                     <Form />
+                    <DeleteAccountBtn />
                 </Inner>
             </Wrapper>
         </Container>

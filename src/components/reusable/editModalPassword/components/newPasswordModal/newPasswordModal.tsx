@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-import { CrossBtn, EditInputs, SaveBtn } from ".";
+import { EditInputs, SaveBtn } from ".";
 import { NewPasswordModalProps } from "./types";
+import { CloseBtn } from "../../../closeBtn/closeBtn";
 
 import { Container } from "./styledNewPasswordModal";
 
@@ -11,7 +12,7 @@ export const NewPasswordModal: React.FC<NewPasswordModalProps> = ({ closeModal }
 
     return (
         <Container>
-            <CrossBtn closeModal={closeModal} />
+            <CloseBtn closeModal={closeModal} currentColor={'#000'} />
             <EditInputs setInputValue={setInputValue} setIsCorrectInputValue={setIsCorrectInputValue} />
             <SaveBtn inputValue={inputValue} closeModal={closeModal} isCorrectInputValue={isCorrectInputValue} />
         </Container>

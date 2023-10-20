@@ -5,6 +5,7 @@ export const CardsInner = styled.div`
     flex-wrap: wrap;
     row-gap: 30px;
     justify-content: space-between;
+    min-height: 100vh;
 `
 
 export const BtnInner = styled.div`

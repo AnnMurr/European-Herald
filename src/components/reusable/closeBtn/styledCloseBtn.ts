@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CrossBtnContainer = styled.div`
+export const Container = styled.div`
     margin-left: auto;
     width: fit-content;
 `

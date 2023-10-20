@@ -1,3 +1,3 @@
-export type inputPasswordType = 'password' | 'text'
+export type InputPasswordType = 'password' | 'text'
 
-export type TogglePasswordType = ( type: string, setType: React.Dispatch<React.SetStateAction<inputPasswordType>>) => void
+export type TogglePasswordType = ( type: string, setType: React.Dispatch<React.SetStateAction<InputPasswordType>>) => void

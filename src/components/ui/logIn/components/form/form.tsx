@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { TextField, FormControl } from "@mui/material";
-import { inputPasswordType } from "../../types";
+import { InputPasswordType } from "../../types";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
@@ -20,7 +20,7 @@ import { Label } from "./styledForm";
 import { ErrorMessage } from "../../../../reusable/errorMessage/errorMessage";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
+  const [typeOfPassword, setTypeOfPassword] = useState<InputPasswordType>("password")
   const themeContext = useContext<ThemeContextType>(ThemeContext)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -109,7 +109,7 @@ export const Form = () => {
           icon={typeOfPassword === "password" ? faEye : faEyeSlash}
           func={togglePasswordType} />
       </Label>
-      <Button type={'submit'} text={'Sign In'} style={{ margin: "30px 0 20px 0" }} />
+      <Button type={'submit'} text={'Sign In'} style={{ margin: "30px 0 20px 0", textTransform: 'initial' }} />
     </FormControl>
   )
 }

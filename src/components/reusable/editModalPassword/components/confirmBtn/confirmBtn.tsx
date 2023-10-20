@@ -5,7 +5,7 @@ import { Inner } from "./styledConfirmBtn";
 export const ConfirmBtn: React.FC<ConfirmBtnProps> = ({ passwordСheck }) => {
     return (
         <Inner>
-            <Button func={passwordСheck} type="button" text="Confirm" />
+            <Button style={{textTransform: 'initial'}} func={passwordСheck} type="button" text="Confirm" />
         </Inner>
     )
 }

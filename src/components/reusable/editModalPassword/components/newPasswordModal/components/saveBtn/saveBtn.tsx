@@ -20,7 +20,7 @@ export const SaveBtn: React.FC<SaveBtnProps> = ({ isCorrectInputValue, inputValu
 
     return (
         <Inner>
-            <Button func={changeData} type="button" text="save" />
+            <Button style={{textTransform: 'initial'}} func={changeData} type="button" text="save" />
         </Inner>
     )
 }

@@ -3,13 +3,13 @@ import { FormHelperText, TextField } from "@mui/material";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { BtnShowPassword } from "../../../../../showPasswordBtn/showPasswordBtn";
 import { passwordPattern } from "../../../../../../../consts/consts";
-import { EditInputProps, TogglePasswordType, inputPasswordType } from "../../types";
+import { EditInputProps, TogglePasswordType, InputPasswordType } from "../../types";
 
 import { Inner, Label } from "./styledEditInputs";
 
 export const EditInputs: React.FC<EditInputProps> = ({ setIsCorrectInputValue, setInputValue }) => {
-    const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
-    const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<inputPasswordType>("password")
+    const [typeOfPassword, setTypeOfPassword] = useState<InputPasswordType>("password")
+    const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<InputPasswordType>("password")
     const [passwordValue, setPasswordValue] = useState<string>("")
     const [passwordRepeatValue, setPasswordRepeatValue] = useState<string>("")
     const [passwordValueError, setPasswordValueError] = useState<boolean>(false)

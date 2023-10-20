@@ -15,7 +15,8 @@ export const AccessControlBtns: React.FC<AccessControlBtnsProps> = ({ closeModal
           func={() => closeModal(false)}
           style={{
             margin: "10px  0",
-            width: '100%'
+            width: '100%',
+            textTransform: 'initial'
           }} />
       </Link>
       <Link to={'./registration'}>
@@ -25,7 +26,8 @@ export const AccessControlBtns: React.FC<AccessControlBtnsProps> = ({ closeModal
           func={() => closeModal(false)}
           style={{
             margin: "10px  0",
-            width: '100%'
+            width: '100%',
+            textTransform: 'initial'
           }} />
       </Link>
     </BtnWrapper>

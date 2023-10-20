@@ -1,1 +1,1 @@
-export type inputPasswordType = 'password' | 'text'
+export type InputPasswordType = 'password' | 'text'

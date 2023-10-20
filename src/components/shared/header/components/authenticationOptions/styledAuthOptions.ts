@@ -19,8 +19,3 @@ export const Container = styled.div<ThemeStyledProps>`
         max-width: 92%;
     }
 `
-
-export const BtnCloseWrapper = styled.div`
-    margin-left: auto;
-    width: fit-content; 
-`

@@ -46,7 +46,7 @@ export const SaveBtn: React.FC<SaveBtnProps> = ({ inputValue, closeModal, name, 
 
     return (
         <Inner>
-            <Button func={changeData} type="button" text="save" />
+            <Button style={{textTransform: 'initial'}} func={changeData} type="button" text="save" />
         </Inner>
     )
-}
+} 

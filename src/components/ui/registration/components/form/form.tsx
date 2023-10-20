@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { TextField, FormControl } from "@mui/material";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { TogglePasswordType, inputPasswordType } from "../../types";
+import { TogglePasswordType, InputPasswordType } from "../../types";
 import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
@@ -21,8 +21,8 @@ import { showToastMessage } from "../../../../../utils/alerts/alert";
 import { Label, StarMessage } from "./styledForm";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
-  const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<inputPasswordType>("password")
+  const [typeOfPassword, setTypeOfPassword] = useState<InputPasswordType>("password")
+  const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<InputPasswordType>("password")
   const themeContext = useContext<ThemeContextType>(ThemeContext)
   const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
   const today = new Date()
@@ -247,7 +247,7 @@ export const Form = () => {
         icon={typeOfRepeatPassword === "password" ? faEye : faEyeSlash}
         func={() => togglePasswordType(typeOfRepeatPassword, setTypeOfRepeatPassword)} />
       <ErrorMessage text={errors.repeatPassword?.message as string} value={!!errors.repeatPassword} />
-      <Button type={'submit'} text={'Sign Up'} style={{ margin: "30px 0 20px 0" }} />
+      <Button type={'submit'} text={'Sign Up'} style={{ margin: "30px 0 20px 0", textTransform: 'initial' }} />
     </FormControl>
   )
 }
