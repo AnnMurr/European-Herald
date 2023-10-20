@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { Button } from "../../../../reusable/button/button";
 import { useAppDispatch, useAppSelector } from "../../../../../redux/store/store";
-import { Button as MuiButton } from "@mui/material";
 import { SearchInputProps } from "../../types";
 import { getFoundCards, getSearchValueOfHeaderInput } from "../../../../../redux/reducers/cardsReducer/cardsReducer";
 import { getSearchValueToStore, setSearchValueFromStore } from "../../../../../store/sessionStorage/search/searchValue";
@@ -26,11 +26,11 @@ export const SearchInput: React.FC<SearchInputProps> =
 
         const searchNews = (value = inputValue) => {
             setSearchValue(inputValue)
-            
+
             const filteredArray = cards.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
                 .filter((element, index, array) => array.findIndex(el => element.uri === el.uri) === index)
                 .filter((element, index, array) => array.findIndex(el => element.title === el.title) === index)
-                
+
             dispatch(getFoundCards(filteredArray))
             setFoundСards(filteredArray)
             setSearchValueFromStore(value)
@@ -62,17 +62,16 @@ export const SearchInput: React.FC<SearchInputProps> =
                         type="search"
                         onKeyDown={handleKeyPress}
                         value={inputValue} />
-                    <MuiButton
-                        sx={{
+                    <Button
+                        text={'Search'}
+                        type={'button'}
+                        func={() => searchNews()}
+                        style={{
                             position: 'absolute',
                             right: '0',
-                            height: '45px',
-                        }}
-                        onClick={() => searchNews()}
-                        variant="contained"
-                        href="#contained-buttons">
-                        Search
-                    </MuiButton>
+                            height: '100%',
+                            textTransform: 'initial'
+                        }} />
                 </Label>
             </div>
         )

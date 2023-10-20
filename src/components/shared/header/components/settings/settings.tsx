@@ -1,13 +1,12 @@
 import { useContext, useEffect, useRef } from "react";
 
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Content } from "./components/content/content";
 import { SettingsProps } from "../../types";
 
-import { BtnCloseWrapper, Container } from "./styledSettings";
+import { Container } from "./styledSettings";
+import { CloseBtn } from "../../../../reusable/closeBtn/closeBtn";
 
 export const Settings: React.FC<SettingsProps> = ({ closeModal, settingsIconBtnRef }) => {
     const themeContext: ThemeContextType = useContext(ThemeContext)
@@ -33,9 +32,7 @@ export const Settings: React.FC<SettingsProps> = ({ closeModal, settingsIconBtnR
 
     return (
         <Container theme={themeContext.currentTheme} themestyles={themeContext.themeStyles} ref={settingsRef}>
-            <BtnCloseWrapper>
-                <IconBtn color={themeContext.themeStyles.color} onClickFunc={closeSettingsModal} icon={faXmark} size='lg' />
-            </BtnCloseWrapper>
+            <CloseBtn closeModal={closeSettingsModal} currentColor={themeContext.themeStyles.color} />
             <Content switchRef={switchRef} />
         </Container>
     )

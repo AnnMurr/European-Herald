@@ -10,15 +10,6 @@ export const Label = styled.label<ThemeStyledProps>`
     color:${({ themestyles }) => themestyles.color};
 `
 
-export const BtnShowPassword = styled.div`
-    position: relative;
-    bottom: 35px;
-    width: fit-content;
-    margin-left: auto;
-    right: 20px;
-    height: 0;
-`
-
 export const StarMessage = styled.span`
     color: red;
     position: absolute;

@@ -34,6 +34,7 @@ export const BookmarksBtn: React.FC<BookmarksBtnProps> = ({ dataCard }) => {
                         bookmarks: dataUserFromRedux?.bookmarks.filter(bookmark => bookmark.uri !== articlename)
                     }))
                 } else {
+                    showToastMessage({ type: 'success', text: 'The article has been added to your bookmarks.' }) 
                     dispatch(changeUserData({
                         ...dataUserFromRedux,
                         bookmarks: [...(dataUserFromRedux?.bookmarks || []), dataCard]

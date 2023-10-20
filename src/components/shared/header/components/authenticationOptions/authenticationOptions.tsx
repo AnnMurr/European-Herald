@@ -1,7 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
 
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationOptionsProps } from "../../types";
 import { AccessControlBtns } from "./components/accessControlBtns/accessControlBtns";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
@@ -10,14 +8,15 @@ import { AuthorizedContext } from "../../../../../contexts/authorizedContext/aut
 import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { UserModal } from "./components/userModal/userModal";
 
-import { BtnCloseWrapper, Container } from "./styledAuthOptions";
+import { Container } from "./styledAuthOptions";
+import { CloseBtn } from "../../../../reusable/closeBtn/closeBtn";
 
 export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ closeModal, userIconBtnRef }) => {
     const closeAuthOptions = () => closeModal(false)
     const auntRef = useRef<HTMLDivElement>(null)
     const themeContext = useContext<ThemeContextType>(ThemeContext)
     const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
-    
+
     const closeModalOutsideClick = (e: MouseEvent) => {
         const event = e.target as Node
 
@@ -34,9 +33,7 @@ export const AuthenticationOptions: React.FC<AuthenticationOptionsProps> = ({ cl
 
     return (
         <Container themestyles={themeContext.themeStyles} theme={themeContext.currentTheme} ref={auntRef}>
-            <BtnCloseWrapper>
-                <IconBtn color={themeContext.themeStyles.color} onClickFunc={closeAuthOptions} icon={faXmark} size='lg' />
-            </BtnCloseWrapper>
+            <CloseBtn closeModal={closeAuthOptions} currentColor={themeContext.themeStyles.color} />
             {!authorizedContext.isAuthorized ? <AccessControlBtns closeModal={closeModal} /> : <UserModal closeModal={closeAuthOptions} />}
         </Container>
     )

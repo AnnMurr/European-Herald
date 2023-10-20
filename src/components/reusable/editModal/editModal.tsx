@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import { EditModalProps } from "./types";
-import { CrossBtn, EditInput, SaveBtn } from ".";
+import { EditInput, SaveBtn } from ".";
+import { CloseBtn } from "../closeBtn/closeBtn";
 
 import { Container } from "./styledEditModal";
 
@@ -11,7 +12,7 @@ export const EditModal: React.FC<EditModalProps> = ({ closeModal, data, name }) 
      
     return (
         <Container>
-            <CrossBtn closeModal={closeModal} />
+            <CloseBtn closeModal={closeModal} currentColor={'#000'} />
             <EditInput error={error} name={name} inputValue={inputValue} setInputValue={setInputValue} />
             <SaveBtn setError={setError} closeModal={closeModal} name={name} inputValue={inputValue} />
         </Container>

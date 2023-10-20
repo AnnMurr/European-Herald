@@ -106,7 +106,7 @@ export const fetchSignIn = createAsyncThunk<boolean, UserLogInData>(
             } else {
                 showToastMessage({ type: 'error', text: 'Incorrect credentials' })
             }
-            
+
             return false
 
         } catch (error) {
@@ -123,6 +123,22 @@ export const changeUserData = createAsyncThunk<void, UserDataType>(
             const response = await usersApi.put(`usersData/${user.payload.id}`, changedUserData)
 
             response.status === 200 ? dispatch(setUserData(changedUserData)) :
+                showToastMessage({ type: 'error', text: 'something is wrong' })
+
+        } catch (error) {
+            error instanceof Error && rejectWithValue(error.message)
+        }
+    }
+)
+
+export const deleteUserAccount = createAsyncThunk(
+    "data/changeUserData",
+    async (_, { dispatch, rejectWithValue }) => {
+        try {
+            const user = await dispatch(getUserByToken())
+            const response = await usersApi.delete(`usersData/${user.payload.id}`)
+
+            response.status === 200 ? showToastMessage({ type: 'success', text: 'Your account has been successfully deleted.' }) :
                 showToastMessage({ type: 'error', text: 'something is wrong' })
 
         } catch (error) {

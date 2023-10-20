@@ -15,6 +15,3 @@ export interface EditInputProps {
     name: string,
     error: boolean
 }
-export interface CrossBtnProps {
-    closeModal: (value: boolean) => void
-}

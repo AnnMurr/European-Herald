@@ -2,26 +2,27 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { TextField, FormHelperText, FormControl } from "@mui/material";
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
+import { TextField, FormControl } from "@mui/material";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { TogglePasswordType, inputPasswordType } from "../../types";
+import { TogglePasswordType, InputPasswordType } from "../../types";
 import { AuthorizedContextType } from "../../../../../contexts/authorizedContext/types";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
+import { BtnShowPassword } from "../../../../reusable/showPasswordBtn/showPasswordBtn";
+import { ErrorMessage } from "../../../../reusable/errorMessage/errorMessage";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { UserDataFromRegistrationForm } from "../../../../../redux/reducers/usersReducer/types";
 import { createUser, getUserByEmail } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { SpacesPattern, emailPattern, passwordPattern } from "../../../../../consts/consts";
 import { showToastMessage } from "../../../../../utils/alerts/alert";
 
-import { BtnShowPassword, Label, StarMessage } from "./styledForm";
+import { Label, StarMessage } from "./styledForm";
 
 export const Form = () => {
-  const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
-  const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<inputPasswordType>("password")
+  const [typeOfPassword, setTypeOfPassword] = useState<InputPasswordType>("password")
+  const [typeOfRepeatPassword, setTypeOfRepeatPassword] = useState<InputPasswordType>("password")
   const themeContext = useContext<ThemeContextType>(ThemeContext)
   const authorizedContext = useContext<AuthorizedContextType>(AuthorizedContext)
   const today = new Date()
@@ -29,7 +30,7 @@ export const Form = () => {
   maxDate.setFullYear(today.getFullYear() - 12)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  
+
   const togglePasswordType: TogglePasswordType = (type, setType) => {
     type === "password" ? setType("text") : setType("password")
   }
@@ -50,7 +51,7 @@ export const Form = () => {
     if (!isThisAccount.payload) {
       reset()
       navigate('/European-Herald/dist/')
-      dispatch(createUser(data))   
+      dispatch(createUser(data))
       authorizedContext.logIn()
     } else {
       showToastMessage({ type: 'error', text: 'this email has already been registered' })
@@ -101,16 +102,7 @@ export const Form = () => {
           }}
           error={!!errors.name}
         />
-        <FormHelperText
-          sx={{
-            color: "#d32f2f",
-            margin: "0",
-            fontSize: "11px",
-          }}
-          error={!!errors.name}
-        >
-          {errors.name?.message as string}
-        </FormHelperText>
+        <ErrorMessage text={errors.name?.message as string} value={!!errors.name} />
         <StarMessage>*</StarMessage>
       </Label >
       <Label themestyles={themeContext.themeStyles}>
@@ -142,16 +134,7 @@ export const Form = () => {
           }}
           error={!!errors.lastName}
         />
-        <FormHelperText
-          sx={{
-            color: "#d32f2f",
-            margin: "0",
-            fontSize: "11px",
-          }}
-          error={!!errors.lastName}
-        >
-          {errors.lastName?.message as string}
-        </FormHelperText>
+        <ErrorMessage text={errors.lastName?.message as string} value={!!errors.lastName} />
         <StarMessage>*</StarMessage>
       </Label>
       <Label themestyles={themeContext.themeStyles}>
@@ -179,16 +162,7 @@ export const Form = () => {
           }}
           error={!!errors.email}
         />
-        <FormHelperText
-          sx={{
-            color: "#d32f2f",
-            margin: "0",
-            fontSize: "11px",
-          }}
-          error={!!errors.email}
-        >
-          {errors.email?.message as string}
-        </FormHelperText>
+        <ErrorMessage text={errors.email?.message as string} value={!!errors.email} />
         <StarMessage>*</StarMessage>
       </Label>
       <Label themestyles={themeContext.themeStyles}>
@@ -218,7 +192,7 @@ export const Form = () => {
             required: true,
             pattern: {
               value:
-              passwordPattern,
+                passwordPattern,
               message:
                 "Password must contain at least one digit, one special character '!@#$%^&*', one lowercase letter, one uppercase letter, and should not contain any spaces.",
             },
@@ -244,25 +218,10 @@ export const Form = () => {
         />
         <StarMessage>*</StarMessage>
       </Label>
-      <BtnShowPassword>
-        <IconBtn
-          icon={typeOfPassword === "password" ? faEye : faEyeSlash}
-          size={"sm"}
-          onClickFunc={() =>
-            togglePasswordType(typeOfPassword, setTypeOfPassword)
-          }
-        />
-      </BtnShowPassword>
-      <FormHelperText
-        sx={{
-          color: "#d32f2f",
-          margin: "0",
-          fontSize: "11px",
-        }}
-        error={!!errors.password}
-      >
-        {errors.password?.message as string}
-      </FormHelperText>
+      <BtnShowPassword
+        icon={typeOfPassword === "password" ? faEye : faEyeSlash}
+        func={() => togglePasswordType(typeOfPassword, setTypeOfPassword)} />
+      <ErrorMessage text={errors.password?.message as string} value={!!errors.password} />
       <Label themestyles={themeContext.themeStyles}>
         Repeat Password
         <TextField
@@ -284,26 +243,11 @@ export const Form = () => {
         />
         <StarMessage>*</StarMessage>
       </Label>
-      <BtnShowPassword>
-        <IconBtn
-          icon={typeOfRepeatPassword === "password" ? faEye : faEyeSlash}
-          size={"sm"}
-          onClickFunc={() =>
-            togglePasswordType(typeOfRepeatPassword, setTypeOfRepeatPassword)
-          }
-        />
-      </BtnShowPassword>
-      <FormHelperText
-        sx={{
-          color: "#d32f2f",
-          margin: "0",
-          fontSize: "11px",
-        }}
-        error={!!errors.repeatPassword}
-      >
-        {errors.repeatPassword?.message as string}
-      </FormHelperText>
-      <Button type={'submit'} text={'Sign Up'} style={{ margin: "30px 0 20px 0" }} />
+      <BtnShowPassword
+        icon={typeOfRepeatPassword === "password" ? faEye : faEyeSlash}
+        func={() => togglePasswordType(typeOfRepeatPassword, setTypeOfRepeatPassword)} />
+      <ErrorMessage text={errors.repeatPassword?.message as string} value={!!errors.repeatPassword} />
+      <Button type={'submit'} text={'Sign Up'} style={{ margin: "30px 0 20px 0", textTransform: 'initial' }} />
     </FormControl>
   )
 }

@@ -27,7 +27,8 @@ export const SignOutBtn = () => {
         <Wrapper>
              <Button
                 style={{
-                    width: '100%'
+                    width: '100%',
+                    textTransform: 'initial'
                 }}
                 func={userLogOut}
                 text={'Sign out'}

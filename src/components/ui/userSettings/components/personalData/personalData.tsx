@@ -13,6 +13,7 @@ export const Form = () => {
             {userDataFromRedux.userData?.birthday.length ?? 0 ?
                 <Item name={'Birthday'} data={userDataFromRedux.userData?.birthday} /> :
                 null}
+            <Item name={'Password'} data={userDataFromRedux.userData?.email} />
         </List>
     )
 }

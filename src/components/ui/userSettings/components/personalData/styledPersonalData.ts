@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-    padding-top: 40px;
+    padding: 40px 0;
     position: relative;
 
     @media screen and (max-width: 520px) {
