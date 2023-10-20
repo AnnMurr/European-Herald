@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { TextField, FormControl, FormHelperText } from "@mui/material";
-import { IconBtn } from "../../../../reusable/iconBtn/iconBtn";
+import { TextField, FormControl } from "@mui/material";
 import { inputPasswordType } from "../../types";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContextType } from "../../../../../contexts/themeContext/types";
 import { ThemeContext } from "../../../../../contexts/themeContext/themeContext";
 import { Button } from "../../../../reusable/button/button";
+import { BtnShowPassword } from "../../../../reusable/showPasswordBtn/showPasswordBtn";
 import { useAppDispatch } from "../../../../../redux/store/store";
 import { fetchSignIn } from "../../../../../redux/reducers/usersReducer/usersReducer";
 import { AuthorizedContext } from "../../../../../contexts/authorizedContext/authorizedContext";
@@ -16,7 +16,8 @@ import { AuthorizedContextType } from "../../../../../contexts/authorizedContext
 import { UserDataType } from "../../../../../redux/reducers/usersReducer/types";
 import { emailPattern } from "../../../../../consts/consts";
 
-import { BtnShowPassword, Label } from "./styledForm";
+import { Label } from "./styledForm";
+import { ErrorMessage } from "../../../../reusable/errorMessage/errorMessage";
 
 export const Form = () => {
   const [typeOfPassword, setTypeOfPassword] = useState<inputPasswordType>("password")
@@ -88,16 +89,7 @@ export const Form = () => {
           }}
           error={!!errors.email}
         />
-        <FormHelperText
-          sx={{
-            color: "#d32f2f",
-            margin: "0",
-            fontSize: "11px",
-          }}
-          error={!!errors.email}
-        >
-          {errors.email?.message as string}
-        </FormHelperText>
+        <ErrorMessage text={errors.email?.message as string} value={!!errors.email} />
       </Label>
       <Label themestyles={themeContext.themeStyles}>
         Password
@@ -113,13 +105,9 @@ export const Form = () => {
             borderRadius: "5px",
           }}
         />
-        <BtnShowPassword>
-          <IconBtn
-            size={"sm"}
-            icon={typeOfPassword === "password" ? faEye : faEyeSlash}
-            onClickFunc={togglePasswordType}
-          />
-        </BtnShowPassword>
+        <BtnShowPassword
+          icon={typeOfPassword === "password" ? faEye : faEyeSlash}
+          func={togglePasswordType} />
       </Label>
       <Button type={'submit'} text={'Sign In'} style={{ margin: "30px 0 20px 0" }} />
     </FormControl>
