@@ -68,7 +68,7 @@ export const EditInputs: React.FC<EditInputProps> = ({ setIsCorrectInputValue, s
                 }} >
                 {passwordValueError ? "Password must contain at least one digit, one special character '!@#$%^&*', one lowercase letter, one uppercase letter, and should not contain any spaces." : null}
             </FormHelperText>
-            <Label>Repeat password
+            <Label>Confirm password
                 <TextField
                     onChange={handleChangeRepeatPAssword}
                     onBlur={checkCorrectRepeatPasswordValue}

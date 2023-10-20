@@ -18,7 +18,7 @@ export const EditInput: React.FC<EditInputProps> = ({ setInputValue, error }) =>
 
     return (
         <Inner>
-            <Label>Confirm your password
+            <Label>Confirm your current password
             <TextField
                 onChange={handleChange}
                 type={typeOfPassword}
