@@ -209,6 +209,7 @@ export const Form = () => {
           size="small"
           type={typeOfPassword}
           placeholder="Your password"
+          autoComplete="off"
           sx={{
             margin: "5px 0",
             backgroundColor: "#fff",
@@ -234,6 +235,7 @@ export const Form = () => {
           size="small"
           type={typeOfRepeatPassword}
           placeholder="Repeat your password"
+          autoComplete="off"
           sx={{
             margin: "5px 0",
             backgroundColor: "#fff",

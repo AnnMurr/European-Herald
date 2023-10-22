@@ -98,6 +98,7 @@ export const Form = () => {
           id="outlined-size-small"
           size="small"
           type={typeOfPassword}
+          autoComplete="off"
           placeholder="Your password"
           sx={{
             margin: "5px 0",

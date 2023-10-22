@@ -45,6 +45,7 @@ export const EditInputs: React.FC<EditInputProps> = ({ setIsCorrectInputValue, s
                     onBlur={checkCorrectPasswordValue}
                     type={typeOfPassword}
                     size="small"
+                    autoComplete="off"
                     value={passwordValue}
                     InputProps={{
                         inputProps: {
@@ -74,6 +75,7 @@ export const EditInputs: React.FC<EditInputProps> = ({ setIsCorrectInputValue, s
                     onBlur={checkCorrectRepeatPasswordValue}
                     type={typeOfRepeatPassword}
                     size="small"
+                    autoComplete="off"
                     value={passwordRepeatValue}
                     InputProps={{
                         inputProps: {

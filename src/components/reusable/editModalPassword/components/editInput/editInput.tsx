@@ -23,6 +23,7 @@ export const EditInput: React.FC<EditInputProps> = ({ setInputValue, error }) =>
                 onChange={handleChange}
                 type={typeOfPassword}
                 size="small"
+                autoComplete="off"
                 InputProps={{
                     inputProps: {
                         maxLength: 30,
