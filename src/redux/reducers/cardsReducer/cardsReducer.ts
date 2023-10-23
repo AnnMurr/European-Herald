@@ -20,9 +20,8 @@ export const cardsSlice = createSlice({
     initialState,
     reducers: {
         getCards: (state, action: PayloadAction<Array<CardType>>) => {
-            const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.uri === card.uri) === index
-            })
+            const filteredCards = action.payload.filter((element, index, array) => array.findIndex(el => element.uri === el.uri) === index)
+            .filter((element, index, array) => array.findIndex(el => element.title === el.title) === index)
             state.cards = filteredCards
         },
         getFoundCards: (state, action: PayloadAction<Array<CardType>>) => {
@@ -32,15 +31,13 @@ export const cardsSlice = createSlice({
             state.searchValueOfHeaderInput = action.payload
         },
         getFilteredCards: (state, action: PayloadAction<Array<CardType>>) => {
-            const filteredCards = action.payload.filter((card, index, array) => {
-                return array.findIndex((item) => item.uri === card.uri) === index
-            })
+            const filteredCards = action.payload.filter((element, index, array) => array.findIndex(el => element.uri === el.uri) === index)
+            .filter((element, index, array) => array.findIndex(el => element.title === el.title) === index)
             state.filteredCards = filteredCards
         },
         getFilteredCategoryForBlocks: (state, action: PayloadAction<{ cards: Array<CardType>, category: string }>) => {
-            const filteredCards = action.payload.cards.filter((card, index, array) => {
-                return array.findIndex((item) => item.uri === card.uri) === index
-            })
+            const filteredCards = action.payload.cards.filter((element, index, array) => array.findIndex(el => element.uri === el.uri) === index)
+            .filter((element, index, array) => array.findIndex(el => element.title === el.title) === index)
 
             switch (action.payload.category) {
                 case 'Sports':

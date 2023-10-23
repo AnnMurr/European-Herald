@@ -15,15 +15,10 @@ export const RenderCards: React.FC<RenderCardsProps> = ({ type }) => {
     const filteredCards = useAppSelector((state) => state.newsCards.filteredCards)
     const foundСards = useAppSelector((state) => state.newsCards.foundCards)
     const cardsFromRedux = type === 'foundСards' ? foundСards : filteredCards
-    const visibleItemsOnpage = 4
+    const visibleItemsOnpage = 10
     const [currentPage, setCurrentPage] = useState(1)
     const [cards, setCards] = useState<Array<CardType>>([])
     const scrollPosition = useRef<null | number>(null)
-
-    useEffect(() => {
-        const pageFromStore = sessionStorage.getItem('page')
-        pageFromStore && setCurrentPage(JSON.parse(pageFromStore))
-     }, [])
 
     useEffect(() => {
         cards.length > 0 && setCards([])
@@ -39,15 +34,8 @@ export const RenderCards: React.FC<RenderCardsProps> = ({ type }) => {
             } else {
                 return prevData
             }
-        })
-
-        
-
+        }) 
     }, [currentPage, cardsFromRedux])
-
-    useEffect(() => {
-        sessionStorage.setItem('page', JSON.stringify(1))
-    }, [cardsFromRedux])
 
     const getMoreItems = () => {
         sessionStorage.setItem('page', JSON.stringify(currentPage +1))
