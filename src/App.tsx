@@ -57,7 +57,7 @@ function App() {
               <Body>
                 <Header />
                 <Routes>
-                  <Route path="/European-Herald/dist/" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/about" element={<About />} />

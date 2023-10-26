@@ -44,7 +44,7 @@ export const Form = () => {
 
     if (isCorrectData.payload) {
       reset()
-      navigate('/European-Herald/dist/')
+      navigate('/')
       authorizedContext.logIn()
     }
   }

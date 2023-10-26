@@ -15,7 +15,7 @@ export const Link: React.FC<LinkProps> = ({ linkName, closeSubBar }) => {
             <NavLink
                 onClick={closeSubBar}
                 className={({ isActive }) => (isActive ? 'nav__link_active' : 'nav__link')}
-                to={linkName === 'Home' ? '/European-Herald/dist/' : `/category/${linkName.charAt(0).toLowerCase() + linkName.slice(1)}`}>
+                to={linkName === 'Home' ? '/' : `/category/${linkName.charAt(0).toLowerCase() + linkName.slice(1)}`}>
                 {linkName}
             </NavLink>
         </Item>
