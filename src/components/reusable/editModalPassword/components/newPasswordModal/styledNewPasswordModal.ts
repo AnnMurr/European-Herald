@@ -8,6 +8,7 @@ export const Container = styled.div`
     padding: 20px;
     left: 50%;
     top: 50%;
+    z-index: 5;
     transform: translate(-50%, -50%);
 
     @media screen and (max-width: 340px) {
