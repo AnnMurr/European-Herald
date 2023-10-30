@@ -21,7 +21,7 @@ export const DeleteBtn: React.FC<DeleteBtnProps> = ({ setError, closeModal, inpu
             setTimeout(() => {
                 authorizedContext.logOut()
                 deleteToken()
-                navigate('/European-Herald/dist/')
+                navigate('/')
                 closeModal(false)
             }, 1000)
         } else {

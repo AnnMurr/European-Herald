@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import "./utils/browserRefresh/browserRefresh";
@@ -57,7 +57,7 @@ function App() {
               <Body>
                 <Header />
                 <Routes>
-                  <Route path="/European-Herald/dist/" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/about" element={<About />} />

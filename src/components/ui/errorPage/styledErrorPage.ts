@@ -5,6 +5,13 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: white;
 `
 export const Wrapper = styled.div`
     max-width: fit-content;

@@ -50,7 +50,7 @@ export const Form = () => {
 
     if (!isThisAccount.payload) {
       reset()
-      navigate('/European-Herald/dist/')
+      navigate('/')
       dispatch(createUser(data))
       authorizedContext.logIn()
     } else {

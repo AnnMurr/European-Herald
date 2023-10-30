@@ -17,7 +17,7 @@ export const SignOutBtn = () => {
     const navigate = useNavigate()
 
     const userLogOut = () => {
-        (location.pathname === '/bookmarks' || location.pathname === '/settings') && navigate('/European-Herald/dist/')
+        (location.pathname === '/bookmarks' || location.pathname === '/settings') && navigate('/')
         authorizedContext.logOut()
         deleteToken()
         dispatch(deleteUserData())
